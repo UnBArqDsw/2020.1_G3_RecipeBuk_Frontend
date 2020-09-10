@@ -1,8 +1,12 @@
 <p align="center">
-    <img src="images/logo.jpg" alt="Logo RecipeBuk" width='50%'/>
+    <img src="logo.svg" alt="Logo RecipeBuk" width='50%'/>
 </p>
 
 # RecipeBük
+
+Toda a nossa documentação está disponível para visualização em: http://www.recipebukdocs.tk/
+
+Se você quiser, poderá conferir também nosso repositório de [Backend](https://github.com/UnBArqDsw/2020.1_G3_RecipeBuk_Backend).
 
 **Número da Lista**: 03<br>
 **Conteúdo da Disciplina**: FGA0208 - T01<br>
