@@ -40,6 +40,25 @@
     height: 100%;
 }
 
+.entrar {
+    width: 20%;
+	background-color:#E2725B;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+}
+
+.link {
+    color: #1C3144;
+    text-decoration: none;
+    padding: 20px 0px;
+}
+
 label {
     color: #1C3144;
 }
@@ -54,7 +73,7 @@ hr {
     border-color: #1C3144;
 }
 
-input[type=text] {
+input {
     color: #1C3144;
     outline: none;
     width: 100%;
