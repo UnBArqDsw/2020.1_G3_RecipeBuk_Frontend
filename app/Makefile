@@ -12,4 +12,4 @@ run:
 .PHONY: dev
 
 dev:
-	sudo docker build -t front -f dev.Dockerfile . && sudo docker run --rm -p 4200:4200 -it front
+	sudo docker build -t front -f dev.Dockerfile . && sudo docker run --rm -p 4200:4200 -it -v $(current_dir):/app -v /app/node_modules front
