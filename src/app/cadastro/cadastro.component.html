@@ -21,13 +21,19 @@
             <div class='row'>
                 <form class='form' >
                     <label>Seu nome</label>
-                    <input type="text" id="fname" name="fname">
+                    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
                     <label>Seu E-mail</label>
-                    <input class='input' type="password" id="lname" name="lname">
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                    </div>
                   </form>
             </div>
             <div class="row">
-                <a href="/senha" class="proxima"><center>Próxima</center></a>
+                <a href="/senha" class="proxima">Próxima</a>
             </div>
             <div class="row">
                 <a class="link" href="/login">Já tenho uma conta</a>
