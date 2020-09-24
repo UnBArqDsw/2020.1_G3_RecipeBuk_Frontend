@@ -1,0 +1,43 @@
+<html>
+    <div class='container'>   
+        <div class='column'>
+            <div class='row'>
+                <img src="../../assets/lolzeira.png" alt="logo" class='logo'>
+            </div>
+            <div class='row'>
+                <h1>Criar sua conta</h1>
+            </div>
+            <div class='row' style='align-items: center; margin-top: 15px;'>
+                <img src="../../assets/btn_google_signin_light_normal_web@2x.png" alt="logo" class='social-button'>
+                <img src="../../assets/17639236_1785253958471956_282550797298827264_n.png" alt="logo" class='social-button'>
+            
+            </div>
+            <!-- <div class='row'>
+                <img src="../../assets/17639236_1785253958471956_282550797298827264_n.png" alt="logo" class='social-button'>
+            </div> -->
+            <div class='row'>
+                <hr><p style="margin:1em">Ou</p><hr>
+            </div>
+            <div class='row'>
+                <form class='form' >
+                    <label>Seu nome</label>
+                    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
+                    <label>Seu E-mail</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                    </div>
+                  </form>
+            </div>
+            <div class="row">
+                <a href="/senha" class="proxima">Próxima</a>
+            </div>
+            <div class="row">
+                <a class="link" href="/login">Já tenho uma conta</a>
+            </div>
+        </div>
+    </div>
+</html>
