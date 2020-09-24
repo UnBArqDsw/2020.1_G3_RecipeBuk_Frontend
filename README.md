@@ -25,11 +25,16 @@ Se você quiser, poderá conferir também nosso repositório de [Backend](https:
 O **RecipeBük** é uma aplicação de armazenamento, busca e compartilhamento de receitas culinárias. A ideia é que seja possível a todos cadastrar as suas próprias receitas e mantê-las a salvo. 
 
 ## Uso
-
+É necessário ter instalado [Docker](https://docs.docker.com/get-docker/) e make
+instalação make: ```sudo apt-get install build-essential```
 Para executar o container Docker de desenvolvimento:
 ```cd app```
-```sudo docker build -t frontend .```
-```sudo docker run --rm -it -p 3001:80 frontend```
+Para a primeira execução (build + executar):
+```make dev```
+Para somente executar o container:
+```make run```
+Para somente buildar o container:
+```make build```
 
 O projeto estará disponível em: localhost:3001
 <!---
