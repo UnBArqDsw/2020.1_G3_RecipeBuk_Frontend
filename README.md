@@ -29,24 +29,23 @@ O **RecipeBük** é uma aplicação de armazenamento, busca e compartilhamento d
 
 Instalação do make: 
 
-```sudo apt-get install build-essential```
+    ```sudo apt-get install build-essential```
 
-Para executar o container Docker de desenvolvimento:
+Para executar o container Docker de desenvolvimento (build + executar):
 
-```cd app```
-
-Para a primeira execução (build + executar):
-
-```make dev```
+    ```make dev```
 
 Para somente executar o container:
 
-```make run```
+    ```make run```
 
 Para somente buildar o container:
-```make build```
 
-O projeto estará disponível em: localhost:3001
+    ```make build```
+
+O projeto estará disponível em: 
+
+    ```localhost:3001```
 
 <!---
 ## Screenshots
