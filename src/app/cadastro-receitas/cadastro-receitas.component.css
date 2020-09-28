@@ -1,0 +1,100 @@
+body{
+    background-color: #F2EFE9;
+    background-size: 100%;  
+}
+
+.matcard{
+    color: #F2EFE9;
+}
+.nomePrincipal{
+    color: #E2725B;
+    font-size: 35px;
+}
+.nomeReceitas{
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+}
+
+.inputNomeReceitas{
+    background-color: white;
+    border: white;
+    width: 420%;
+}
+
+.ingredientes{
+    padding-top: 1px;
+    padding-right: 5px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    width: 5px;
+    float: left;
+}
+
+.inputIngredientes1{
+    background-color: white;
+    border: white;
+    width: 30%;
+}
+
+.inputIngredientes2{
+    background-color: white;
+    border: white;
+    width: 30%;
+}
+.inputIngredientes3{
+    background-color: white;
+    border: white;
+    width: 200%;
+}
+
+.col1{
+    padding-right: 10px;
+}
+
+.col2{
+    padding-top: 15px;
+    padding-right: 10px;
+}
+
+.col3{
+    padding-top: 25px;
+}
+
+.tabela{
+    padding-bottom: 10px;
+}
+
+.modoPreparo{
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+}
+.inputModoPreparo{
+    background-color: white;
+    border: white;
+    width: 420%;
+    padding-bottom: 100%;
+}
+.botaoSomar{
+    padding-top: 30px;
+    padding-right: 60px;
+    padding-left: 80px;
+    padding-bottom: 300px;   
+    width: 5px;
+    color: #E2725B 
+}
+
+.plusButton{
+    color: #E2725B;
+}
+
+.inputIcon{
+    font-size: 17px;
+}  
+
+.buttonIcon{
+    font-size: 30px;
+}

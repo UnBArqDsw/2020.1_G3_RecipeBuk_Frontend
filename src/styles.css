@@ -55,9 +55,10 @@ h1 {
     font-family: 'Arial';
 }
 
-label {
+mat-label {
     font-family: 'Arial';
-    color: #1C3144;
+    /*color: #1C3144;*/
+    color: #000000;
 }
 
 input {
@@ -83,3 +84,6 @@ form {
     justify-content: center;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,92 @@
+<body>
+    <br>
+    <mat-card [style.backgroundColor]= "'#F2EFE9'">
+        <h1 class="nomePrincipal" font="roboto" style="text-align:center">Cadastrar Receita</h1>
+
+        <form class="nomeReceitas">
+            <mat-form-field appearance="outline"> 
+                <mat-icon class="inputIcon"> border_color </mat-icon> 
+                <label for="nomeReceitas">Nome das receitas:</label>
+                <input matInput class="inputNomeReceitas">
+            </mat-form-field>
+        </form>
+        <div>
+            <form class="ingredientes">
+                <table class="tabela">
+                    <tr class="lin1">
+                        <td class="col1">
+                            <mat-form-field appearance="outline"> 
+                                <mat-icon class="inputIcon"> shopping_cart </mat-icon> 
+                                <label for="nomeReceitas">Ingredientes:</label> <br>
+                                <input matInput class="inputIngredientes1">
+                            </mat-form-field>
+                        </td>
+                        <td class="col2">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes2">
+                            </mat-form-field>
+                        </td>
+                        <td class="col3">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes3">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr class="lin2">
+                        <td class="col1">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes1">
+                            </mat-form-field>
+                        </td>
+                        <td class="col2">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes2">
+                            </mat-form-field>
+                        </td>
+                        <td class="col3">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes3">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr class="lin3">
+                        <td class="col1">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes1">
+                            </mat-form-field>
+                        </td>
+                        <td class="col2">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes2">
+                            </mat-form-field>
+                        </td>
+                        <td class="col3">
+                            <mat-form-field appearance="outline"> 
+                                <input matInput class="inputIngredientes3">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form> 
+        </div>
+
+        <div>
+            <form class="modoPreparo">
+            <mat-form-field appearance="outline"> 
+                <mat-icon class="inputIcon"> local_dining </mat-icon> 
+                <label for="modoPreparo">Modo de Preparo:</label>
+                <input matInput class="inputModoPreparo">
+            </mat-form-field>
+            </form>
+        </div>
+
+        <div class="botaoSomar">
+            <mat-card-actions>
+                <button mat-fab>
+                    <mat-icon color="white" class="buttonIcon">add_to_photos</mat-icon>
+                </button>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</body>
+
