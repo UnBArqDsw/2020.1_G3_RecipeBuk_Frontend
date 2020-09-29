@@ -7,10 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CadastroReceitasComponent } from './cadastro-receitas/cadastro-receitas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 //import { SenhaComponent } from './senha/senha.component';
 
@@ -19,8 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     LoginComponent,
     CadastroComponent,
-    //SenhaComponent,
-    CadastroReceitasComponent,    
+    CadastroReceitasComponent,
+    //SenhaComponent,    
   ],
   imports: [
     BrowserModule,
@@ -29,9 +32,15 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatGridListModule,
   ],
   providers: [],
+  entryComponents: [
+    CadastroReceitasComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,92 +1,54 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <body>
-    <br>
-    <mat-card [style.backgroundColor]= "'#F2EFE9'">
-        <h1 class="nomePrincipal" font="roboto" style="text-align:center">Cadastrar Receita</h1>
-
-        <form class="nomeReceitas">
-            <mat-form-field appearance="outline"> 
-                <mat-icon class="inputIcon"> border_color </mat-icon> 
-                <label for="nomeReceitas">Nome das receitas:</label>
-                <input matInput class="inputNomeReceitas">
-            </mat-form-field>
-        </form>
+    <h1>Cadastrar Receita</h1>
+    <form class="tp-container">  
         <div>
-            <form class="ingredientes">
-                <table class="tabela">
-                    <tr class="lin1">
-                        <td class="col1">
-                            <mat-form-field appearance="outline"> 
-                                <mat-icon class="inputIcon"> shopping_cart </mat-icon> 
-                                <label for="nomeReceitas">Ingredientes:</label> <br>
-                                <input matInput class="inputIngredientes1">
-                            </mat-form-field>
-                        </td>
-                        <td class="col2">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes2">
-                            </mat-form-field>
-                        </td>
-                        <td class="col3">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes3">
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                    <tr class="lin2">
-                        <td class="col1">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes1">
-                            </mat-form-field>
-                        </td>
-                        <td class="col2">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes2">
-                            </mat-form-field>
-                        </td>
-                        <td class="col3">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes3">
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                    <tr class="lin3">
-                        <td class="col1">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes1">
-                            </mat-form-field>
-                        </td>
-                        <td class="col2">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes2">
-                            </mat-form-field>
-                        </td>
-                        <td class="col3">
-                            <mat-form-field appearance="outline"> 
-                                <input matInput class="inputIngredientes3">
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                </table>
-            </form> 
+            <mat-icon class="inputIcon"> border_color </mat-icon>
+            <label> Nome da Receita </label> <br>
+            <input
+                placeholder="Ex.: Bolo de Banana"
+                aria-label="Nome da Receita"
+                appearance = "outline"
+            >
         </div>
-
+        
+        <br>
+    
+        <div class="teste">
+            <mat-icon class="inputIcon"> shopping_cart </mat-icon>
+            <label> Ingredientes </label> <br>
+            <input
+                placeholder="Ex.: Ingrediente 1"
+                aria-label="Ingrediente 1"
+                appearance = "outline"
+            >
+            <input
+                placeholder="Ex.: Ingrediente 2"
+                aria-label="Ingrediente 2"
+                appearance = "outline"
+            >
+            <input
+                placeholder="Ex.: Ingrediente 3"
+                aria-label="Ingrediente 3"
+                appearance = "outline"
+            >
+        </div>
+        <button class="btn"><i class="fa fa-plus"></i></button>
+    
+        <br>
+    
         <div>
-            <form class="modoPreparo">
-            <mat-form-field appearance="outline"> 
-                <mat-icon class="inputIcon"> local_dining </mat-icon> 
-                <label for="modoPreparo">Modo de Preparo: </label>
-                <input matInput class="inputModoPreparo">
+            <mat-icon class="inputIcon"> local_dining </mat-icon>
+            <label> Modo de Preparo </label> <br>
+            <mat-form-field appearance = "outline">
+                <textarea                
+                    matInput 
+                    placeholder="Preparo"
+                    aria-label="Modo de Preparo"
+                    rows="3"
+                ></textarea>
             </mat-form-field>
-            </form>
         </div>
-
-        <div class="botaoSomar">
-            <mat-card-actions>
-                <button mat-fab>
-                    <mat-icon color="white" class="buttonIcon">add_to_photos</mat-icon>
-                </button>
-            </mat-card-actions>
-        </div>
-    </mat-card>
+    </form>
 </body>
-
