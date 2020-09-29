@@ -22,8 +22,11 @@
                 <form class='form' >
                     <label>E-mail</label>
                     <input #emailbox type="text" class="form-control">
+                    <div class="alert" *ngIf="(emailbox.value == '') && (submitted == true)">Este campo não pode estar vazio</div>
+                    <div class="alert" *ngIf="!emailIsValid && (emailbox.value != '')">Este E-mail não é válido</div>
                     <label>Senha</label>
                     <input #passwordbox type="password" class="form-control">
+                    <div class="alert" *ngIf="(passwordbox.value == '') && (submitted == true)">Este campo não pode estar vazio</div>
                     <a class="link" href="/cadastro">Esqueceu a senha?</a>
                   </form>
             </div>

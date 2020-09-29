@@ -24,9 +24,9 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username, password) {
+    login(email, password) {
         console.log('ohdamn')
-        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
+        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { email, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
@@ -42,7 +42,8 @@ export class AccountService {
         this.router.navigate(['/account/login']);
     }
 
-    register(user: User) {
+    register(name, email, password) {
+        var user = new User(name, email, password)
         return this.http.post(`${environment.apiUrl}/users/register`, user);
     }
 

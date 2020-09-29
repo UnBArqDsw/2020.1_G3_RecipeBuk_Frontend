@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AccountService} from 'src/app/services';
 import { first } from 'rxjs/operators';
 
+function emailIsValid (email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +16,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
+  emailIsValid = true;
   
   constructor(
     // formBuilder: FormBuilder
@@ -26,16 +31,21 @@ export class LoginComponent implements OnInit {
     }
     
     // get f() { return this.form.controls; }
-    
+  
   onSubmit(email, password) {
     this.submitted = true;
     
-    // if (this.form.invalid) {
-    //   return;
-    // }
+    if(emailIsValid(email)) {
+      this.emailIsValid = true;
+    } else {
+      this.emailIsValid = false;
+    }
+
+    if(!(password == '') || !this.emailIsValid) {
+      return;
+    }
     
     this.loading = true;
-    console.log('fuck');
     this.accountService.login(email, password)
     .pipe(first())
     .subscribe({
