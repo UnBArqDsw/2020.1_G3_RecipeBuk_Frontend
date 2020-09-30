@@ -1,12 +1,9 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <body>
     <h1>Cadastrar Receita</h1>
     <div class="row">
         <form class="tp-container">  
             <div class="column left">
-                <mat-icon class="inputIcon"> border_color </mat-icon>
-                <mat-label> Nome da Receita </mat-label> <br>
+                <label><i class="fa fa-pencil"></i> Nome da Receita </label>
                 <input
                     placeholder="Ex.: Bolo de Banana"
                     aria-label="Nome da Receita"
@@ -15,8 +12,7 @@
             
                 <br>
         
-                <mat-icon class="inputIcon"> shopping_cart </mat-icon>
-                <label> Ingredientes </label> <br>
+                <label><i class="fa fa-shopping-basket"></i> Ingredientes </label>
                 <input
                     placeholder="Ex.: Ingrediente 1"
                     aria-label="Ingrediente 1"
@@ -41,33 +37,27 @@
         
                 <br>
             
-                <mat-icon class="inputIcon"> local_dining </mat-icon>
-                <label> Modo de Preparo </label> <br>
-                <mat-form-field appearance = "outline">
-                    <textarea                
-                        matInput 
-                        placeholder="Preparo"
-                        aria-label="Modo de Preparo"
-                        rows="5"
-                    ></textarea>
-                </mat-form-field>
+                <label><i class="fa fa-utensils"></i> Modo de Preparo </label>
+                <textarea                
+                    matInput 
+                    placeholder="Preparo"
+                    aria-label="Modo de Preparo"
+                    rows="5"
+                ></textarea>
             </div>
 
             <br>
             
             <div class="column right">
 
-                    <button class="btn" aria-label="Adicionar foto">
-                        <i class="fa fa-image"></i>
-                        Adicionar foto
-                    </button>
-
-
+                <button class="btn" aria-label="Adicionar foto">
+                    <i class="fa fa-image"></i>
+                    Adicionar foto
+                </button>
 
                 <br>
 
-                <mat-icon class="inputIcon"> more_time </mat-icon>
-                <label> Tempo de Preparo </label> <br>
+                <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
                 <input                
                     placeholder="Tempo Preparo"
                     aria-label="Tempo de Preparo"
@@ -76,8 +66,7 @@
 
                 <br>
 
-                <mat-icon class="inputIcon"> room_service </mat-icon>
-                <label> Rendimento </label> <br>
+                <label><i class="fa fa-chart-pie"></i> Rendimento </label>
                 <input                
                     placeholder="Rendimento"
                     aria-label="Rendimento"
@@ -86,8 +75,7 @@
 
                 <br>
 
-                <mat-icon class="inputIcon"> flag </mat-icon>
-                <label> Categoria </label> <br>
+                <label><i class="fa fa-flag"></i> Categoria </label>
                 <input                
                     placeholder="Categoria"
                     aria-label="Categoria"
@@ -100,6 +88,4 @@
     <div class="row save">
         <button class="btn center"> Salvar </button>
     </div>
-
-        
 </body>
