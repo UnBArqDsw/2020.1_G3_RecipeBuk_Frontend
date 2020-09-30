@@ -16,6 +16,7 @@
                     <input
                         appearance = "outline"
                         type="number"
+                        min="0"
                         name="qty"
                         [(ngModel)]="obj.qty"
                         class="column one"
@@ -39,7 +40,7 @@
                 </div>
                 
                 <span>
-                    <button class="btn" aria-label="Adicionar mais ingredientes" (click)="addForm()" type="button">
+                    <button class="btn" aria-label="Adicionar mais ingredientes" (click)="addIngredient()" type="button">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                         Adicionar mais ingredientes
                     </button>
@@ -57,12 +58,6 @@
             <br>
             
             <div class="column right">
-                <button class="btn" aria-label="Adicionar foto">
-                    <i class="fa fa-image"></i>
-                    Adicionar foto
-                </button>
-                <br>
-
                 <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
                 <input                
                     placeholder="Tempo Preparo"
@@ -73,23 +68,29 @@
 
                 <label><i class="fa fa-chart-pie"></i> Rendimento </label>
                 <input                
-                    placeholder="Rendimento"
                     aria-label="Rendimento"
+                    type="number"
+                    min="0"
                     appearance = "outline"
                 >
                 <br>
 
                 <label><i class="fa fa-flag"></i> Categoria </label>
-                <input                
-                    placeholder="Categoria"
-                    aria-label="Categoria"
-                    appearance = "outline"
-                >
+                <select style="display: inline-block">
+                    <option *ngFor="let name of categoryRecipeEnumOptions" [value]="name" [label]="categoryRecipeEnum[name]"></option>
+                </select>
+
+                <br>
+
+                <button class="btn" aria-label="Adicionar foto" type="button">
+                    <i class="fa fa-image"></i>
+                    Adicionar foto
+                </button>
             </div>
         </form>
     </div>
 
     <div class="row save">
-        <button class="btn center"> Salvar </button>
+        <button class="btn center" type="button"> Salvar </button>
     </div>
 </body>
