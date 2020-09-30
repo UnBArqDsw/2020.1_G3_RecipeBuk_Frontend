@@ -56,11 +56,25 @@ input {
 }
 
 .left {
-width: 70%;
+    width: 70%;
 }
 
 .right {
-width: 30%;
+    width: 30%;
+}
+
+.one {
+    width: 10%;
+    padding-left: 0px;
+}
+
+.two {
+    width: 20%;
+}
+
+.three {
+    width: 70%;
+    padding-right: 0px;
 }
 
 /* Clear floats after the columns */
