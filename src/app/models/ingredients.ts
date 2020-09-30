@@ -1,6 +1,6 @@
-export class ingredients {
-    name: any;
-    id: any;
-    qty: any;
-    type: any;
+export class Ingredients {
+    public id: string;
+    public name: string;
+    public qty: number;
+    public type: string;
 }
