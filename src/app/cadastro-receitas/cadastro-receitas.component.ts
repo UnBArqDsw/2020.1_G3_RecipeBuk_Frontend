@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { ingredients } from '../models/ingredients'
 //import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,7 +15,18 @@ import { MatSelectModule } from '@angular/material/select';
   })
 
   export class CadastroReceitasComponent implements OnInit{
+    ingredients = new ingredients();
+    dataArray = [];
+    constructor() { }
 
     ngOnInit(): void {
+      this.dataArray.push(this.ingredients);
+    }
+
+    addForm(){
+      this.ingredients=new ingredients();
+      this.dataArray.push(this.ingredients);
+
+      console.log(this.dataArray);
     }
   }

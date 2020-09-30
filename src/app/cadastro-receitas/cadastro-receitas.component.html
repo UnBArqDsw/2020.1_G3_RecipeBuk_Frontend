@@ -9,61 +9,41 @@
                     aria-label="Nome da Receita"
                     appearance = "outline"
                 >
-            
                 <br>
 
                 <label><i class="fa fa-shopping-basket"></i> Ingredientes </label>
+                <div class="row" *ngFor="let obj of dataArray">
+                    <input
+                        appearance = "outline"
+                        type="number"
+                        name="qty"
+                        [(ngModel)]="obj.qty"
+                        class="column one"
+                    >
 
-                <div class="row">
-                    <div class="column one">
-                        <input
-                            appearance = "outline"
-                        >
-                        <input
-                            appearance = "outline"
-                        >
-                        <input
-                            appearance = "outline"
-                        >
-                    </div>
+                    <input
+                        appearance = "outline"
+                        name="type"
+                        [(ngModel)]="obj.type"
+                        class="column two"
+                    >
 
-                    <div class="column two">
-                        <input
-                            appearance = "outline"
-                        >
-                        <input
-                            appearance = "outline"
-                        >
-                        <input
-                            appearance = "outline"
-                        >
-                    </div>
-
-                    <div class="column three">
-                        <input
-                            placeholder="Ex.: Ingrediente 1"
-                            aria-label="Ingrediente 1"
-                            appearance = "outline"
-                        >
-                        <input
-                            placeholder="Ex.: Ingrediente 2"
-                            aria-label="Ingrediente 2"
-                            appearance = "outline"
-                        >
-                        <input
-                            placeholder="Ex.: Ingrediente 3"
-                            aria-label="Ingrediente 3"
-                            appearance = "outline"
-                        >
-                    </div>
+                    <input
+                        placeholder="Ex.: Ingrediente 1"
+                        aria-label="Ingrediente 1"
+                        appearance = "outline"
+                        name="name"
+                        [(ngModel)]="obj.name"
+                        class="column three"
+                    >
                 </div>
+                
                 <span>
-                    <button class="btn" aria-label="Example icon button with a bookmark icon">
+                    <button class="btn" aria-label="Adicionar mais ingredientes" (click)="addForm()" type="button">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                         Adicionar mais ingredientes
                     </button>
                 </span>
-        
                 <br>
             
                 <label><i class="fa fa-utensils"></i> Modo de Preparo </label>
@@ -71,19 +51,16 @@
                     matInput 
                     placeholder="Preparo"
                     aria-label="Modo de Preparo"
-                    rows="5"
+                    rows="7"    
                 ></textarea>
             </div>
-
             <br>
             
             <div class="column right">
-
                 <button class="btn" aria-label="Adicionar foto">
                     <i class="fa fa-image"></i>
                     Adicionar foto
                 </button>
-
                 <br>
 
                 <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
@@ -92,7 +69,6 @@
                     aria-label="Tempo de Preparo"
                     appearance = "outline"
                 >
-
                 <br>
 
                 <label><i class="fa fa-chart-pie"></i> Rendimento </label>
@@ -101,7 +77,6 @@
                     aria-label="Rendimento"
                     appearance = "outline"
                 >
-
                 <br>
 
                 <label><i class="fa fa-flag"></i> Categoria </label>

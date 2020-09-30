@@ -23,6 +23,26 @@ h1 {
     font-size: 30px;
 }
 
+input {
+    width: flex;
+}
+
+textarea {
+    font-family: 'Arial';
+    color: #1C3144;
+    outline: none;
+    min-width: 100%;
+    width: flex;
+    margin: 8px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #1C3144;
+    border-radius: 8px;
+    background-color:#F2EFE9;
+    resize: vertical;
+}
+
+/* button configs */
 .btn {
     background-color: #E2725B; /* Blue background */
     border: none; /* Remove borders */
@@ -41,15 +61,11 @@ h1 {
     padding-bottom: 50px;
 }
 
-.btn:hover {
+button:hover {
     transform: scale(1.05);
 }
 
-
-input {
-    width: flex;
-}
-
+/* 2 columns page */
 .column {
     float: left;
     padding: 10px;
@@ -63,18 +79,19 @@ input {
     width: 30%;
 }
 
+/* ingredients columns */
 .one {
     width: 10%;
-    padding-left: 0px;
+    margin-right:10px;
 }
 
 .two {
     width: 20%;
+    margin-right:10px;
 }
 
 .three {
     width: 70%;
-    padding-right: 0px;
 }
 
 /* Clear floats after the columns */
@@ -82,18 +99,4 @@ input {
     content: "";
     display: table;
     clear: both;
-}
-
-textarea {
-    font-family: 'Arial';
-    color: #1C3144;
-    outline: none;
-    width: 100%;
-    height: 55px;
-    padding: 10px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #1C3144;
-    border-radius: 8px;
-    background-color:#F2EFE9;
 }
