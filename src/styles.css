@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet');
 
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+p,
+a {
+  font-family: 'Roboto', sans-serif;
+}
+
+
 .container {
     width: 100%;
     margin: 0;
@@ -85,5 +105,8 @@ form {
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0;
+}
+
+
