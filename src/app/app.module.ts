@@ -14,6 +14,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
+import { TesteSalvarReceitasComponent } from './cadastro-receitas/teste-salvar-receitas/teste-salvar-receitas.component';
 
 //import { SenhaComponent } from './senha/senha.component';
 
@@ -23,6 +26,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     LoginComponent,
     CadastroComponent,
     CadastroReceitasComponent,
+    TesteSalvarReceitasComponent,
     //SenhaComponent,    
   ],
   imports: [
@@ -36,6 +40,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatSelectModule,
     MatGridListModule,
+    MatListModule,
+    FormsModule
   ],
   providers: [],
   entryComponents: [

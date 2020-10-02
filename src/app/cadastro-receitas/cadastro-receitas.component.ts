@@ -5,7 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { ingredients } from '../models/ingredients'
+import { Ingredients } from '../models/ingredients'
+import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
 //import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -15,16 +16,38 @@ import { ingredients } from '../models/ingredients'
   })
 
   export class CadastroReceitasComponent implements OnInit{
-    ingredients = new ingredients();
+    
+    ingredients = new Ingredients();
     dataArray = [];
+    botaoSalvar= true;
+    receitas: ICadastroReceitas[] = [];
+    nomeReceita: string;
+    quantidade: number;
+    unidade: string;
+    ingrediente: string;
+    preparo: string;
+    tempo: string;
+    rendimento: number;
+    categoria: string; 
+    editReceitas: ICadastroReceitas = null;
+
     constructor() { }
 
     ngOnInit(): void {
       this.dataArray.push(this.ingredients);
+
     }
 
+    save(){
+      if(this.editReceitas==null){
+        this.receitas.push( {nomeReceita: this.nomeReceita, quantidade: this.quantidade, unidade: this.unidade, 
+          ingrediente: this.ingrediente, preparo: this.preparo, tempo: this.tempo, rendimento: this.rendimento, categoria: this.categoria} );
+      }
+    }
+
+
     addForm(){
-      this.ingredients=new ingredients();
+      this.ingredients = new Ingredients();
       this.dataArray.push(this.ingredients);
 
       console.log(this.dataArray);
