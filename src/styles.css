@@ -41,6 +41,12 @@
     /* padding: 20px 0px; */
 }
 
+.alert {
+    font-family: 'Arial';
+    font-size: small;
+    color: red;
+    margin-bottom: 10px;
+}
 
 .social-button {
     width: 40%;
