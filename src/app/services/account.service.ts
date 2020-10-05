@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import  * as firebase from 'firebase' ;
 
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models';
@@ -25,26 +26,34 @@ export class AccountService {
     }
 
     login(email, password) {
-        console.log('ohdamn')
-        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { email, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                return user;
-            }));
+        console.log("2hy")
+        return new Promise((resolve, reject) => {
+            firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
+                console.log("Usuário logado")
+                resolve("Usuário logado");
+            }).catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log(errorMessage);
+                reject(errorMessage);
+            });
+        })
     }
 
     logout() {
-        // remove user from local storage and set current user to null
-        localStorage.removeItem('user');
-        this.userSubject.next(null);
-        this.router.navigate(['/account/login']);
+        firebase.auth().signOut().then(function () {
+            console.log('sign out successful')
+            return "sign out successful"
+        }).catch(function (error) {
+            console.log(error)
+            return error
+        });
     }
 
     register(name, email, password) {
         var user = new User(name, email, password)
-        return this.http.post(`${environment.apiUrl}/users/register`, user);
+        var lol = this.http.post(`${environment.apiUrl}/createUser`, user);
+        return lol;
     }
 
     getAll() {

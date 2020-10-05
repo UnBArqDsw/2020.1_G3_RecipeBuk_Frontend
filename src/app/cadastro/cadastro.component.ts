@@ -17,6 +17,7 @@ export class CadastroComponent implements OnInit {
   submitted = false;
   emailIsValid = true;
   passwordsMatch = true;
+  emailExists = false;
 
   constructor(
     private accountService: AccountService
@@ -51,10 +52,12 @@ export class CadastroComponent implements OnInit {
         .pipe(first())
         .subscribe({
             next: () => {
+              // console.log('e', e)
                 // this.alertService.success('Registration successful', { keepAfterRouteChange: true });
                 // this.router.navigate(['../login'], { relativeTo: this.route });
             },
             error: error => {
+              this.emailExists = true;
                 // this.alertService.error(error);
                 this.loading = false;
             }

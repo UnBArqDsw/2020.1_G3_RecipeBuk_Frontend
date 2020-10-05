@@ -40,26 +40,28 @@ export class LoginComponent implements OnInit {
     } else {
       this.emailIsValid = false;
     }
-
-    if(!(password == '') || !this.emailIsValid) {
+    
+    if(!(password == '') && !this.emailIsValid) {
       return;
     }
     
     this.loading = true;
-    this.accountService.login(email, password)
-    .pipe(first())
-    .subscribe({
-      next: () => {
-        // get return url from query parameters or default to home page
-        // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        // this.router.navigateByUrl(returnUrl);
-      },
-      error: error => {
-        console.log(error);
-            // this.alertService.error(error);
-            this.loading = false;
-      }
-    });
+    this.accountService.login(email, password).then((e) => {
+    }).catch((e) => {
+    })
+    // .pipe(first())
+    // .subscribe({
+    //   next: () => {
+    //     // get return url from query parameters or default to home page
+    //     // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    //     // this.router.navigateByUrl(returnUrl);
+    //   },
+    //   error: error => {
+    //     console.log(error);
+    //         // this.alertService.error(error);
+    //         this.loading = false;
+    //   }
+    // });
   }
 
 }
