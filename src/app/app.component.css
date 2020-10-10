@@ -1,0 +1,12 @@
+nav {
+	display: block;
+	background-color: #233F57;
+	width: 100%;
+}
+
+nav input {
+	width: 50%;
+	height: 45px;
+	border: none;
+	text-align: center;
+}

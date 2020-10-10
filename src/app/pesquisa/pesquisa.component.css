@@ -1,0 +1,15 @@
+h1 {
+    margin: 2%;
+    font-size:32px;
+    color: #E2725B;
+}
+
+hr {
+    border-style:solid;
+    margin: auto;
+    width: 100%;
+    max-width: 50%;
+    border-width:1px;
+    overflow: hidden;
+    border-color: #1C3144;
+}

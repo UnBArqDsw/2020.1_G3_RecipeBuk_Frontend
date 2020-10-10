@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { SenhaComponent } from './senha/senha.component';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     CadastroComponent,
-    SenhaComponent
+    SenhaComponent,
+	PesquisaComponent
   ],
   imports: [
     BrowserModule,
