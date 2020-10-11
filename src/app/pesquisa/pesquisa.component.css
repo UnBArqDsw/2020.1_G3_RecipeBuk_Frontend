@@ -21,22 +21,28 @@ hr {
 
 .container_results {
     margin: auto;
-    width: 50vw;
+    width: 52vw;
     height: 85vh;
+}
+
+.result-tabs {
+    height: 5%;
+    background-color: orange;
 }
 
 .recipe_results {
     background-color: #F0F0F0;
-    height: 100%;
+    height: 95%;
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
 }
 
 .recipe_card {
+    position: relative;
     background-color: #FFFFFF;
-    width: 40%;
-    height: 20%;
+    width: 21.1vw;
+    height: 8.3vw;
     overflow: hidden;
     margin: auto;
     padding-bottom: 20px;
@@ -46,33 +52,42 @@ hr {
 }
 
 .recipe_card img {
-    width: 8rem;
-    height: 8rem;
+    width: 7.5vw;
+    height: 7.5vw;
     float: left;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
+    border-radius: 2vh;
+    margin-top: 1vw;
+    margin-left: 1vw;
     
 }
 
 .recipe_card h2 {
-    font-size: 20px;
+    font-size: 1.2vw;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1vw;
 }
 
-#fav_icon {
-    width: 2rem;
-    height: 2rem;
-}
-
-#share_icon {
-    width: 2rem;
-    height: 2rem;
-}
-
-.icons { 
+.icons {
+    display: inline-block;
+    position: absolute !important;
+    right: 0;
+    bottom: 0;
     position: relative;
-    left: 30%;
-    top: 30%;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.5vw;
+    margin-bottom: 0.5vw;
+}
+
+.icons img {
+    width: 2vw;
+    height: 2vw;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.icons img:last-child {
+    margin-left: 15px;
 }
