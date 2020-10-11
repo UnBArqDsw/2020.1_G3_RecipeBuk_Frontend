@@ -61,18 +61,22 @@ hr {
     margin-top: 20px;
 }
 
-#fav_icon {
-    width: 2rem;
-    height: 2rem;
-}
-
-#share_icon {
-    width: 2rem;
-    height: 2rem;
-}
-
 .icons { 
     position: relative;
     left: 30%;
     top: 30%;
+    
+}
+
+svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+svg:hover {
+    fill: #E2725B;
+}
+
+svg:active {
+    fill: #1C3144;
 }
