@@ -37,6 +37,7 @@ hr {
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .recipe_results::-webkit-scrollbar {
@@ -66,7 +67,6 @@ hr {
     width: 21.1vw;
     height: 8.3vw;
     overflow: hidden;
-    margin: auto;
     padding-bottom: 20px;
     margin-top: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -132,7 +132,8 @@ hr {
     margin: 0;
     padding: 0;
     padding-top: 0.75vh;
-    width: 11vw;
+    width: 13vw;
+    height: 100%;
     font-size: 1.1vw;
     font-family: Roboto;
     background-color: #E2725B;
@@ -143,4 +144,9 @@ hr {
 
 .result-tab:first-child {
     background-color: #F0F0F0;
+}
+
+.recipe_results a { 
+    color: #1C3144;
+    text-decoration: none;
 }

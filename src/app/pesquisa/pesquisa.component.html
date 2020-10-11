@@ -1,148 +1,29 @@
 <div class="container_results">
-    <h1>Resultados para: {{gshow}}</h1>
+    <h1>Resultados para: Torta</h1>
     <div class="result-tabs">
-    	<div class="result-tab">
-    		<span>TudoGostoso</span>
-    	</div>
-
-    	<div class="result-tab">
-    		<span>TudoReceitas</span>
-    	</div>
-
-    	<div class="result-tab">
-    		<span>GShow</span>
-    	</div>
+        <div *ngFor="let tab of resultsArray">
+            <div class="result-tab">
+                <span>{{tab.name}}</span>
+            </div>
+        </div> 
     </div>
 
     <div class="recipe_results">
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="recipe_card">
-            <img src="https://img.freepik.com/fotos-gratis/gotas-de-oleo-na-imagem-abstrata-padrao-psicodelico-de-agua_23-2148290141.jpg?size=626&ext=jpg" />
-            <h2>Nome da Receita</h2>
-            <div class="icons">
-                <svg>
-                    <use xlink:href="#favorite" />
-                </svg>
-                <svg>
-                    <use xlink:href="#share" />
-                </svg>
-            </div>
+        <div *ngFor="let recipe of tudoreceitasArray">
+            <a href={{recipe.link}}>
+                <div class="recipe_card">
+                    <img src={{recipe.img_url}} />
+                    <h2>{{recipe.title}}</h2>
+                    <div class="icons">
+                        <svg>
+                            <use xlink:href="#favorite" />
+                        </svg>
+                        <svg>
+                            <use xlink:href="#share" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </div>
