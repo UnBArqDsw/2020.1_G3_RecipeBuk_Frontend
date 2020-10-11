@@ -102,7 +102,7 @@ hr {
     margin-bottom: 0.5vw;
 }
 
-.icons img {
+.icons svg {
     width: 2vw;
     height: 2vw;
     margin: 0;
@@ -111,8 +111,16 @@ hr {
     border-radius: 0;
 }
 
-.icons img:last-child {
-    margin-left: 15px;
+.icons svg:last-child {
+    margin-left: 0.8vw;
+}
+
+.icons svg:hover {
+    fill: #E2725B;
+}
+
+.icons svg:active {
+    fill: #1C3144;
 }
 
 .result-tabs {

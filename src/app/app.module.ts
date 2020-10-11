@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     CadastroComponent,
     SenhaComponent,
-	PesquisaComponent
+	  PesquisaComponent
   ],
   imports: [
     FormsModule,
