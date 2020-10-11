@@ -1,29 +1,41 @@
 <div class="container_results">
     <h1>Resultados para: Torta</h1>
     <div class="result-tabs">
-        <div *ngFor="let tab of resultsArray">
-            <div class="result-tab">
-                <span>{{tab.name}}</span>
-            </div>
+        <div *ngFor="let tab of resultsArray; let i = index">
+        	<ng-container *ngIf="tab.results.length">
+        		<ng-container *ngIf="i == selectedTab;else unselectedTab">
+		            <div class="result-tab" style="background-color: #F0F0F0;">
+		                <span (click)="changeTab(i)">{{tab.name | titlecase}}</span>
+		            </div>
+		        </ng-container>
+
+		        <ng-template #unselectedTab>
+		        	<div class="result-tab">
+		                <span (click)="changeTab(i)">{{tab.name | titlecase}}</span>
+		            </div>
+		        </ng-template>
+	        </ng-container>
         </div> 
     </div>
 
     <div class="recipe_results">
-        <div *ngFor="let recipe of tudoreceitasArray">
-            <a href={{recipe.link}}>
-                <div class="recipe_card">
+        <div *ngFor="let recipe of targetTab.results">
+
+            <div class="recipe_card">
+            	<a href={{recipe.link}}>
                     <img src={{recipe.img_url}} />
                     <h2>{{recipe.title}}</h2>
-                    <div class="icons">
-                        <svg>
-                            <use xlink:href="#favorite" />
-                        </svg>
-                        <svg>
-                            <use xlink:href="#share" />
-                        </svg>
-                    </div>
+                </a>
+                <div class="icons">
+                    <svg>
+                        <use xlink:href="#favorite" />
+                    </svg>
+                    <svg>
+                        <use xlink:href="#share" />
+                    </svg>
                 </div>
-            </a>
+            </div>
+
         </div>
     </div>
 </div>

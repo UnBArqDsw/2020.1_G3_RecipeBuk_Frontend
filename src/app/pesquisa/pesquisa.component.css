@@ -140,10 +140,12 @@ hr {
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
     text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.result-tab:first-child {
-    background-color: #F0F0F0;
+.result-tab:hover {
+    background-color: #E68875;
 }
 
 .recipe_results a { 

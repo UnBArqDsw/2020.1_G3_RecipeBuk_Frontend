@@ -8,16 +8,20 @@ import results from '../mock/results.json';
 })
 export class PesquisaComponent implements OnInit { 
   
-  resultsArray = results
-
-  gshowArray = results[0].results;
-  tastemadeArray = results[1].results;
-  tudoreceitasArray = results[2].results;
-  tudogostosoArray = results[3].results;
+  resultsArray = results;
+  selectedTab = 2;
+  targetTab = results[this.selectedTab];
   
   constructor() {  }
     
-  ngOnInit(): void {} 
+  ngOnInit(): void {
+
+  } 
+
+  changeTab(tab) {
+  	this.selectedTab = tab;
+  	this.targetTab = results[this.selectedTab];
+  }
   
    
 }
