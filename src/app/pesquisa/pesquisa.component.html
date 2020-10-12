@@ -1,5 +1,5 @@
 <div class="container_results">
-    <h1>Resultados para: Torta</h1>
+    <h1>Resultados para: {{searchTerm}}</h1>
     <div class="result-tabs">
         <div *ngFor="let tab of resultsArray; let i = index">
         	<ng-container *ngIf="tab.results.length">

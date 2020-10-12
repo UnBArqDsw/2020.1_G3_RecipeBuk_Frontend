@@ -1,4 +1,4 @@
 <nav>
-    <input placeholder="Pesquise aqui" [(ngModel)]="searchTerm">
+    <input placeholder="Pesquise aqui" (keyup)="onKey($event)">
 </nav>
 <router-outlet></router-outlet>
