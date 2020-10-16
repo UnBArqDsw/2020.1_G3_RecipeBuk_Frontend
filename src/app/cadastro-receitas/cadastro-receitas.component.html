@@ -4,8 +4,9 @@
         <form class="tp-container">  
             <div class="column left">
                 <label><i class="fa fa-pencil"></i> Nome da Receita </label>
-                <input
+                <input 
                     placeholder="Ex.: Bolo de Banana"
+                    [(ngModel)]= "nomeReceita"
                     aria-label="Nome da Receita"
                     appearance = "outline"
                 >
@@ -18,14 +19,14 @@
                         type="number"
                         min="0"
                         name="qty"
-                        [(ngModel)]="obj.qty"
+                        [(ngModel)]= "quantidade"
                         class="column one"
                     >
 
                     <input
                         appearance = "outline"
                         name="type"
-                        [(ngModel)]="obj.type"
+                        [(ngModel)]= "unidade"
                         class="column two"
                     >
 
@@ -34,7 +35,7 @@
                         aria-label="Ingrediente 1"
                         appearance = "outline"
                         name="name"
-                        [(ngModel)]="obj.name"
+                        [(ngModel)]= "ingrediente"
                         class="column three"
                     >
                 </div>
@@ -51,6 +52,7 @@
                 <textarea                
                     matInput 
                     placeholder="Preparo"
+                    [(ngModel)]= "tempo"
                     aria-label="Modo de Preparo"
                     rows="7"    
                 ></textarea>
@@ -61,6 +63,7 @@
                 <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
                 <input                
                     placeholder="Tempo Preparo"
+                    [(ngModel)]= "preparo"
                     aria-label="Tempo de Preparo"
                     appearance = "outline"
                 >
@@ -68,6 +71,8 @@
 
                 <label><i class="fa fa-chart-pie"></i> Rendimento </label>
                 <input                
+                    placeholder="Rendimento"
+                    [(ngModel)]= "rendimento"
                     aria-label="Rendimento"
                     type="number"
                     min="0"
@@ -86,11 +91,38 @@
                     <i class="fa fa-image"></i>
                     Adicionar foto
                 </button>
+                <input                
+                    placeholder="Categoria"
+                    [(ngModel)]= "categoria"
+                    aria-label="Categoria"
+                    appearance = "outline"
+                >
             </div>
         </form>
     </div>
 
     <div class="row save">
-        <button class="btn center" type="button"> Salvar </button>
+        <button class="btn center" (click)= "save()"> Salvar </button>
     </div>
+
+    <!--TESTE SALVAR -->
+    <section>
+        <mat-list>
+            <mat-list-item *ngFor= "let receita of receitas">
+                <p mat-line>
+                    <app-teste-salvar-receitas
+                        [nomeReceita]= "receita.nomeReceita"
+                        [quantidade]= "receita.quantidade"
+                        [unidade]= "receita.unidade"
+                        [ingrediente]= "receita.ingrediente"
+                        [preparo]= "receita.preparo"
+                        [tempo]= "receita.tempo"
+                        [rendimento]= "receita.rendimento"
+                        [categoria]= "receita.categoria"
+                    >
+                    </app-teste-salvar-receitas>
+                </p>
+            </mat-list-item>
+        </mat-list>
+    </section>-
 </body>

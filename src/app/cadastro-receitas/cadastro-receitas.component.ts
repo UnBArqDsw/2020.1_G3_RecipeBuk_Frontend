@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Ingredients } from '../models/ingredients'
 import { CategoryRecipeEnum } from '../models/category-recipe.enum';
 import { Recipe } from '../models/recipe';
+import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
 //import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -22,6 +23,17 @@ import { Recipe } from '../models/recipe';
     recipe: Recipe;
     categoryRecipeEnum = CategoryRecipeEnum;
     categoryRecipeEnumOptions = [];
+    botaoSalvar= true;
+    receitas: ICadastroReceitas[] = [];
+    nomeReceita: string;
+    quantidade: number;
+    unidade: string;
+    ingrediente: string;
+    preparo: string;
+    tempo: string;
+    rendimento: number;
+    categoria: string; 
+    editReceitas: ICadastroReceitas = null;
 
     constructor() { }
 
@@ -32,6 +44,17 @@ import { Recipe } from '../models/recipe';
     }
 
     addIngredient(){
+    }
+
+    save(){
+      if(this.editReceitas==null){
+        this.receitas.push( {nomeReceita: this.nomeReceita, quantidade: this.quantidade, unidade: this.unidade, 
+          ingrediente: this.ingrediente, preparo: this.preparo, tempo: this.tempo, rendimento: this.rendimento, categoria: this.categoria} );
+      }
+    }
+
+
+    addForm(){
       this.ingredients = new Ingredients();
       this.dataArray.push(this.ingredients);
 
