@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {SearchService} from 'src/app/services/search.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pesquisa',
@@ -10,16 +11,16 @@ import {SearchService} from 'src/app/services/search.service';
 })
 export class PesquisaComponent implements OnInit { 
   searchTerm : string;
-  resultsArray = [];
+  resultsArray : Object = [];
   selectedTab = 0;
   targetTab = {results: []};
   
-  constructor(private searchService: SearchService, private router: Router, private http: HttpClient) {  }
+  constructor(private searchService: SearchService, private router: Router, private http: HttpClient, private cdr : ChangeDetectorRef) {  }
     
   ngOnInit(): void {
   	this.searchService.sharedTerm.subscribe(searchTerm => {
   		if(searchTerm) {
-	  		this.searchTerm = searchTerm;
+	  		this.searchTerm = decodeURIComponent(searchTerm);
 	  		this.updateResults();
   		}
   	});
@@ -27,7 +28,6 @@ export class PesquisaComponent implements OnInit {
   	let q;
   	if((q = this.router.url.match(/\?q=(.*)/)[1])) {
   		this.searchService.nextTerm(q);
-  		this.updateResults();
   	}
   } 
 
@@ -37,8 +37,16 @@ export class PesquisaComponent implements OnInit {
   }
 
   updateResults() {
-  	this.http.get(`http://localhost:3000/search?q=${this.searchTerm}`).subscribe(res => {
-  		this.resultsArray = res;
+  	this.http.get(`${environment.apiUrl}/search?q=${encodeURIComponent(this.searchTerm)}`).subscribe((res : any[]) => {
+
+  		this.resultsArray = res.filter((result) => {
+  			return !result.error;
+  		}).sort((a, b) => {
+  			if(a.name > b.name)
+  				return 1;
+  			return -1;
+  		});
+
   		this.changeTab(0);
   	});
   }
