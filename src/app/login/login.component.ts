@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {AccountService} from 'src/app/services';
+import { AccountService } from 'src/app/services';
 import { first } from 'rxjs/operators';
 
-function emailIsValid (email) {
+function emailIsValid(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
@@ -17,49 +17,31 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   emailIsValid = true;
-  
-  constructor(
-    // formBuilder: FormBuilder
-    private accountService: AccountService
-    ) { }
-    
-    ngOnInit(): void {
-      this.form = FormBuilder.prototype.group({
-        email: ['', Validators.required],
-        password: ['', Validators.required]
-      });
-    }
-    
-    // get f() { return this.form.controls; }
-  
+
+  constructor(private accountService: AccountService) { }
+
+  ngOnInit(): void { }
+
   onSubmit(email, password) {
     this.submitted = true;
-    
-    if(emailIsValid(email)) {
+
+    if (emailIsValid(email)) {
       this.emailIsValid = true;
     } else {
       this.emailIsValid = false;
     }
 
-    if(!(password == '') || !this.emailIsValid) {
+    if ((!(password == '') && !this.emailIsValid) || password == '' || !this.emailIsValid) {
+      console.log('login falhou');
       return;
     }
-    
+
     this.loading = true;
-    this.accountService.login(email, password)
-    .pipe(first())
-    .subscribe({
-      next: () => {
-        // get return url from query parameters or default to home page
-        // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        // this.router.navigateByUrl(returnUrl);
-      },
-      error: error => {
-        console.log(error);
-            // this.alertService.error(error);
-            this.loading = false;
-      }
-    });
+    this.accountService.login(email, password).then(() => {
+      console.log('login realizado');
+    }).catch((e) => {
+      console.log('login falhou', e);
+    })
   }
 
 }
