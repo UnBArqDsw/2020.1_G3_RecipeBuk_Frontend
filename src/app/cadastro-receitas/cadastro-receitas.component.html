@@ -6,7 +6,8 @@
                 <label><i class="fa fa-pencil"></i> Nome da Receita </label>
                 <input 
                     placeholder="Ex.: Bolo de Banana"
-                    [(ngModel)]= "nomeReceita"
+                    [(ngModel)]= "name"
+                    name="name"
                     aria-label="Nome da Receita"
                     appearance = "outline"
                 >
@@ -19,14 +20,14 @@
                         type="number"
                         min="0"
                         name="qty"
-                        [(ngModel)]= "quantidade"
+                        [(ngModel)]= "qty"
                         class="column one"
                     >
 
                     <input
                         appearance = "outline"
                         name="type"
-                        [(ngModel)]= "unidade"
+                        [(ngModel)]= "type"
                         class="column two"
                     >
 
@@ -34,8 +35,8 @@
                         placeholder="Ex.: Ingrediente 1"
                         aria-label="Ingrediente 1"
                         appearance = "outline"
-                        name="name"
-                        [(ngModel)]= "ingrediente"
+                        name="ingredient"
+                        [(ngModel)]= "ingredient"
                         class="column three"
                     >
                 </div>
@@ -43,7 +44,7 @@
                 <span>
                     <button class="btn" aria-label="Adicionar mais ingredientes" (click)="addIngredient()" type="button">
                         <i class="fa fa-plus" aria-hidden="true"></i>
-                        Adicionar mais ingredientes
+                        Adicionar ingredientes
                     </button>
                 </span>
                 <br>
@@ -52,7 +53,8 @@
                 <textarea                
                     matInput 
                     placeholder="Preparo"
-                    [(ngModel)]= "tempo"
+                    name="steps"
+                    [(ngModel)]= "steps"
                     aria-label="Modo de Preparo"
                     rows="7"    
                 ></textarea>
@@ -63,7 +65,8 @@
                 <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
                 <input                
                     placeholder="Tempo Preparo"
-                    [(ngModel)]= "preparo"
+                    name="time"
+                    [(ngModel)]= "time"
                     aria-label="Tempo de Preparo"
                     appearance = "outline"
                 >
@@ -72,7 +75,8 @@
                 <label><i class="fa fa-chart-pie"></i> Rendimento </label>
                 <input                
                     placeholder="Rendimento"
-                    [(ngModel)]= "rendimento"
+                    name="portions"
+                    [(ngModel)]= "portions"
                     aria-label="Rendimento"
                     type="number"
                     min="0"
@@ -82,7 +86,11 @@
 
                 <label><i class="fa fa-flag"></i> Categoria </label>
                 <select style="display: inline-block">
-                    <option *ngFor="let name of categoryRecipeEnumOptions" [value]="name" [label]="categoryRecipeEnum[name]"></option>
+                    <option 
+                        *ngFor="let name of categoryRecipeEnumOptions"
+                        [value]="name"
+                        [label]="categoryRecipeEnum[name]">
+                    </option>
                 </select>
 
                 <br>
@@ -91,12 +99,6 @@
                     <i class="fa fa-image"></i>
                     Adicionar foto
                 </button>
-                <input                
-                    placeholder="Categoria"
-                    [(ngModel)]= "categoria"
-                    aria-label="Categoria"
-                    appearance = "outline"
-                >
             </div>
         </form>
     </div>
@@ -111,14 +113,14 @@
             <mat-list-item *ngFor= "let receita of receitas">
                 <p mat-line>
                     <app-teste-salvar-receitas
-                        [nomeReceita]= "receita.nomeReceita"
-                        [quantidade]= "receita.quantidade"
-                        [unidade]= "receita.unidade"
-                        [ingrediente]= "receita.ingrediente"
-                        [preparo]= "receita.preparo"
-                        [tempo]= "receita.tempo"
-                        [rendimento]= "receita.rendimento"
-                        [categoria]= "receita.categoria"
+                        [name]= "receita.name"
+                        [qty]= "receita.qty"
+                        [type]= "receita.type"
+                        [ingredient]= "receita.ingredient"
+                        [steps]= "receita.steps"
+                        [time]= "receita.time"
+                        [portions]= "receita.portions"
+                        [category]= "receita.category"
                     >
                     </app-teste-salvar-receitas>
                 </p>

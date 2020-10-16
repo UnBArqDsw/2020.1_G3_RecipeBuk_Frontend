@@ -8,14 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TesteSalvarReceitasComponent implements OnInit {
 
 
-  @Input() nomeReceita: string;
-  @Input() quantidade: number;
-  @Input() unidade: string;
-  @Input() ingrediente: string;
-  @Input() preparo: string;
-  @Input() tempo: string;
-  @Input() rendimento: number;
-  @Input() categoria: string; 
+  @Input() name: string;
+  @Input() qty: number;
+  @Input() type: string;
+  @Input() ingredient: string;
+  @Input() steps: string;
+  @Input() time: string;
+  @Input() portions: number;
+  @Input() category: string; 
 
   constructor() { }
 

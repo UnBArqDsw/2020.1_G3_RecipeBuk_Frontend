@@ -17,7 +17,7 @@ import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
     styleUrls: ['./cadastro-receitas.component.css']
   })
 
-  export class CadastroReceitasComponent implements OnInit{
+  export class CadastroReceitasComponent implements OnInit {
     ingredients = new Ingredients();
     dataArray = [];
     recipe: Recipe;
@@ -25,14 +25,14 @@ import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
     categoryRecipeEnumOptions = [];
     botaoSalvar= true;
     receitas: ICadastroReceitas[] = [];
-    nomeReceita: string;
-    quantidade: number;
-    unidade: string;
-    ingrediente: string;
-    preparo: string;
-    tempo: string;
-    rendimento: number;
-    categoria: string; 
+    name: string;
+    qty: number;
+    type: string;
+    ingredient: string;
+    steps: string;
+    time: string;
+    portions: number;
+    category: string; 
     editReceitas: ICadastroReceitas = null;
 
     constructor() { }
@@ -48,8 +48,8 @@ import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
 
     save(){
       if(this.editReceitas==null){
-        this.receitas.push( {nomeReceita: this.nomeReceita, quantidade: this.quantidade, unidade: this.unidade, 
-          ingrediente: this.ingrediente, preparo: this.preparo, tempo: this.tempo, rendimento: this.rendimento, categoria: this.categoria} );
+        this.receitas.push( {name: this.name, qty: this.qty, type: this.type, 
+          ingredient: this.ingredient, steps: this.steps, time: this.time, portions: this.portions, category: this.category} );
       }
     }
 
