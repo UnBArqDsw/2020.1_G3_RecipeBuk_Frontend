@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountService} from 'src/app/services';
-import { first } from 'rxjs/operators';
+import { concatMap, first } from 'rxjs/operators';
 
 
 function emailIsValid (email) {
@@ -44,24 +44,18 @@ export class CadastroComponent implements OnInit {
     }
 
     if(!this.passwordsMatch || !this.emailIsValid) {
+      console.log('cadastro falhou')
       return;
     }
 
     this.loading = true;
-    this.accountService.register(name, email, password)
-        .pipe(first())
-        .subscribe({
-            next: () => {
-              // console.log('e', e)
-                // this.alertService.success('Registration successful', { keepAfterRouteChange: true });
-                // this.router.navigate(['../login'], { relativeTo: this.route });
-            },
-            error: error => {
-              this.emailExists = true;
-                // this.alertService.error(error);
-                this.loading = false;
-            }
-        });
-}
+    this.accountService.register(name, email, password).then(() => {
+      console.log('cadastro realizado');
+    }).catch((e) => {
+      console.log('cadastro falhou',);
+      this.emailExists = true;
+      this.loading = false;
+    });
+  }
 
 }

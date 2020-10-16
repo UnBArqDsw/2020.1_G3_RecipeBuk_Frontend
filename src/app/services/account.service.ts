@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import  * as firebase from 'firebase' ;
+// import  * as firebase from 'firebase' ;
 
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -14,8 +15,8 @@ export class AccountService {
     public user: Observable<User>;
 
     constructor(
-        private router: Router,
-        private http: HttpClient
+        private http: HttpClient,
+        private firebaseService: FirebaseService
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
@@ -26,9 +27,9 @@ export class AccountService {
     }
 
     login(email, password) {
-        console.log("2hy")
         return new Promise((resolve, reject) => {
-            firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
+            console.log(this.firebaseService.firebase.auth())
+            this.firebaseService.firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
                 console.log("Usuário logado")
                 resolve("Usuário logado");
             }).catch(function (error) {
@@ -41,53 +42,28 @@ export class AccountService {
     }
 
     logout() {
-        firebase.auth().signOut().then(function () {
-            console.log('sign out successful')
-            return "sign out successful"
-        }).catch(function (error) {
-            console.log(error)
-            return error
+        return new Promise((resolve, reject) => {
+            this.firebaseService.firebase.auth().signOut().then(function () {
+                console.log('sign out successful')
+                resolve("sign out successful");
+            }).catch(function (e) {
+                console.log(e);
+                reject(e);
+            });
         });
     }
 
     register(name, email, password) {
-        var user = new User(name, email, password)
-        var lol = this.http.post(`${environment.apiUrl}/createUser`, user);
-        return lol;
-    }
-
-    getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/users`);
-    }
-
-    getById(id: string) {
-        return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
-    }
-
-    update(id, params) {
-        return this.http.put(`${environment.apiUrl}/users/${id}`, params)
-            .pipe(map(x => {
-                // update stored user if the logged in user updated their own record
-                if (id == this.userValue.id) {
-                    // update local storage
-                    const user = { ...this.userValue, ...params };
-                    localStorage.setItem('user', JSON.stringify(user));
-
-                    // publish updated user to subscribers
-                    this.userSubject.next(user);
+        return new Promise((resolve, reject) => {
+            var user = new User(name, email, password)
+            this.http.post(`${environment.apiUrl}/createUser`, user).subscribe({
+                next() {
+                    resolve();
+                },
+                error(e) {
+                    reject(e)
                 }
-                return x;
-            }));
-    }
-
-    delete(id: string) {
-        return this.http.delete(`${environment.apiUrl}/users/${id}`)
-            .pipe(map(x => {
-                // auto logout if the logged in user deleted their own record
-                if (id == this.userValue.id) {
-                    this.logout();
-                }
-                return x;
-            }));
+            });
+        });
     }
 }
