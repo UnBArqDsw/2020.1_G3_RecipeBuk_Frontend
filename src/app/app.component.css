@@ -1,0 +1,23 @@
+nav {
+	display: block;
+	position: relative;
+	background-color: #233F57;
+	width: 100%;
+	height: 4rem;
+}
+
+nav input {
+	width: 50%;
+	height: 45px;
+	border: none;
+	text-align: center;
+	margin-left: 25%;
+}
+
+nav img {
+	position: absolute;
+	width: 4.2rem;
+	float: left;
+	top: 0.5rem;
+	left: 2.5rem;
+}

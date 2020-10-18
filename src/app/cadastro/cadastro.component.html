@@ -21,14 +21,14 @@
             <div class='row'>
                 <form class='form' >
                     <label>Seu nome</label>
-                    <input #namebox type="text" formControlName="name" class="form-control">
+                    <input #namebox type="text" class="form-control">
                     <div class="alert" *ngIf="(namebox.value == '') && (submitted == true)">Seu nome é nescessário</div>
                     <label>Seu E-mail</label>
-                    <input #emailbox type="text" formControlName="email" class="form-control">
+                    <input #emailbox type="text" class="form-control">
                     <div class="alert" *ngIf="emailExists">Já existe uma conta com esse E-mail</div>
                     <div class="alert" *ngIf="!emailIsValid">Este E-mail não é válido</div>
                     <label>Senha</label>
-                    <input #passwordbox type="password" formControlName="password" class="form-control" >
+                    <input #passwordbox type="password" class="form-control" >
                     <label>Confirmar senha</label>
                     <input #confirmpasswordbox class='input' type="password" id="lname" name="lname">
                     <div class="alert" *ngIf="!passwordsMatch">As senhas não são iguais</div>
