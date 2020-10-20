@@ -19,7 +19,7 @@ import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
 
   export class CadastroReceitasComponent implements OnInit {
     ingredients = new Ingredients();
-    dataArray = [];
+    ingredientsArray = [];
     recipe: Recipe;
     categoryRecipeEnum = CategoryRecipeEnum;
     categoryRecipeEnumOptions = [];
@@ -38,26 +38,29 @@ import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
     constructor() { }
 
     ngOnInit(): void {
-      this.dataArray.push(this.ingredients);
-
+      this.ingredientsArray.push(this.ingredients);
       this.categoryRecipeEnumOptions = Object.keys(this.categoryRecipeEnum);
     }
 
     addIngredient(){
+      this.ingredients = new Ingredients();
+      this.ingredientsArray.push(this.ingredients);
+
+      console.log(this.ingredientsArray);
     }
 
     save(){
       if(this.editReceitas==null){
-        this.receitas.push( {name: this.name, qty: this.qty, type: this.type, 
-          ingredient: this.ingredient, steps: this.steps, time: this.time, portions: this.portions, category: this.category} );
+        this.receitas.push({
+          name: this.name,
+          qty: this.qty,
+          type: this.type, 
+          ingredient: this.ingredient,
+          steps: this.steps,
+          time: this.time,
+          portions: this.portions,
+          category: this.category
+        });
       }
-    }
-
-
-    addForm(){
-      this.ingredients = new Ingredients();
-      this.dataArray.push(this.ingredients);
-
-      console.log(this.dataArray);
     }
   }
