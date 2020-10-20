@@ -20,6 +20,7 @@ export class AccountService {
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
+        console.log('lol', this.userValue);
     }
 
     public get userValue(): User {
@@ -28,10 +29,12 @@ export class AccountService {
 
     login(email, password) {
         return new Promise((resolve, reject) => {
-            console.log(this.firebaseService.firebase.auth())
             this.firebaseService.firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
+                const user = new User('', email, '');
                 console.log("Usuário logado")
-                resolve("Usuário logado");
+                localStorage.setItem('user', JSON.stringify(user));
+                this.userSubject.next(user);
+                resolve(user);
             }).catch(function (error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -44,6 +47,8 @@ export class AccountService {
     logout() {
         return new Promise((resolve, reject) => {
             this.firebaseService.firebase.auth().signOut().then(function () {
+                localStorage.removeItem('user');
+                this.userSubject.next(null);
                 console.log('sign out successful')
                 resolve("sign out successful");
             }).catch(function (e) {
