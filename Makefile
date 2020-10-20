@@ -13,3 +13,6 @@ run:
 
 dev:
 	sudo docker build -t front -f dev.Dockerfile . && sudo docker run --rm -p 4200:4200 -it -v $(current_dir):/app -v /app/node_modules front
+
+test:
+	sudo docker build -t front -f test.Dockerfile . && sudo docker run --rm -p 9876:9876 -it -v $(current_dir):/app -v /app/node_modules front

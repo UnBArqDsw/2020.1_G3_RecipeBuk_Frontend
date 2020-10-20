@@ -21,20 +21,17 @@
             <div class='row'>
                 <form class='form' >
                     <label>E-mail</label>
-                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                        <div *ngIf="f.username.errors.required">Username is required</div>
-                    </div>
+                    <input #emailbox type="text" class="form-control">
+                    <div class="alert" *ngIf="(emailbox.value == '') && (submitted == true)">Este campo não pode estar vazio</div>
+                    <div class="alert" *ngIf="!emailIsValid && (emailbox.value != '')">Este E-mail não é válido</div>
                     <label>Senha</label>
-                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
-                    </div>
+                    <input #passwordbox type="password" class="form-control">
+                    <div class="alert" *ngIf="(passwordbox.value == '') && (submitted == true)">Este campo não pode estar vazio</div>
                     <a class="link" href="/cadastro">Esqueceu a senha?</a>
                   </form>
             </div>
-            <div class="row">
-                <a href="#" class="entrar">Entrar</a>
+            <div class="row form-group">
+                <a (click)="onSubmit(emailbox.value, passwordbox.value)" class="entrar btn btn-primary">Entrar</a>
             </div>
             <div class="row">
                 <a class="link" href="/cadastro" >Criar conta</a>

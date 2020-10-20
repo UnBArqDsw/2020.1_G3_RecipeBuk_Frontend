@@ -15,10 +15,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { TesteSalvarReceitasComponent } from './cadastro-receitas/teste-salvar-receitas/teste-salvar-receitas.component';
-
-//import { SenhaComponent } from './senha/senha.component';
+import { SenhaComponent } from './senha/senha.component';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,11 @@ import { TesteSalvarReceitasComponent } from './cadastro-receitas/teste-salvar-r
     CadastroComponent,
     CadastroReceitasComponent,
     TesteSalvarReceitasComponent,
-    //SenhaComponent,    
+    SenhaComponent,
+	  PesquisaComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -41,7 +44,8 @@ import { TesteSalvarReceitasComponent } from './cadastro-receitas/teste-salvar-r
     MatSelectModule,
     MatGridListModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   entryComponents: [
