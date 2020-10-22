@@ -68,16 +68,14 @@ select {
 }
 
 .center {
-    margin: auto;
+    margin: auto ;
 }
 
 .save {
     padding-bottom: 50px;
+    padding-right: 64%;
 }
 
-.delete{
-    padding-bottom: 50px;
-}
 
 button:hover {
     transform: scale(1.05);

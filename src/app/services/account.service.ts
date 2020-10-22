@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 // import  * as firebase from 'firebase' ;
 
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models';
 import { FirebaseService } from './firebase.service';
 
