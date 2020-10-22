@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
-//import { AccountService } from '@app/_services';
+import { AccountService } from 'src/app/services';
 
 @Component({ templateUrl: 'layout.component.html' })
-/*export class LayoutComponent {
+export class LayoutComponent {
     constructor(
         private router: Router,
         private accountService: AccountService
@@ -14,4 +13,4 @@ import { Router } from '@angular/router';
             this.router.navigate(['/']);
         }
     }
-}*/
+}

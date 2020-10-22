@@ -42,6 +42,20 @@ textarea {
     resize: vertical;
 }
 
+select {
+    font-family: 'Arial';
+    color: #1C3144;
+    outline: none;
+    min-width: 100%;
+    width: flex;
+    margin: 8px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #1C3144;
+    border-radius: 8px;
+    background-color:#F2EFE9;
+}
+
 /* button configs */
 .btn {
     background-color: #E2725B; /* Blue background */
@@ -67,6 +81,10 @@ textarea {
 
 button:hover {
     transform: scale(1.05);
+}
+
+*:focus {
+    outline: 0 !important;
 }
 
 /* 2 columns page */

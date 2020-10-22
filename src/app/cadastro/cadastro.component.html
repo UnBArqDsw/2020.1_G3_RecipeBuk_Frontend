@@ -22,19 +22,22 @@
             <div class='row'>
                 <form class='form' >
                     <label>Seu nome</label>
-                    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
-                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-                        <div *ngIf="f.name.errors.required">Name is required</div>
-                    </div>
+                    <input #namebox type="text" class="form-control">
+                    <div class="alert" *ngIf="(namebox.value == '') && (submitted == true)">Seu nome é nescessário</div>
                     <label>Seu E-mail</label>
-                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">Email is required</div>
-                    </div>
+                    <input #emailbox type="text" class="form-control">
+                    <div class="alert" *ngIf="emailExists">Já existe uma conta com esse E-mail</div>
+                    <div class="alert" *ngIf="!emailIsValid">Este E-mail não é válido</div>
+                    <label>Senha</label>
+                    <input #passwordbox type="password" class="form-control" >
+                    <label>Confirmar senha</label>
+                    <input #confirmpasswordbox class='input' type="password" id="lname" name="lname">
+                    <div class="alert" *ngIf="!passwordsMatch">As senhas não são iguais</div>
+                    <div class="alert" *ngIf="(passwordbox.value == '') && passwordsMatch && (submitted == true)">É nescessário uma senha</div>
                   </form>
             </div>
             <div class="row">
-                <a href="/senha" class="proxima">Próxima</a>
+                <a (click)="onSubmit(namebox.value, emailbox.value, passwordbox.value, confirmpasswordbox.value)" class="proxima">Criar Conta</a>
             </div>
             <div class="row">
                 <a class="link" href="/login">Já tenho uma conta</a>
