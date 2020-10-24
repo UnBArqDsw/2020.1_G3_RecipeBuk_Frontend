@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="column">
+        <div class="row">
+            <img src="../../assets/person-blue.svg" alt="person" class="person">
+        </div>
+        <div class="row">
+            <h1>Editar Conta</h1>
+        </div>
+
+        <div class="row">
+            <form class="form">
+                <label>Nome</label>
+                <input #namebox type="text" class="form-control">
+                <div class="alert" *ngIf="(namebox.value == '') && (submitted == true)">Seu nome é nescessário</div>
+                <label>E-mail</label>
+                <input #emailbox type="text" class="form-control" value="{{fonk}}">
+            </form>
+        </div>
+
+        <div class="row">
+            <a (click)="onSubmit(namebox.value, emailbox.value, passwordbox.value, confirmpasswordbox.value)"
+                class="confirm-button">Confirmar</a>
+        </div>
+
+    </div>
+</div>
