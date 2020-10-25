@@ -7,13 +7,19 @@ import {AccountService} from 'src/app/services';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  private fonk;
+  public fonk;
+  public submitted;
 
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.fonk = (this.accountService.userValue.email);
     console.log(this.accountService.userValue.email)
+  }
+
+
+  onSubmit() {
+
   }
 
 }
