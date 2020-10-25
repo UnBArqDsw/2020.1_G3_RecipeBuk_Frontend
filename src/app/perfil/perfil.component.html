@@ -11,14 +11,15 @@
             <form class="form">
                 <label>Nome</label>
                 <input #namebox type="text" class="form-control">
-                <div class="alert" *ngIf="(namebox.value == '') && (submitted == true)">Seu nome é nescessário</div>
+                <div class="alert" *ngIf="(namebox.value == '')">Seu nome é nescessário</div>
                 <label>E-mail</label>
                 <input #emailbox type="text" class="form-control" value="{{fonk}}">
+                <div class="alert" *ngIf="!emailIsValid">Este E-mail não é válido</div>
             </form>
         </div>
 
         <div class="row">
-            <a (click)="onSubmit()"
+            <a (click)="onSubmit(emailbox.value)"
                 class="confirm-button">Confirmar</a>
         </div>
 

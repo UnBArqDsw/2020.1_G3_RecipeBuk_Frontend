@@ -9,6 +9,7 @@ import {AccountService} from 'src/app/services';
 export class PerfilComponent implements OnInit {
   public fonk;
   public submitted;
+  public emailIsValid = true;
 
   constructor(private accountService: AccountService) { }
 
@@ -16,10 +17,12 @@ export class PerfilComponent implements OnInit {
     this.fonk = (this.accountService.userValue.email);
     console.log(this.accountService.userValue.email)
   }
+  ngOnChanges() {
+    console.log('imgay')
+  }
 
-
-  onSubmit() {
-
+  onSubmit(email) {
+    this.emailIsValid = this.accountService.emailIsValid(email)
   }
 
 }

@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountService} from 'src/app/services';
 
-
-function emailIsValid (email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-}
-
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -28,7 +23,7 @@ export class CadastroComponent implements OnInit {
     
     this.submitted = true;
     
-    if(emailIsValid(email)) {
+    if(this.accountService.emailIsValid(email)) {
       this.emailIsValid = true;
     } else {
       this.emailIsValid = false;

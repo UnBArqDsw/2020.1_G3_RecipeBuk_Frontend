@@ -27,6 +27,10 @@ export class AccountService {
         return this.userSubject.value;
     }
 
+    public emailIsValid (email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    }
+
     login(email, password) {
         return new Promise((resolve, reject) => {
             this.firebaseService.firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
