@@ -16,25 +16,27 @@
                 <label><i class="fa fa-shopping-basket"></i> Ingredientes </label>
                 <div class="row" *ngFor="let obj of ingredientsArray">
                     <input
-                        appearance = "outline"
+                        placeholder="1"
+                        appearance ="outline"
                         type="number"
-                        min="0"
+                        min="1"
                         name="qty"
                         [(ngModel)]= "qty"
                         class="column one"
                     >
 
                     <input
-                        appearance = "outline"
+                        placeholder="Ex.: Xícara"
+                        appearance ="outline"
                         name="type"
                         [(ngModel)]= "type"
                         class="column two"
                     >
 
                     <input
-                        placeholder="Ex.: Ingrediente 1"
+                        placeholder="Ex.: Farinha"
                         aria-label="Ingrediente 1"
-                        appearance = "outline"
+                        appearance ="outline"
                         name="ingredient"
                         [(ngModel)]= "ingredient"
                         class="column three"
