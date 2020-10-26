@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'senha', component: SenhaComponent },
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: '',   redirectTo: '/perfil', pathMatch: 'full' },
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

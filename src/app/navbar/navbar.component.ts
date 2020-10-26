@@ -26,4 +26,9 @@ export class NavbarComponent implements OnInit {
   	}
   }
 
+  goto(target : string) {
+    console.log(target)
+    this.router.navigateByUrl(target);
+  }
+
 }
