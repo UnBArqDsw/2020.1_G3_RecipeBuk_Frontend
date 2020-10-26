@@ -1,4 +1,11 @@
 <nav>
-	<a href='/'><img src="assets/logo.svg"></a>
+	<a href='/'><img class="logo" src="assets/logo.svg"></a>
     <input placeholder="Pesquise aqui" (keyup)="onKey($event)">
+    <div class="user-menu">
+    	<img src="assets/book.svg" class="recipe-book-icon">
+    	<button class="user-options">
+    		<img src="assets/person.svg">
+    		<span>[USERNAME]</span>
+    	</button>
+    </div>
 </nav>

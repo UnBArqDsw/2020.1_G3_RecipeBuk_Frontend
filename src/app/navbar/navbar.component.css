@@ -1,23 +1,55 @@
 nav {
-	display: block;
-	position: relative;
-	background-color: #233F57;
-	width: 100%;
+	display: grid;
 	height: 4rem;
+	width: 100%;
+	align-items: center;
+	grid-template-columns: 20% 60% 20%;
+	background-color: #233F57;
 }
 
 nav input {
-	width: 50%;
+	width: 83%;
 	height: 45px;
 	border: none;
+	margin: auto;
+	grid-column: 2;
 	text-align: center;
-	margin-left: 25%;
 }
 
-nav img {
-	position: absolute;
+nav .logo {
+	grid-column: 1;
 	width: 4.2rem;
-	float: left;
-	top: 0.5rem;
-	left: 2.5rem;
+	margin-left: 2.5rem;
+}
+
+.user-menu {
+	height: 100%;
+	display: flex;
+	grid-column: 3;
+	justify-self: end;
+	align-items: center;
+	margin-right: 2.5rem;
+}
+
+.recipe-book-icon {
+	margin-right: 2.5rem;
+	cursor: pointer;
+}
+
+.user-options {
+	background-color: transparent;
+	font-size: 1rem;
+	outline: none;
+	color: #E2725B;
+	border: none;
+	height: 100%;
+}
+
+.user-options span {
+	margin-left: 0.5em;
+	cursor: pointer;
+}
+
+.user-options span, .user-options img {
+	vertical-align: middle;
 }
