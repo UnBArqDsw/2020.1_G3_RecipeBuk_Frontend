@@ -4,12 +4,14 @@ import { LoginComponent } from './login/login.component'
 import { CadastroComponent } from './cadastro/cadastro.component'
 import { PesquisaComponent } from './pesquisa/pesquisa.component'
 import { SenhaComponent } from './senha/senha.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'senha', component: SenhaComponent },
   { path: 'pesquisa', component: PesquisaComponent },
+  { path: 'perfil', component: PerfilComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
 ];
 

@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountService} from 'src/app/services';
-import { concatMap, first } from 'rxjs/operators';
-
-
-function emailIsValid (email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-}
 
 @Component({
   selector: 'app-cadastro',
@@ -19,9 +13,7 @@ export class CadastroComponent implements OnInit {
   passwordsMatch = true;
   emailExists = false;
 
-  constructor(
-    private accountService: AccountService
-  ) { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +23,7 @@ export class CadastroComponent implements OnInit {
     
     this.submitted = true;
     
-    if(emailIsValid(email)) {
+    if(this.accountService.emailIsValid(email)) {
       this.emailIsValid = true;
     } else {
       this.emailIsValid = false;
