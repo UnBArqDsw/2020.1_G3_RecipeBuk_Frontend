@@ -10,16 +10,18 @@
         <div class="row">
             <form class="form">
                 <label>Nome</label>
-                <input #namebox type="text" class="form-control">
+                <input #namebox type="text" class="form-control" value="{{userName}}">
                 <div class="alert" *ngIf="(namebox.value == '')">Seu nome é nescessário</div>
                 <label>E-mail</label>
-                <input #emailbox type="text" class="form-control" value="{{fonk}}">
+                <input #emailbox type="text" class="form-control" value="{{userEmail}}">
                 <div class="alert" *ngIf="!emailIsValid">Este E-mail não é válido</div>
+                <label>Confirme a senha para editar</label>
+                <input #passwordbox type="text" class="form-control">
             </form>
         </div>
 
         <div class="row">
-            <a (click)="onSubmit(emailbox.value)"
+            <a (click)="onSubmit(namebox.value, emailbox.value, passwordbox.value)"
                 class="confirm-button">Confirmar</a>
         </div>
 
