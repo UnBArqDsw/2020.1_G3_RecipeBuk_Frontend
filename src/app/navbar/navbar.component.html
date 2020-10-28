@@ -1,17 +1,39 @@
 <nav>
 	<a href='/'><img class="logo" src="assets/logo.svg"></a>
-    <input placeholder="Pesquise aqui" (keyup)="onKey($event)">
+	<div class="search-bar">
+    	<input class="search-input" placeholder="Pesquise aqui" (keyup)="onKey($event)">
+		<div class="search-options">
+
+			<button class="options-button">Options</button>
+
+			<div class="options-content">
+				<div>
+					<input type="checkbox" id="third-party" name="third-party" checked>
+					<label for="third-party">Terceiros</label>
+				</div>
+				
+				<div>
+					<input type="checkbox" id="internal" name="internal">
+					<label for="internal">RecipeBuk</label>
+				</div>
+			</div>
+
+		</div>
+	</div>
     <div class="user-menu">
     	<img src="assets/book.svg" class="recipe-book-icon">
     	<div class="dropdown-menu">
+
 	    	<button class="dropdown-button">
 	    		<img src="assets/person.svg">
 	    		<span>[USERNAME]</span>
 	    	</button>
+
 	    	<div class="dropdown-content" tabindex="1">
 	    		<button (click)="goto('/perfil')">Editar contar</button>
 	    		<button>Sair</button>
 	    	</div>
+
 	    </div>
     </div>
 </nav>

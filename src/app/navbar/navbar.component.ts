@@ -8,10 +8,12 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  searchTerm : string;
 
   constructor(private searchService: SearchService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.searchService.sharedTerm.subscribe(searchTerm => this.searchTerm = searchTerm);
   }
 
   onKey(e: any) {
