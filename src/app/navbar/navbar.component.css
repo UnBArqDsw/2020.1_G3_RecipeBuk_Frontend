@@ -5,6 +5,8 @@ nav {
 	align-items: center;
 	grid-template-columns: 20% 60% 20%;
 	background-color: #233F57;
+	margin: 0;
+	padding: 0;
 }
 
 .search-bar {
@@ -26,6 +28,7 @@ nav {
 
 .search-options {
 	width: 10%;
+	min-width: 4rem;
 	height: 100%;
 	position: relative;
 }
@@ -96,35 +99,51 @@ nav {
 nav .logo {
 	grid-column: 1;
 	width: 4.2rem;
-	margin-left: 2.5rem;
+	max-width: 80%;
+	margin-left: 2.075vw;
 }
 
 .user-menu {
 	height: 100%;
 	display: flex;
 	grid-column: 3;
-	justify-self: end;
 	align-items: center;
-	margin-right: 2.5rem;
+	margin-right: 2.075vw;
+	justify-content: space-around;
+	width: 100%;
 }
 
 .recipe-book-icon {
-	margin-right: 2.5rem;
+	/*margin-right: 10%;*/
 	cursor: pointer;
 }
 
 .dropdown-button {
 	background-color: transparent;
-	font-size: 1rem;
+	font-size: 0.83vw;
 	outline: none;
 	color: #E2725B;
 	border: none;
 	height: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .dropdown-button span {
 	margin-left: 0.5em;
+	font-size: 1rem;
 	cursor: pointer;
+}
+
+@media only screen and (max-width:999px) {
+	.dropdown-button span {
+		width: 0;
+		display: none;
+	}
+
+	.dropdown-button img {
+		max-width: 100%;
+	}
 }
 
 .dropdown-button span, .dropdown-button img {
@@ -139,8 +158,11 @@ nav .logo {
 	background-color: transparent;
 	flex-direction: column;
 	position: absolute;
-	display: none;
-	width: 100%;
+	display: flex;
+	width: 101%;
+	height: 0;
+	overflow: hidden;
+	transition: height 0.5s;
 }
 
 .dropdown-content button {
@@ -157,5 +179,5 @@ nav .logo {
 }
 
 .dropdown-menu:focus-within .dropdown-content {
-	display: flex !important;
+	height: 5rem;
 }
