@@ -8,13 +8,23 @@
 
 			<div class="options-content">
 				<div>
-					<input type="checkbox" id="third-party" name="third-party" [checked]="searchTargets[0]" (change)="forwardTarget(0, $event)">
-					<label for="third-party">Terceiros</label>
+					<div class="input-div">
+						<input type="checkbox" id="third-party" name="third-party" [checked]="searchTargets[0]" (change)="forwardTarget(0, $event)">
+					</div>
+
+					<div class="label-div">
+						<label for="third-party">Terceiros</label>
+					</div>
 				</div>
 				
 				<div>
-					<input type="checkbox" id="internal" name="internal" [checked]="searchTargets[1]" (change)="forwardTarget(1, $event)">
-					<label for="internal">RecipeBuk</label>
+					<div class="input-div">
+						<input type="checkbox" id="internal" name="internal" [checked]="searchTargets[1]" (change)="forwardTarget(1, $event)">
+					</div>
+
+					<div class="label-div">
+						<label for="internal">RecipeBuk</label>
+					</div>
 				</div>
 			</div>
 

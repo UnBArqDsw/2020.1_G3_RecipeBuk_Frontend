@@ -68,6 +68,7 @@ nav {
 }
 
 .options-content div {
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -76,10 +77,25 @@ nav {
 	font-size: 0.8rem;
 }
 
+.input-div {
+	width: 30%;
+}
+
+.label-div {
+	width: 70%;
+}
+
+.options-content div input {
+	position: absolute;
+	width: 100%;
+}
+
 .options-content div label {
 	color: #E2725B !important;
 	pointer-events: none;
 	user-select: none;
+	width: 100%;
+	word-wrap: break-word;
 }
 
 .options-content input[type="checkbox"] {
