@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
+import { MinhasReceitasComponent } from './minhas-receitas/minhas-receitas.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     SenhaComponent,
 	  PesquisaComponent,
 	  NavbarComponent,
-	  PerfilComponent
+    PerfilComponent,
+    MinhasReceitasComponent
   ],
   imports: [
     FormsModule,
