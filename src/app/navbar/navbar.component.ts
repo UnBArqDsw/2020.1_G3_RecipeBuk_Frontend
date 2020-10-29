@@ -9,6 +9,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class NavbarComponent implements OnInit {
   searchTerm : string;
+  searchTargets = [true, false];
 
   constructor(private searchService: SearchService, private router: Router) { }
 
@@ -29,8 +30,11 @@ export class NavbarComponent implements OnInit {
   }
 
   goto(target : string) {
-    console.log(target)
     this.router.navigateByUrl(target);
   }
 
+  forwardTarget(checkbox, change) {
+    this.searchTargets[checkbox] = change.target.checked;
+    this.searchService.nextTargets(this.searchTargets);
+  }
 }
