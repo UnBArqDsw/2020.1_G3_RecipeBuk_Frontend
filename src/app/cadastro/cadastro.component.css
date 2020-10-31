@@ -3,22 +3,6 @@
     width: 50%;
 }
 
-.proxima {
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 20%;
-	background-color:#E2725B;
-	border-radius:15px;
-	display:inline-block;
-	cursor:pointer;
-	color:#FFF9F4;
-	font-family:Arial;
-	font-size:17px;
-	padding:16px 31px;
-	text-decoration:none;
-}
-
 h1 {
     margin: 2%;
     font-size:32px;

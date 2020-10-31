@@ -1,0 +1,84 @@
+nav {
+	display: grid;
+	height: 4rem;
+	width: 100%;
+	align-items: center;
+	grid-template-columns: 20% 60% 20%;
+	background-color: #233F57;
+}
+
+nav input {
+	width: 83%;
+	height: 45px;
+	border: none;
+	margin: auto;
+	grid-column: 2;
+	text-align: center;
+}
+
+nav .logo {
+	grid-column: 1;
+	width: 4.2rem;
+	margin-left: 2.5rem;
+}
+
+.user-menu {
+	height: 100%;
+	display: flex;
+	grid-column: 3;
+	justify-self: end;
+	align-items: center;
+	margin-right: 2.5rem;
+}
+
+.recipe-book-icon {
+	margin-right: 2.5rem;
+	cursor: pointer;
+}
+
+.dropdown-button {
+	background-color: transparent;
+	font-size: 1rem;
+	outline: none;
+	color: #E2725B;
+	border: none;
+	height: 100%;
+}
+
+.dropdown-button span {
+	margin-left: 0.5em;
+	cursor: pointer;
+}
+
+.dropdown-button span, .dropdown-button img {
+	vertical-align: middle;
+}
+
+.dropdown-menu {
+	position: relative;
+}
+
+.dropdown-content {
+	background-color: transparent;
+	flex-direction: column;
+	position: absolute;
+	display: none;
+	width: 100%;
+}
+
+.dropdown-content button {
+	background-color: #233F57;
+	cursor: pointer;
+	color: #E2725B;
+	height: 2.5rem;
+	outline: none;
+	border: none;
+}
+
+.dropdown-content button:hover {
+	filter: brightness(1.2);
+}
+
+.dropdown-menu:focus-within .dropdown-content {
+	display: flex !important;
+}

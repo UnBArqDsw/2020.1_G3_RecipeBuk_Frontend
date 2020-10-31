@@ -20,6 +20,9 @@ import { TesteSalvarReceitasComponent } from './cadastro-receitas/teste-salvar-r
 import { SenhaComponent } from './senha/senha.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +32,14 @@ import { HttpClientModule } from '@angular/common/http';
     CadastroReceitasComponent,
     TesteSalvarReceitasComponent,
     SenhaComponent,
-	  PesquisaComponent
+	  PesquisaComponent,
+	  NavbarComponent,
+	  PerfilComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,

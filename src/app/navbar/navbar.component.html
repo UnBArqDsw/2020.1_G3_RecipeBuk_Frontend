@@ -1,0 +1,17 @@
+<nav>
+	<a href='/'><img class="logo" src="assets/logo.svg"></a>
+    <input placeholder="Pesquise aqui" (keyup)="onKey($event)">
+    <div class="user-menu">
+    	<img src="assets/book.svg" class="recipe-book-icon">
+    	<div class="dropdown-menu">
+	    	<button class="dropdown-button">
+	    		<img src="assets/person.svg">
+	    		<span>[USERNAME]</span>
+	    	</button>
+	    	<div class="dropdown-content" tabindex="1">
+	    		<button (click)="goto('/perfil')">Editar contar</button>
+	    		<button>Sair</button>
+	    	</div>
+	    </div>
+    </div>
+</nav>
