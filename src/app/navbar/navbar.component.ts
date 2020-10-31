@@ -9,12 +9,16 @@ import { AccountService } from '../services';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public userName = this.accountService.userValue.name;
-
+  public userName 
+  
   constructor(
     private searchService: SearchService,
     private router: Router,
-    private accountService: AccountService) { }
+    private accountService: AccountService) {
+      if(this.accountService.userValue) {
+        this.userName = this.accountService.userValue.name;
+      }
+    }
 
   ngOnInit(): void {
     // this.userName = this.accountService.userValue
@@ -35,6 +39,10 @@ export class NavbarComponent implements OnInit {
   goto(target : string) {
     console.log(target)
     this.router.navigateByUrl(target);
+  }
+
+  logout() {
+    this.accountService.logout();
   }
 
 }
