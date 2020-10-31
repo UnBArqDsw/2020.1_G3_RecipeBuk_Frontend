@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { AccountService } from 'src/app/services';
-import { first } from 'rxjs/operators';
-
-function emailIsValid(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-}
 
 @Component({
   selector: 'app-login',
@@ -25,11 +20,7 @@ export class LoginComponent implements OnInit {
   onSubmit(email, password) {
     this.submitted = true;
 
-    if (emailIsValid(email)) {
-      this.emailIsValid = true;
-    } else {
-      this.emailIsValid = false;
-    }
+    this.emailIsValid = this.accountService.emailIsValid(email);
 
     if ((!(password == '') && !this.emailIsValid) || password == '' || !this.emailIsValid) {
       console.log('login falhou');

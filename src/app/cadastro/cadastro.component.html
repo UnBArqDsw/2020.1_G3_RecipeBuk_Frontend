@@ -1,46 +1,48 @@
-<html>
-    <div class='container'>   
-        <div class='column'>
-            <div class='row'>
-                <img src="../../assets/logo.png" alt="logo" class='logo'>
-            </div>
-            <div class='row'>
-                <h1>Criar sua conta</h1>
-            </div>
-            <div class='row' style='align-items: center; margin-top: 15px;'>
-                <img src="../../assets/btn_google_signin_light_normal_web@2x.png" alt="logo" class='social-button'>
+<div class='container'>
+    <div class='column'>
+        <div class='row'>
+            <img src="../../assets/lolzeira.png" alt="logo" class='logo'>
+        </div>
+        <div class='row'>
+            <h1>Criar sua conta</h1>
+        </div>
+        <div class='row' style='align-items: center; margin-top: 15px;'>
+            <img src="../../assets/btn_google_signin_light_normal_web@2x.png" alt="logo" class='social-button'>
+            <img src="../../assets/17639236_1785253958471956_282550797298827264_n.png" alt="logo" class='social-button'>
+
+        </div>
+        <!-- <div class='row'>
                 <img src="../../assets/17639236_1785253958471956_282550797298827264_n.png" alt="logo" class='social-button'>
-            
-            </div>
-             <div class='row'>
-                <img src="../../assets/17639236_1785253958471956_282550797298827264_n.png" alt="logo" class='social-button'>
-            </div> 
-            <div class='row'>
-                <hr><p style="margin:1em">Ou</p><hr>
-            </div>
-            <div class='row'>
-                <form class='form' >
-                    <label>Seu nome</label>
-                    <input #namebox type="text" class="form-control">
-                    <div class="alert" *ngIf="(namebox.value == '') && (submitted == true)">Seu nome é nescessário</div>
-                    <label>Seu E-mail</label>
-                    <input #emailbox type="text" class="form-control">
-                    <div class="alert" *ngIf="emailExists">Já existe uma conta com esse E-mail</div>
-                    <div class="alert" *ngIf="!emailIsValid">Este E-mail não é válido</div>
-                    <label>Senha</label>
-                    <input #passwordbox type="password" class="form-control" >
-                    <label>Confirmar senha</label>
-                    <input #confirmpasswordbox class='input' type="password" id="lname" name="lname">
-                    <div class="alert" *ngIf="!passwordsMatch">As senhas não são iguais</div>
-                    <div class="alert" *ngIf="(passwordbox.value == '') && passwordsMatch && (submitted == true)">É nescessário uma senha</div>
-                  </form>
-            </div>
-            <div class="row">
-                <a (click)="onSubmit(namebox.value, emailbox.value, passwordbox.value, confirmpasswordbox.value)" class="proxima">Criar Conta</a>
-            </div>
-            <div class="row">
-                <a class="link" href="/login">Já tenho uma conta</a>
-            </div>
+            </div> -->
+        <div class='row'>
+            <hr>
+            <p style="margin:1em">Ou</p>
+            <hr>
+        </div>
+        <div class='row'>
+            <form class='form'>
+                <label>Seu nome</label>
+                <input #namebox type="text" class="form-control">
+                <div class="alert" *ngIf="(namebox.value == '') && (submitted == true)">Seu nome é nescessário</div>
+                <label>Seu E-mail</label>
+                <input #emailbox type="text" class="form-control">
+                <div class="alert" *ngIf="emailExists">Já existe uma conta com esse E-mail</div>
+                <div class="alert" *ngIf="!emailIsValid">Este E-mail não é válido</div>
+                <label>Senha</label>
+                <input #passwordbox type="password" class="form-control">
+                <label>Confirmar senha</label>
+                <input #confirmpasswordbox class='input' type="password" id="lname" name="lname">
+                <div class="alert" *ngIf="!passwordsMatch">As senhas não são iguais</div>
+                <div class="alert" *ngIf="(passwordbox.value == '') && passwordsMatch && (submitted == true)">É
+                    nescessário uma senha</div>
+            </form>
+        </div>
+        <div class="row">
+            <a (click)="onSubmit(namebox.value, emailbox.value, passwordbox.value, confirmpasswordbox.value)"
+                class="confirm-button">Criar Conta</a>
+        </div>
+        <div class="row">
+            <a class="link" href="/login">Já tenho uma conta</a>
         </div>
     </div>
-</html> 
+</div>
