@@ -20,6 +20,5 @@ export class SearchService {
 
     nextTargets(targets : any) {
     	this.searchTargets.next(targets);
-        console.log(this.sharedTargets)
     }
 }
