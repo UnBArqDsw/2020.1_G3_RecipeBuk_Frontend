@@ -11,10 +11,11 @@ import { environment } from 'src/environments/environment';
 })
 export class PesquisaComponent implements OnInit { 
   searchTerm : string;
+  searchTargets = [];
   resultsArray : Object = [];
   selectedTab = 0;
   targetTab = {results: []};
-  
+
   constructor(private searchService: SearchService, private router: Router, private http: HttpClient, private cdr : ChangeDetectorRef) {  }
     
   ngOnInit(): void {
@@ -24,6 +25,8 @@ export class PesquisaComponent implements OnInit {
 	  		this.updateResults();
   		}
   	});
+
+    this.searchService.sharedTargets.subscribe(sharedTargets => this.searchTargets = sharedTargets);
 
   	let q;
   	if((q = this.router.url.match(/\?q=(.*)/)[1])) {
@@ -37,7 +40,15 @@ export class PesquisaComponent implements OnInit {
   }
 
   updateResults() {
-  	this.http.get(`${environment.apiUrl}/search?q=${encodeURIComponent(this.searchTerm)}`).subscribe((res : any[]) => {
+    let apiUrl = `${environment.apiUrl}/search?q=${encodeURIComponent(this.searchTerm)}`;
+
+    if(this.searchTargets[0])
+      apiUrl += '&thirdparty';
+
+    if(this.searchTargets[1])
+      apiUrl += '&internal';
+
+  	this.http.get(apiUrl).subscribe((res : any[]) => {
 
   		this.resultsArray = res.filter((result) => {
   			return !result.error;
