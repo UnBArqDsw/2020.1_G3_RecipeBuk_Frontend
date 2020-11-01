@@ -8,10 +8,13 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  searchTerm : string;
+  searchTargets = [true, false];
 
   constructor(private searchService: SearchService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.searchService.sharedTerm.subscribe(searchTerm => this.searchTerm = searchTerm);
   }
 
   onKey(e: any) {
@@ -27,8 +30,11 @@ export class NavbarComponent implements OnInit {
   }
 
   goto(target : string) {
-    console.log(target)
     this.router.navigateByUrl(target);
   }
 
+  forwardTarget(checkbox, change) {
+    this.searchTargets[checkbox] = change.target.checked;
+    this.searchService.nextTargets(this.searchTargets);
+  }
 }

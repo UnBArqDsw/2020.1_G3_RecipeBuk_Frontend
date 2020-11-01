@@ -1,0 +1,134 @@
+<body>
+    <h1>Cadastrar Receita</h1>
+    <div class="row">
+        <form class="tp-container">  
+            <div class="column left">
+                <label><i class="fa fa-pencil"></i> Nome da Receita </label>
+                <input 
+                    placeholder="Ex.: Bolo de Banana"
+                    [(ngModel)]= "name"
+                    name="name"
+                    aria-label="Nome da Receita"
+                    appearance = "outline"
+                >
+                <br>
+
+                <label><i class="fa fa-shopping-basket"></i> Ingredientes </label>
+                <div class="row" *ngFor="let obj of ingredientsArray">
+                    <input
+                        placeholder="1"
+                        appearance ="outline"
+                        type="number"
+                        min="1"
+                        name="qty"
+                        [(ngModel)]= "qty"
+                        class="column one"
+                    >
+
+                    <input
+                        placeholder="Ex.: Xícara"
+                        appearance ="outline"
+                        name="type"
+                        [(ngModel)]= "type"
+                        class="column two"
+                    >
+
+                    <input
+                        placeholder="Ex.: Farinha"
+                        aria-label="Ingrediente 1"
+                        appearance ="outline"
+                        name="ingredient"
+                        [(ngModel)]= "ingredient"
+                        class="column three"
+                    >
+                </div>
+                
+                <span>
+                    <button class="btn" aria-label="Adicionar mais ingredientes" (click)="addIngredient()" type="button">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Adicionar ingredientes
+                    </button>
+                </span>
+                <br>
+            
+                <label><i class="fa fa-utensils"></i> Modo de Preparo </label>
+                <textarea                
+                    matInput 
+                    placeholder="Preparo"
+                    name="steps"
+                    [(ngModel)]= "steps"
+                    aria-label="Modo de Preparo"
+                    rows="7"    
+                ></textarea>
+            </div>
+            <br>
+            
+            <div class="column right">
+                <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
+                <input                
+                    placeholder="Tempo Preparo"
+                    name="time"
+                    [(ngModel)]= "time"
+                    aria-label="Tempo de Preparo"
+                    appearance = "outline"
+                >
+                <br>
+
+                <label><i class="fa fa-chart-pie"></i> Rendimento </label>
+                <input                
+                    placeholder="Rendimento"
+                    name="portions"
+                    [(ngModel)]= "portions"
+                    aria-label="Rendimento"
+                    type="number"
+                    min="0"
+                    appearance = "outline"
+                >
+                <br>
+
+                <label><i class="fa fa-flag"></i> Categoria </label>
+                <select style="display: inline-block">
+                    <option 
+                        *ngFor="let name of categoryRecipeEnumOptions"
+                        [value]="name"
+                        [label]="categoryRecipeEnum[name]">
+                    </option>
+                </select>
+
+                <br>
+
+                <button class="btn" aria-label="Adicionar foto" type="button">
+                    <i class="fa fa-image"></i>
+                    Adicionar foto
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="row save" >
+        <button class="btn center" (click)= "save()"> Salvar </button>
+    </div>
+
+    
+
+    <!--TESTE SALVAR 
+    <section>
+        <mat-list>
+            <mat-list-item *ngFor= "let receita of receitas">
+                <p mat-line>
+                    <app-teste-salvar-receitas
+                        [name]= "receita.name"
+                        [qty]= "receita.qty"
+                        [type]= "receita.type"
+                        [ingredient]= "receita.ingredient"
+                        [steps]= "receita.steps"
+                        [time]= "receita.time"
+                        [portions]= "receita.portions"
+                        [category]= "receita.category"
+                    >
+                    </app-teste-salvar-receitas>
+                </p>
+            </mat-list-item>
+        </mat-list>
+    </section>-->
+</body>
