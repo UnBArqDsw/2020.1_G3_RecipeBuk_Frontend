@@ -10,6 +10,8 @@ import { AccountService } from '../services';
 })
 export class NavbarComponent implements OnInit {
   public userName 
+  searchTerm : string;
+  searchTargets = [true, false];
   
   constructor(
     private searchService: SearchService,
@@ -20,8 +22,9 @@ export class NavbarComponent implements OnInit {
       }
     }
 
-  ngOnInit(): void {
-    // this.userName = this.accountService.userValue
+
+  ngOnInit() {
+    this.searchService.sharedTerm.subscribe(searchTerm => this.searchTerm = searchTerm);
   }
 
   onKey(e: any) {
@@ -37,7 +40,6 @@ export class NavbarComponent implements OnInit {
   }
 
   goto(target : string) {
-    console.log(target)
     this.router.navigateByUrl(target);
   }
 
@@ -45,4 +47,8 @@ export class NavbarComponent implements OnInit {
     this.accountService.logout();
   }
 
+  forwardTarget(checkbox, change) {
+    this.searchTargets[checkbox] = change.target.checked;
+    this.searchService.nextTargets(this.searchTargets);
+  }
 }
