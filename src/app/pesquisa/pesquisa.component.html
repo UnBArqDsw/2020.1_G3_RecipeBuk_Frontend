@@ -20,18 +20,14 @@
 
     <div class="recipe_results">
         <div *ngFor="let recipe of targetTab.results">
-
             <div class="recipe_card">
             	<a href={{recipe.link}} target="_blank">
                     <img src={{recipe.img_url}} />
                     <h2>{{recipe.title}}</h2>
                 </a>
                 <div class="icons">
-                    <label><i class="fa fa-heart"></i></label>
+                    <label (click)="favorite(recipe.link)"><i class="fa fa-heart"></i></label>
                     <label><i class="fa fa-share-alt"></i></label>
-                    <svg>
-                        <use xlink:href="#share" />
-                    </svg>
                 </div>
             </div>
 

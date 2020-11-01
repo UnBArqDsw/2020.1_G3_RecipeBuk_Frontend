@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {SearchService} from 'src/app/services/search.service';
+import { SearchService } from 'src/app/services/search.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -60,5 +60,16 @@ export class PesquisaComponent implements OnInit {
 
   		this.changeTab(0);
   	});
+  }
+
+  getUserSession(){
+	  return "340f7a541a3711ebadc10242ac120002";
+  }
+
+  favorite(recipeLink) {
+	console.log("Chamou");
+	this.http.post(`${environment.apiUrl}/favorite`, {auth: this.getUserSession(), recipeLink: recipeLink}).subscribe((res: any[]) => {
+		console.log(res);
+	});
   }
 }

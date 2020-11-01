@@ -105,35 +105,33 @@ hr {
     margin-top: 1vw;
 }
 
-.icons {
-    display: inline-block;
+.icons label {
+    font-size: 2vw;
+    margin: 0;
+    padding-right: 0;
+    border: none;
+    border-radius: 0;
+
+    /* display: inline-block;
     right: 0;
     bottom: 0;
     position: absolute;
     margin: 0 !important;
     padding: 0;
     margin-right: 0.5vw !important;
-    margin-bottom: 0.5vw !important;
+    margin-bottom: 0.5vw !important; */
 }
 
-.icons svg {
-    width: 2vw;
-    height: 2vw;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-}
-
-.icons svg:last-child {
+.icons label:last-child {
     margin-left: 0.8vw;
 }
 
-.icons svg:hover {
-    fill: #E2725B;
+.icons label:hover {
+    color: #E2725B;
+    cursor: pointer;
 }
 
-.icons svg:active {
+.icons label:active {
     fill: #1C3144;
 }
 
