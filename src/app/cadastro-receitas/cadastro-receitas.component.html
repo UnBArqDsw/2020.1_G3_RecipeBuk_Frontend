@@ -1,15 +1,18 @@
 <body>
     <h1>Cadastrar Receita</h1>
-    <div class="row">
-        <form class="tp-container">  
+    <div class="row form-group">
+        <form [formGroup]="form" class="tp-container">  
+            <input type="hidden"/>
+
             <div class="column left">
                 <label><i class="fa fa-pencil"></i> Nome da Receita </label>
                 <input 
                     placeholder="Ex.: Bolo de Banana"
-                    [(ngModel)]= "name"
+                    formControlName= "name"
                     name="name"
                     aria-label="Nome da Receita"
                     appearance = "outline"
+                    class="form-control"
                 >
                 <br>
 
@@ -21,16 +24,16 @@
                         type="number"
                         min="1"
                         name="qty"
-                        [(ngModel)]= "qty"
-                        class="column one"
+                        formControlName= "qty"
+                        class="column one form-control"
                     >
 
                     <input
                         placeholder="Ex.: Xícara"
                         appearance ="outline"
                         name="type"
-                        [(ngModel)]= "type"
-                        class="column two"
+                        formControlName= "type"
+                        class="column two form-control"
                     >
 
                     <input
@@ -38,8 +41,8 @@
                         aria-label="Ingrediente 1"
                         appearance ="outline"
                         name="ingredient"
-                        [(ngModel)]= "ingredient"
-                        class="column three"
+                        formControlName= "ingredient"
+                        class="column three form-control"
                     >
                 </div>
                 
@@ -56,9 +59,10 @@
                     matInput 
                     placeholder="Preparo"
                     name="steps"
-                    [(ngModel)]= "steps"
+                    formControlName="steps"
                     aria-label="Modo de Preparo"
-                    rows="7"    
+                    rows="7"
+                    class="form-control"
                 ></textarea>
             </div>
             <br>
@@ -68,9 +72,10 @@
                 <input                
                     placeholder="Tempo Preparo"
                     name="time"
-                    [(ngModel)]= "time"
+                    formControlName= "time"
                     aria-label="Tempo de Preparo"
-                    appearance = "outline"
+                    appearance ="outline"
+                    class="form-control"
                 >
                 <br>
 
@@ -78,11 +83,12 @@
                 <input                
                     placeholder="Rendimento"
                     name="portions"
-                    [(ngModel)]= "portions"
+                    formControlName= "portions"
                     aria-label="Rendimento"
                     type="number"
                     min="0"
-                    appearance = "outline"
+                    appearance ="outline"
+                    class="form-control"
                 >
                 <br>
 
@@ -91,7 +97,11 @@
                     <option 
                         *ngFor="let name of categoryRecipeEnumOptions"
                         [value]="name"
-                        [label]="categoryRecipeEnum[name]">
+                        [label]="categoryRecipeEnum[name]"
+                        formControlName= "category"
+                        name="category"
+                        class="form-control"
+                        >
                     </option>
                 </select>
 
