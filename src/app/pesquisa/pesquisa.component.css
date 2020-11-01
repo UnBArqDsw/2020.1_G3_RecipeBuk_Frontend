@@ -103,23 +103,28 @@ hr {
     font-family: Roboto;
     text-align: center;
     margin-top: 1vw;
+    height: 70%;
+    line-height: 1.5vw;
+    overflow: hidden;
 }
 
-.icons label {
-    font-size: 2vw;
-    margin: 0;
-    padding-right: 0;
-    border: none;
-    border-radius: 0;
-
-    /* display: inline-block;
+.icons {
+    display: inline-block;
     right: 0;
     bottom: 0;
     position: absolute;
     margin: 0 !important;
     padding: 0;
     margin-right: 0.5vw !important;
-    margin-bottom: 0.5vw !important; */
+    margin-bottom: 0.5vw !important;
+}
+
+.icons label {
+    font-size: 2vw;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
 }
 
 .icons label:last-child {
@@ -128,11 +133,6 @@ hr {
 
 .icons label:hover {
     color: #E2725B;
-    cursor: pointer;
-}
-
-.icons label:active {
-    fill: #1C3144;
 }
 
 .result-tabs {

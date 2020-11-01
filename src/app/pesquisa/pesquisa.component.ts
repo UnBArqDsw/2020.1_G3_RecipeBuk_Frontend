@@ -66,10 +66,7 @@ export class PesquisaComponent implements OnInit {
 	  return "340f7a541a3711ebadc10242ac120002";
   }
 
-  favorite(recipeLink) {
-	console.log("Chamou");
-	this.http.post(`${environment.apiUrl}/favorite`, {auth: this.getUserSession(), recipeLink: recipeLink}).subscribe((res: any[]) => {
-		console.log(res);
-	});
+  favorite(recipelink) {
+  	this.http.post(`${environment.apiUrl}/favorite`, {auth: this.getUserSession(), recipelink: recipelink}).subscribe((res: any[]) => { });
   }
 }

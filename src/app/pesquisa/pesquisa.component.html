@@ -23,8 +23,8 @@
             <div class="recipe_card">
             	<a href={{recipe.link}} target="_blank">
                     <img src={{recipe.img_url}} />
-                    <h2>{{recipe.title}}</h2>
                 </a>
+                <a href={{recipe.link}} target="_blank"><h2>{{recipe.title}}</h2></a>
                 <div class="icons">
                     <label (click)="favorite(recipe.link)"><i class="fa fa-heart"></i></label>
                     <label><i class="fa fa-share-alt"></i></label>
