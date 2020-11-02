@@ -130,7 +130,7 @@ export class PesquisaComponent implements OnInit {
 
   favorite(recipe) {
   	this.http.post(`${environment.apiUrl}/favorite`, {auth: this.getUserSession(), recipelink: recipe.link}).subscribe((res: any[]) => { 
-      recipe.favorited = true;
+      recipe.favorited = !recipe.favorited;
     });
   }
 }
