@@ -36,12 +36,12 @@
 
 	    	<button class="dropdown-button">
 	    		<img src="assets/person.svg">
-	    		<span>[USERNAME]</span>
+	    		<span>{{userName}}</span>
 	    	</button>
 
 	    	<div class="dropdown-content" tabindex="1">
 	    		<button (click)="goto('/perfil')">Editar contar</button>
-	    		<button>Sair</button>
+	    		<button (click)="logout()">Sair</button>
 	    	</div>
 
 	    </div>
