@@ -5,6 +5,7 @@ import { CadastroComponent } from './cadastro/cadastro.component'
 import { PesquisaComponent } from './pesquisa/pesquisa.component'
 import { SenhaComponent } from './senha/senha.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'senha', component: SenhaComponent },
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: 'visualizar-receitas', component: VisualizarReceitasComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
 ];
 

@@ -1,0 +1,146 @@
+<body>
+    <h1>Receita X</h1>
+    <div class="row form-group">
+        <!-- [formGroup]="form"-->
+        <form class="tp-container">  
+            <input type="hidden"/>
+            <div class="column left">
+                <label><i class="fa fa-pencil"></i> Nome da Receita </label>
+                <!-- <input 
+                    placeholder="Ex.: Bolo de Banana"
+                    formControlName= "name"
+                    name="name"
+                    aria-label="Nome da Receita"
+                    appearance = "outline"
+                    class="form-control"
+                > -->
+                <br>
+
+                <label><i class="fa fa-shopping-basket"></i> Ingredientes </label>
+                <!--<div class="row" *ngFor="let obj of ingredientsArray">
+                    <input
+                        placeholder="1"
+                        appearance ="outline"
+                        type="number"
+                        min="1"
+                        name="qty"
+                        formControlName= "qty"
+                        class="column one form-control"
+                    >
+
+                    <input
+                        placeholder="Ex.: Xícara"
+                        appearance ="outline"
+                        name="type"
+                        formControlName= "type"
+                        class="column two form-control"
+                    >
+
+                    <input
+                        placeholder="Ex.: Farinha"
+                        aria-label="Ingrediente 1"
+                        appearance ="outline"
+                        name="ingredient"
+                        formControlName= "ingredient"
+                        class="column three form-control"
+                    >
+                </div> -->
+                <!--(click)="addIngredient()-->
+
+                <span>
+                    <button class="btn" aria-label="Adicionar mais ingredientes" type="button">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Adicionar ingredientes
+                    </button>
+                </span>
+                <br>
+            
+                <label><i class="fa fa-utensils"></i> Modo de Preparo </label>
+                <textarea                
+                    matInput 
+                    placeholder="Preparo"
+                    name="steps"
+                    formControlName="steps"
+                    aria-label="Modo de Preparo"
+                    rows="7"
+                    class="form-control"
+                ></textarea>
+            </div>
+            <br>
+            
+            <div class="column right">
+                <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
+                <input                
+                    placeholder="Tempo Preparo"
+                    name="time"
+                    formControlName= "time"
+                    aria-label="Tempo de Preparo"
+                    appearance ="outline"
+                    class="form-control"
+                >
+                <br>
+
+                <label><i class="fa fa-chart-pie"></i> Rendimento </label>
+                <input                
+                    placeholder="Rendimento"
+                    name="portions"
+                    formControlName= "portions"
+                    aria-label="Rendimento"
+                    type="number"
+                    min="0"
+                    appearance ="outline"
+                    class="form-control"
+                >
+                <br>
+
+                <label><i class="fa fa-flag"></i> Categoria </label>
+                <select style="display: inline-block">
+                    <!--<option 
+                        *ngFor="let name of categoryRecipeEnumOptions"
+                        [value]="name"
+                        [label]="categoryRecipeEnum[name]"
+                        formControlName= "category"
+                        name="category"
+                        class="form-control"
+                        >
+                    </option> -->
+                </select>
+
+                <br>
+
+                <button class="btn" aria-label="Adicionar foto" type="button">
+                    <i class="fa fa-image"></i>
+                    Adicionar foto
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <!--(click)= "save()"-->
+    <div class="row save" >
+        <button class="btn center"> Salvar </button>
+    </div>
+
+    
+
+    <!--TESTE SALVAR 
+    <section>
+        <mat-list>
+            <mat-list-item *ngFor= "let receita of receitas">
+                <p mat-line>
+                    <app-teste-salvar-receitas
+                        [name]= "receita.name"
+                        [qty]= "receita.qty"
+                        [type]= "receita.type"
+                        [ingredient]= "receita.ingredient"
+                        [steps]= "receita.steps"
+                        [time]= "receita.time"
+                        [portions]= "receita.portions"
+                        [category]= "receita.category"
+                    >
+                    </app-teste-salvar-receitas>
+                </p>
+            </mat-list-item>
+        </mat-list>
+    </section>-->
+</body>

@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
+import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,14 +25,18 @@ import { PerfilComponent } from './perfil/perfil.component';
     SenhaComponent,
 	  PesquisaComponent,
 	  NavbarComponent,
-	  PerfilComponent
+    PerfilComponent,
+    VisualizarReceitasComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
