@@ -72,10 +72,12 @@ select {
 }
 
 .save {
-    padding-bottom: 50px;
     padding-right: 64%;
 }
 
+.delete{
+    padding-right: 50%;
+}
 
 button:hover {
     transform: scale(1.05);
