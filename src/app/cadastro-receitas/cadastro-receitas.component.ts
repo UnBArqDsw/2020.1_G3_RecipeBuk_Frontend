@@ -63,4 +63,10 @@ import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
         });
       }
     }
+
+    delete(){
+      if(this.receitas!=null){
+      this.receitas.splice(0, 8);
+      }
+    }
   }
