@@ -131,7 +131,16 @@ hr {
     margin-left: 0.8vw;
 }
 
-.icons label:hover {
+.icons label i {
+    transition: 0.25s;
+}
+
+.icons label i:hover {
+    transform-origin: center;
+    transform: scale(1.2);
+}
+
+.favorited-heart {
     color: #E2725B;
 }
 
