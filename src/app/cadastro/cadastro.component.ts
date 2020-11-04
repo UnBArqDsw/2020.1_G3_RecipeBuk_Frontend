@@ -46,7 +46,7 @@ export class CadastroComponent implements OnInit {
       console.log('cadastro realizado');
       this.router.navigate(['/login']);
     }).catch((e) => {
-      console.log('cadastro falhou');
+      console.log('cadastro falhou', e);
       this.emailExists = true;
       this.loading = false;
     });

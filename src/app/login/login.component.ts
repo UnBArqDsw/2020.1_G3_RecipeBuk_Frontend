@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AccountService } from 'src/app/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   emailIsValid = true;
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -30,9 +31,9 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.accountService.login(email, password).then(() => {
       console.log('login realizado');
+      this.router.navigate(['/']);
     }).catch((e) => {
       console.log('login falhou', e);
     })
   }
-
 }
