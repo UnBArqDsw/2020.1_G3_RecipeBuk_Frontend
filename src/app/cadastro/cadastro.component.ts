@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountService} from 'src/app/services';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -13,7 +14,7 @@ export class CadastroComponent implements OnInit {
   passwordsMatch = true;
   emailExists = false;
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -43,11 +44,11 @@ export class CadastroComponent implements OnInit {
     this.loading = true;
     this.accountService.register(name, email, password).then(() => {
       console.log('cadastro realizado');
+      this.router.navigate(['/login']);
     }).catch((e) => {
-      console.log('cadastro falhou',);
+      console.log('cadastro falhou');
       this.emailExists = true;
       this.loading = false;
     });
   }
-
 }
