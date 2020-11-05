@@ -9,18 +9,18 @@ import { AccountService } from '../services';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public userName;
+  userName: string;
   searchTerm : string;
   searchTargets = [true, false];
-  public logged;
+  isUserLoggedIn: boolean;
   
   constructor(
     private searchService: SearchService,
     private router: Router,
     private accountService: AccountService) {
       if(this.accountService.userValue) {
+        this.isUserLoggedIn = false;
         this.userName = this.accountService.userValue.name;
-        this.logged = true;
       }
     }
 

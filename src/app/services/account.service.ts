@@ -78,6 +78,7 @@ export class AccountService {
             this.firebaseService.firebase.auth().signOut().then(function () {
                 localStorage.removeItem('user');
                 this.userSubject.next(null);
+                this.isUserLoggedIn.next(false);
                 console.log('sign out successful')
                 resolve("sign out successful");
             }).catch(function (e) {

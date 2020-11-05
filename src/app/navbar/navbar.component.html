@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div class="user-menu">
-		<ng-container *ngIf="logged; else DisconnectedBlock">
+		<ng-container *ngIf="isUserLoggedIn; else DisconnectedBlock">
 			<a href="/receitas"><img src="assets/book.svg" class="recipe-book-icon"></a>
 			<div class="dropdown-menu">
 				<button class="dropdown-button">
@@ -45,7 +45,8 @@
 			</div>
 		</ng-container>
 		<ng-template #DisconnectedBlock>
-			<h1>BOTÕES QUANDO NAO ESTÁ LOGADO</h1>
+			<a href="/login"><img src="assets/book.svg" class="recipe-book-icon"></a>
+			<a href="/login"><img src="assets/person.svg"><span>Login</span></a>
 		</ng-template>
 	</div>
 </nav>

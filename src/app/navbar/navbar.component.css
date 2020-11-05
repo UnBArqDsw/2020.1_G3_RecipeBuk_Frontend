@@ -129,6 +129,16 @@ nav .logo {
 	width: 100%;
 }
 
+.user-menu a {
+	color: #FFF9F4;
+}
+
+.user-menu span {
+	margin-left: 0.5em;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
 .recipe-book-icon {
 	/*margin-right: 10%;*/
 	cursor: pointer;

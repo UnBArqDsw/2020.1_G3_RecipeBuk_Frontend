@@ -24,6 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AccountService } from './services';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AccountService,
+  ],
   entryComponents: [
     CadastroReceitasComponent,
   ],
