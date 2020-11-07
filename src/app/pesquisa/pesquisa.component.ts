@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SearchService } from 'src/app/services/search.service';
 import { environment } from 'src/environments/environment';
+import * as Cookie from 'js-cookie';
 
 @Component({
   selector: 'app-pesquisa',
@@ -117,7 +118,7 @@ export class PesquisaComponent implements OnInit {
   }
 
   getUserSession(){
-	  return "340f7a541a3711ebadc10242ac120002";
+	  return Cookie.get('USER_SESSION');
   }
 
   async getFavorites() {
