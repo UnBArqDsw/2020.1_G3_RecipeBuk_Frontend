@@ -9,13 +9,10 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class AppComponent {
   title = 'app';
-  searchTerm : string;
 
-  constructor(private searchService: SearchService, private router: Router) { }
+  constructor() { }
 
-  ngOnInit() {
-  	this.searchService.sharedTerm.subscribe(searchTerm => this.searchTerm = searchTerm);
-  }
+  ngOnInit() {}
 
   
 }

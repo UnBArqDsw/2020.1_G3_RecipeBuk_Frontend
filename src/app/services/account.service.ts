@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-// import  * as firebase from 'firebase' ;
 
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models';
 import { FirebaseService } from './firebase.service';
+// import { resolve } from 'dns';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -20,7 +20,6 @@ export class AccountService {
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
-        console.log('lol', this.userValue);
     }
 
     public get userValue(): User {
@@ -31,21 +30,47 @@ export class AccountService {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
-    login(email, password) {
+    update(user) {
+        const saveUser = (user) => {
+            localStorage.setItem('user', JSON.stringify(user));
+            this.userSubject.next(user);
+        }
+
         return new Promise((resolve, reject) => {
-            this.firebaseService.firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
-                const user = new User('', email, '');
-                console.log("Usuário logado")
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                resolve(user);
-            }).catch(function (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log(errorMessage);
-                reject(errorMessage);
+            console.log('tan')
+            this.http.post(`${environment.apiUrl}/updateUser`, user).subscribe({
+                next(res) {
+                    console.log('donmo')
+                    saveUser(res['Message']);
+                    resolve(res);
+                },
+                error(e) {
+                    console.log('asdedmeeeee')
+                    reject(e);
+                }
             });
-        })
+        });
+    }
+
+    login(email, password) {
+        const saveUser = (user) => {
+            localStorage.setItem('user', JSON.stringify(user));
+            this.userSubject.next(user);
+        }
+
+        return new Promise((resolve, reject) => {
+            var user = new User('', email, password);
+            this.http.post(`${environment.apiUrl}/login`, user).subscribe({
+                next(res) {
+                    console.log("Usuário logado", res)
+                    saveUser(res['Message']);
+                    resolve();
+                },
+                error(e) {
+                    reject(e);
+                }
+            });
+        });
     }
 
     logout() {

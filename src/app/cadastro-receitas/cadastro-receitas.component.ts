@@ -77,6 +77,10 @@ export class CadastroReceitasComponent implements OnInit {
         category: this.recipe.category,
       });
     }
-    console.log(this.recipe);
+
+    delete(){
+      if(this.recipesList!=null){
+      this.recipesList.splice(0, 8);
+      }
+    }
   }
-}
