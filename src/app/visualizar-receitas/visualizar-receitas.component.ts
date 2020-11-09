@@ -9,7 +9,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class VisualizarReceitasComponent implements OnInit {
-  
+  searchRecipe : string;
+  searchIngredient : string;
+  searchPreparationMode : string;
+  searchTime : string;
+  searchYield : string;
+  searchCategory : string;
 
   constructor() {
     form: FormGroup;
