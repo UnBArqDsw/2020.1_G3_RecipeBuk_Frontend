@@ -13,6 +13,7 @@
                     aria-label="Nome da Receita"
                     appearance = "outline"
                     class="form-control"
+                    required
                 >
                 <br>
 
@@ -26,6 +27,7 @@
                         name="qty"
                         formControlName= "qty"
                         class="column one form-control"
+                        required
                     >
 
                     <input
@@ -34,6 +36,7 @@
                         name="type"
                         formControlName= "type"
                         class="column two form-control"
+                        required
                     >
 
                     <input
@@ -43,6 +46,7 @@
                         name="ingredient"
                         formControlName= "ingredient"
                         class="column three form-control"
+                        required
                     >
                 </div>
                 
@@ -63,6 +67,7 @@
                     aria-label="Modo de Preparo"
                     rows="7"
                     class="form-control"
+                    required
                 ></textarea>
             </div>
             <br>
@@ -74,8 +79,11 @@
                     name="time"
                     formControlName= "time"
                     aria-label="Tempo de Preparo"
+                    type="number"
+                    min="0"
                     appearance ="outline"
                     class="form-control"
+                    required
                 >
                 <br>
 
@@ -89,18 +97,23 @@
                     min="0"
                     appearance ="outline"
                     class="form-control"
+                    required
                 >
                 <br>
 
                 <label><i class="fa fa-flag"></i> Categoria </label>
-                <select style="display: inline-block">
+                <select 
+                    style="display: inline-block"
+                    name="category"
+                    formControlName= "category"
+                    class="form-control"
+                    >
                     <option 
-                        *ngFor="let name of categoryRecipeEnumOptions"
-                        [value]="name"
-                        [label]="categoryRecipeEnum[name]"
-                        formControlName= "category"
-                        name="category"
-                        class="form-control"
+                        aria-label="Categoria"
+                        *ngFor="let category of categoryRecipeEnumOptions"
+                        [value]="category"
+                        [label]="categoryRecipeEnum[category]"
+                        required
                         >
                     </option>
                 </select>
@@ -121,26 +134,5 @@
 
     <div class="row delete" >
         <button class="btn center" (click)= "delete()"> Deletar </button>
-    </div>
-<!--TESTE SALVAR 
-    <section>
-        <mat-list>
-            <mat-list-item *ngFor= "let receita of receitas">
-                <p mat-line>
-                    <app-teste-salvar-receitas
-                        [name]= "receita.name"
-                        [qty]= "receita.qty"
-                        [type]= "receita.type"
-                        [ingredient]= "receita.ingredient"
-                        [steps]= "receita.steps"
-                        [time]= "receita.time"
-                        [portions]= "receita.portions"
-                        [category]= "receita.category"
-                    >
-                    </app-teste-salvar-receitas>
-                </p>
-            </mat-list-item>
-        </mat-list>
-    </section>-->
-    
+    </div>    
 </body>
