@@ -1,0 +1,122 @@
+body{
+    background-color: #F2EFE9;
+}
+
+.tp-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 70%;
+}
+
+label {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Roboto';
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #E2725B;
+    font-size: 30px;
+}
+
+input {
+    width: flex;
+}
+
+textarea {
+    font-family: 'Arial';
+    color: #1C3144;
+    outline: none;
+    min-width: 100%;
+    width: flex;
+    margin: 8px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #1C3144;
+    border-radius: 8px;
+    background-color:#F2EFE9;
+    resize: vertical;
+}
+
+select {
+    font-family: 'Arial';
+    color: #1C3144;
+    outline: none;
+    min-width: 100%;
+    width: flex;
+    margin: 8px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #1C3144;
+    border-radius: 8px;
+    background-color:#F2EFE9;
+}
+
+/* button configs */
+.btn {
+    background-color: #E2725B; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 5px;
+}
+
+.center {
+    margin: auto ;
+}
+
+.save {
+    padding-bottom: 50px;
+    padding-right: 64%;
+}
+
+
+button:hover {
+    transform: scale(1.05);
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+/* 2 columns page */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left {
+    width: 70%;
+}
+
+.right {
+    width: 30%;
+}
+
+/* ingredients columns */
+.one {
+    width: 10%;
+    margin-right:10px;
+}
+
+.two {
+    width: 20%;
+    margin-right:10px;
+}
+
+.three {
+    width: 70%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

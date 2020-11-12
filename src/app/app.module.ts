@@ -22,6 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
+import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
@@ -34,7 +37,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     SenhaComponent,
 	  PesquisaComponent,
 	  NavbarComponent,
-	  PerfilComponent,
+    PerfilComponent,
+    VisualizarReceitasComponent,
 	  HomepageComponent
   ],
   imports: [
@@ -42,17 +46,6 @@ import { HomepageComponent } from './homepage/homepage.component';
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatGridListModule,
-    MatListModule,
-    ReactiveFormsModule,
-    HttpClientModule
   ],
   providers: [],
   entryComponents: [
