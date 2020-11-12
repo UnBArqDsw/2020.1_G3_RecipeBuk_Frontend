@@ -6,7 +6,7 @@ export class Recipe {
     public name: string;
     public ingredients: Ingredients;
     public steps: string;
-    public time: string;
+    public time: number;
     public portions: number;
     public visibility: boolean;
     public category: CategoryRecipeEnum;

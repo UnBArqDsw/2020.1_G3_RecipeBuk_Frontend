@@ -1,15 +1,19 @@
 <body>
     <h1>Cadastrar Receita</h1>
-    <div class="row">
-        <form class="tp-container">  
+    <div class="row form-group">
+        <form [formGroup]="form" class="tp-container">  
+            <input type="hidden"/>
+
             <div class="column left">
                 <label><i class="fa fa-pencil"></i> Nome da Receita </label>
                 <input 
                     placeholder="Ex.: Bolo de Banana"
-                    [(ngModel)]= "name"
+                    formControlName= "name"
                     name="name"
                     aria-label="Nome da Receita"
                     appearance = "outline"
+                    class="form-control"
+                    required
                 >
                 <br>
 
@@ -21,16 +25,18 @@
                         type="number"
                         min="1"
                         name="qty"
-                        [(ngModel)]= "qty"
-                        class="column one"
+                        formControlName= "qty"
+                        class="column one form-control"
+                        required
                     >
 
                     <input
                         placeholder="Ex.: Xícara"
                         appearance ="outline"
                         name="type"
-                        [(ngModel)]= "type"
-                        class="column two"
+                        formControlName= "type"
+                        class="column two form-control"
+                        required
                     >
 
                     <input
@@ -38,8 +44,9 @@
                         aria-label="Ingrediente 1"
                         appearance ="outline"
                         name="ingredient"
-                        [(ngModel)]= "ingredient"
-                        class="column three"
+                        formControlName= "ingredient"
+                        class="column three form-control"
+                        required
                     >
                 </div>
                 
@@ -56,9 +63,11 @@
                     matInput 
                     placeholder="Preparo"
                     name="steps"
-                    [(ngModel)]= "steps"
+                    formControlName="steps"
                     aria-label="Modo de Preparo"
-                    rows="7"    
+                    rows="7"
+                    class="form-control"
+                    required
                 ></textarea>
             </div>
             <br>
@@ -68,9 +77,13 @@
                 <input                
                     placeholder="Tempo Preparo"
                     name="time"
-                    [(ngModel)]= "time"
+                    formControlName= "time"
                     aria-label="Tempo de Preparo"
-                    appearance = "outline"
+                    type="number"
+                    min="0"
+                    appearance ="outline"
+                    class="form-control"
+                    required
                 >
                 <br>
 
@@ -78,20 +91,30 @@
                 <input                
                     placeholder="Rendimento"
                     name="portions"
-                    [(ngModel)]= "portions"
+                    formControlName= "portions"
                     aria-label="Rendimento"
                     type="number"
                     min="0"
-                    appearance = "outline"
+                    appearance ="outline"
+                    class="form-control"
+                    required
                 >
                 <br>
 
                 <label><i class="fa fa-flag"></i> Categoria </label>
-                <select style="display: inline-block">
+                <select 
+                    style="display: inline-block"
+                    name="category"
+                    formControlName= "category"
+                    class="form-control"
+                    >
                     <option 
-                        *ngFor="let name of categoryRecipeEnumOptions"
-                        [value]="name"
-                        [label]="categoryRecipeEnum[name]">
+                        aria-label="Categoria"
+                        *ngFor="let category of categoryRecipeEnumOptions"
+                        [value]="category"
+                        [label]="categoryRecipeEnum[category]"
+                        required
+                        >
                     </option>
                 </select>
 
@@ -111,26 +134,5 @@
 
     <div class="row delete" >
         <button class="btn center" (click)= "delete()"> Deletar </button>
-    </div>
-<!--TESTE SALVAR 
-    <section>
-        <mat-list>
-            <mat-list-item *ngFor= "let receita of receitas">
-                <p mat-line>
-                    <app-teste-salvar-receitas
-                        [name]= "receita.name"
-                        [qty]= "receita.qty"
-                        [type]= "receita.type"
-                        [ingredient]= "receita.ingredient"
-                        [steps]= "receita.steps"
-                        [time]= "receita.time"
-                        [portions]= "receita.portions"
-                        [category]= "receita.category"
-                    >
-                    </app-teste-salvar-receitas>
-                </p>
-            </mat-list-item>
-        </mat-list>
-    </section>-->
-    
+    </div>    
 </body>

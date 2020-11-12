@@ -30,20 +30,22 @@
 
 		</div>
 	</div>
-    <div class="user-menu">
-    	<img src="assets/book.svg" class="recipe-book-icon">
-    	<div class="dropdown-menu">
-
-	    	<button class="dropdown-button">
-	    		<img src="assets/person.svg">
-	    		<span>{{userName}}</span>
-	    	</button>
-
-	    	<div class="dropdown-content" tabindex="1">
-	    		<button (click)="goto('/perfil')">Editar contar</button>
-	    		<button (click)="logout()">Sair</button>
-	    	</div>
-
-	    </div>
-    </div>
+	<div class="user-menu">
+		<ng-container *ngIf="logged; else DisconnectedBlock">
+			<a href="/receitas"><img src="assets/book.svg" class="recipe-book-icon"></a>
+			<div class="dropdown-menu">
+				<button class="dropdown-button">
+					<img src="assets/person.svg">
+					<span>{{userName}}</span>
+				</button>
+				<div class="dropdown-content" tabindex="1">
+					<button (click)="goto('/perfil')">Editar conta</button>
+					<button (click)="logout()">Sair</button>
+				</div>
+			</div>
+		</ng-container>
+		<ng-template #DisconnectedBlock>
+			<h1>BOTÕES QUANDO NAO ESTÁ LOGADO</h1>
+		</ng-template>
+	</div>
 </nav>

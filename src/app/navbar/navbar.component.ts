@@ -9,9 +9,10 @@ import { AccountService } from '../services';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public userName 
+  public userName;
   searchTerm : string;
   searchTargets = [true, false];
+  public logged;
   
   constructor(
     private searchService: SearchService,
@@ -19,6 +20,7 @@ export class NavbarComponent implements OnInit {
     private accountService: AccountService) {
       if(this.accountService.userValue) {
         this.userName = this.accountService.userValue.name;
+        this.logged = true;
       }
     }
 
