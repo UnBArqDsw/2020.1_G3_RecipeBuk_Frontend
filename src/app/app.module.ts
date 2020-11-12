@@ -38,7 +38,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 	  PesquisaComponent,
 	  NavbarComponent,
     PerfilComponent,
-    VisualizarReceitasComponent
+    VisualizarReceitasComponent,
 	  HomepageComponent
   ],
   imports: [
