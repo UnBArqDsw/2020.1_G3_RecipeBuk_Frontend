@@ -9,6 +9,8 @@ import { User } from 'src/app/models';
 import { FirebaseService } from './firebase.service';
 // import { resolve } from 'dns';
 
+import * as Cookie from 'js-cookie';
+
 @Injectable({ providedIn: 'root' })
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
@@ -30,22 +32,13 @@ export class AccountService {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
-    update(user) {
-        const saveUser = (user) => {
-            localStorage.setItem('user', JSON.stringify(user));
-            this.userSubject.next(user);
-        }
-
+    update(update_info) {
         return new Promise((resolve, reject) => {
-            console.log('tan')
-            this.http.post(`${environment.apiUrl}/updateUser`, user).subscribe({
+            this.http.post(`${environment.apiUrl}/updateUser`, {...update_info, auth: Cookie.get('USER_SESSION')}).subscribe({
                 next(res) {
-                    console.log('donmo')
-                    saveUser(res['Message']);
                     resolve(res);
                 },
                 error(e) {
-                    console.log('asdedmeeeee')
                     reject(e);
                 }
             });
@@ -53,18 +46,18 @@ export class AccountService {
     }
 
     login(email, password) {
-        const saveUser = (user) => {
-            localStorage.setItem('user', JSON.stringify(user));
-            this.userSubject.next(user);
-        }
-
         return new Promise((resolve, reject) => {
             var user = new User('', email, password);
             this.http.post(`${environment.apiUrl}/login`, user).subscribe({
-                next(res) {
-                    console.log("Usuário logado", res)
-                    saveUser(res['Message']);
-                    resolve();
+                next(res : any) {
+                    if(res.error)
+                        reject(res);
+
+                    else {
+                        console.log("Usuário logado", res);
+                        Cookie.set('USER_SESSION', res.user_session, {expires: 7, path: '/'});
+                        resolve();
+                    }
                 },
                 error(e) {
                     reject(e);
@@ -75,15 +68,20 @@ export class AccountService {
 
     logout() {
         return new Promise((resolve, reject) => {
-            this.firebaseService.firebase.auth().signOut().then(function () {
-                localStorage.removeItem('user');
-                this.userSubject.next(null);
-                this.isUserLoggedIn.next(false);
-                console.log('sign out successful')
-                resolve("sign out successful");
-            }).catch(function (e) {
-                console.log(e);
-                reject(e);
+            this.http.post(`${environment.apiUrl}/logout`, {auth: Cookie.get('USER_SESSION')}).subscribe({
+                next(res : any) {
+                    if(res.error)
+                        reject(res);
+
+                    else {
+                        console.log("Usuário deslogado", res);
+                        Cookie.remove('USER_SESSION', {path: '/'});
+                        resolve();
+                    }
+                },
+                error(e) {
+                    reject(e);
+                }
             });
         });
     }

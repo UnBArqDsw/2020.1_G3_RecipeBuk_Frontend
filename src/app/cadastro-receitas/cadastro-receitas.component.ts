@@ -1,72 +1,107 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
 import { Ingredients } from '../models/ingredients'
 import { CategoryRecipeEnum } from '../models/category-recipe.enum';
 import { Recipe } from '../models/recipe';
-import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
-//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RecipeService } from '../services/recipe.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-cadastro-receitas',
     templateUrl: './cadastro-receitas.component.html',
     styleUrls: ['./cadastro-receitas.component.css']
-  })
+})
 
-  export class CadastroReceitasComponent implements OnInit {
-    ingredients = new Ingredients();
-    ingredientsArray = [];
-    recipe: Recipe;
-    categoryRecipeEnum = CategoryRecipeEnum;
-    categoryRecipeEnumOptions = [];
-    botaoSalvar= true;
-    receitas: ICadastroReceitas[] = [];
-    name: string;
-    qty: number;
-    type: string;
-    ingredient: string;
-    steps: string;
-    time: string;
-    portions: number;
-    category: string; 
-    editReceitas: ICadastroReceitas = null;
+export class CadastroReceitasComponent implements OnInit {
+  form: FormGroup;
+  formValue = null;
+  ingredients = new Ingredients();
+  ingredientsArray = [];
+  recipe: Recipe;
+  recipesList: Recipe[] = [];
+  categoryRecipeEnum = CategoryRecipeEnum;
+  categoryRecipeEnumOptions = [];
+  editReceitas: Recipe = null;
 
-    constructor() { }
-
-    ngOnInit(): void {
-      this.ingredientsArray.push(this.ingredients);
-      this.categoryRecipeEnumOptions = Object.keys(this.categoryRecipeEnum);
+  constructor(
+    private formBuilder: FormBuilder,
+    private recipeService: RecipeService,
+  ) {
+      this.form = this.formBuilder.group({
+        name: this.formBuilder.control('', Validators.required),
+        qty: this.formBuilder.control(null, Validators.required),
+        type: this.formBuilder.control('', Validators.required),
+        ingredient: this.formBuilder.control('', Validators.required),
+        steps: this.formBuilder.control('', Validators.required),
+        time: this.formBuilder.control(null, Validators.required),
+        portions: this.formBuilder.control(null, Validators.required),
+        category: this.formBuilder.control(''),
+      })
     }
 
-    addIngredient(){
-      this.ingredients = new Ingredients();
-      this.ingredientsArray.push(this.ingredients);
+  public setFormValue(value: object): void {
+    this.formValue = value;
+  }
 
-      console.log(this.ingredientsArray);
-    }
+  ngOnInit(): void {
+    this.ingredientsArray.push(this.ingredients);
+    this.categoryRecipeEnumOptions = Object.keys(this.categoryRecipeEnum);
 
-    save(){
-      if(this.editReceitas==null){
-        this.receitas.push({
-          name: this.name,
-          qty: this.qty,
-          type: this.type, 
-          ingredient: this.ingredient,
-          steps: this.steps,
-          time: this.time,
-          portions: this.portions,
-          category: this.category
-        });
-      }
-    }
-
-    delete(){
-      if(this.receitas!=null){
-      this.receitas.splice(0, 8);
-      }
+    if (this.formValue) {
+      this.form.setValue({
+        name: new FormControl(),
+        qty: new FormControl(),
+        type: new FormControl(), 
+        ingredient: new FormControl(),
+        steps: new FormControl(),
+        time: new FormControl(),
+        portions: new FormControl(),
+        category: new FormControl(),
+      })
     }
   }
+
+  addIngredient(){
+    this.ingredients = new Ingredients();
+    this.ingredientsArray.push(this.ingredients);
+
+    console.log(this.ingredientsArray);
+  }
+
+  getUserSession(){
+	  return "340f7a541a3711ebadc10242ac120002";
+  }
+
+  save() {
+    if(this.formValue){
+      this.form.setValue({          
+        name: this.recipe.name,
+        qty: this.recipe.ingredients.qty,
+        type: this.recipe.ingredients.type, 
+        ingredient: this.recipe.ingredients.name,
+        steps: this.recipe.steps,
+        time: this.recipe.time,
+        portions: this.recipe.portions,
+        category: this.recipe.category,
+      });
+    }
+
+    console.log(this.form.value);
+    
+    const newRecipe: Recipe = Object.assign({}, this.recipe)
+    this.recipeService.create(newRecipe).subscribe(
+      (data: Recipe) => {
+        console.log(data);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  delete(): void {
+    if(this.recipesList!=null){
+    this.recipesList.splice(0, 8);
+    }
+  }
+}
