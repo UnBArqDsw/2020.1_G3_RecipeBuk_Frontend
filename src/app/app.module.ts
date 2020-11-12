@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     SenhaComponent,
 	  PesquisaComponent,
 	  NavbarComponent,
-	  PerfilComponent
+	  PerfilComponent,
+	  HomepageComponent
   ],
   imports: [
     FormsModule,
