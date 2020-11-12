@@ -1,26 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models';
-import { FirebaseService } from './firebase.service';
-// import { resolve } from 'dns';
-
 import * as Cookie from 'js-cookie';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' }) 
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
 
     constructor(
         private http: HttpClient,
-        private firebaseService: FirebaseService
     ) {
-        this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+        this.userSubject = new BehaviorSubject<User>(null);
         this.user = this.userSubject.asObservable();
     }
 
