@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SearchService } from 'src/app/services/search.service';
 import { environment } from 'src/environments/environment';
-import * as Cookie from 'js-cookie';
+import { AccountService } from 'src/app/services';
 
 @Component({
   selector: 'app-pesquisa',
@@ -17,7 +17,7 @@ export class PesquisaComponent implements OnInit {
   selectedTab = 0;
   targetTab = {results: []};
 
-  constructor(private searchService: SearchService, private router: Router, private http: HttpClient, private cdr : ChangeDetectorRef) {  }
+  constructor(private searchService: SearchService, private router: Router, private http: HttpClient, private cdr : ChangeDetectorRef, private account : AccountService) {  }
     
   ngOnInit(): void {
   	this.searchService.sharedTerm.subscribe(searchTerm => {
@@ -118,7 +118,7 @@ export class PesquisaComponent implements OnInit {
   }
 
   getUserSession(){
-	  return Cookie.get('USER_SESSION');
+	  return this.account.userSession;
   }
 
   async getFavorites() {

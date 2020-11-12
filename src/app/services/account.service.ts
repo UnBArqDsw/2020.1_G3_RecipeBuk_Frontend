@@ -17,15 +17,18 @@ export class AccountService {
     public user: Observable<User>;
 
     constructor(
-        private http: HttpClient,
-        private firebaseService: FirebaseService
+        private http: HttpClient
     ) {
-        this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+        this.userSubject = new BehaviorSubject<User>(null);
         this.user = this.userSubject.asObservable();
     }
 
     public get userValue(): User {
         return this.userSubject.value;
+    }
+
+    public get userSession(): string {
+        return Cookie.get('USER_SESSION');
     }
 
     public emailIsValid (email) {
