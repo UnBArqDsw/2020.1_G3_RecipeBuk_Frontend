@@ -15,11 +15,8 @@ export class PerfilComponent implements OnInit {
 
   constructor(private accountService: AccountService) { }
 
-  ngOnInit(): void {
-    this.userEmail = this.accountService.userValue.email;
-    this.userName = this.accountService.userValue.name
-    console.log(this.accountService.userValue.email)
-  }
+  ngOnInit(): void {}
+
   ngOnChanges() {
     console.log('imgay');
   }
@@ -27,7 +24,7 @@ export class PerfilComponent implements OnInit {
   onSubmit(name, email, senha) {
     this.emailIsValid = this.accountService.emailIsValid(email);
     if(this.emailIsValid && senha != '') {
-      this.accountService.update({newUser: new User(name, email, senha), oldUser: this.accountService.userValue});
+      this.accountService.update({info: new User(name, email, null), password: senha});
       console.log('imgay');
     }
   }
