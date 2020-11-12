@@ -1,0 +1,138 @@
+<body>
+    <h1>Cadastrar Receita</h1>
+    <div class="row form-group">
+        <form [formGroup]="form" class="tp-container">  
+            <input type="hidden"/>
+
+            <div class="column left">
+                <label><i class="fa fa-pencil"></i> Nome da Receita </label>
+                <input 
+                    placeholder="Ex.: Bolo de Banana"
+                    formControlName= "name"
+                    name="name"
+                    aria-label="Nome da Receita"
+                    appearance = "outline"
+                    class="form-control"
+                    required
+                >
+                <br>
+
+                <label><i class="fa fa-shopping-basket"></i> Ingredientes </label>
+                <div class="row" *ngFor="let obj of ingredientsArray">
+                    <input
+                        placeholder="1"
+                        appearance ="outline"
+                        type="number"
+                        min="1"
+                        name="qty"
+                        formControlName= "qty"
+                        class="column one form-control"
+                        required
+                    >
+
+                    <input
+                        placeholder="Ex.: Xícara"
+                        appearance ="outline"
+                        name="type"
+                        formControlName= "type"
+                        class="column two form-control"
+                        required
+                    >
+
+                    <input
+                        placeholder="Ex.: Farinha"
+                        aria-label="Ingrediente 1"
+                        appearance ="outline"
+                        name="ingredient"
+                        formControlName= "ingredient"
+                        class="column three form-control"
+                        required
+                    >
+                </div>
+                
+                <span>
+                    <button class="btn" aria-label="Adicionar mais ingredientes" (click)="addIngredient()" type="button">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Adicionar ingredientes
+                    </button>
+                </span>
+                <br>
+            
+                <label><i class="fa fa-utensils"></i> Modo de Preparo </label>
+                <textarea                
+                    matInput 
+                    placeholder="Preparo"
+                    name="steps"
+                    formControlName="steps"
+                    aria-label="Modo de Preparo"
+                    rows="7"
+                    class="form-control"
+                    required
+                ></textarea>
+            </div>
+            <br>
+            
+            <div class="column right">
+                <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
+                <input                
+                    placeholder="Tempo Preparo"
+                    name="time"
+                    formControlName= "time"
+                    aria-label="Tempo de Preparo"
+                    type="number"
+                    min="0"
+                    appearance ="outline"
+                    class="form-control"
+                    required
+                >
+                <br>
+
+                <label><i class="fa fa-chart-pie"></i> Rendimento </label>
+                <input                
+                    placeholder="Rendimento"
+                    name="portions"
+                    formControlName= "portions"
+                    aria-label="Rendimento"
+                    type="number"
+                    min="0"
+                    appearance ="outline"
+                    class="form-control"
+                    required
+                >
+                <br>
+
+                <label><i class="fa fa-flag"></i> Categoria </label>
+                <select 
+                    style="display: inline-block"
+                    name="category"
+                    formControlName= "category"
+                    class="form-control"
+                    >
+                    <option 
+                        aria-label="Categoria"
+                        *ngFor="let category of categoryRecipeEnumOptions"
+                        [value]="category"
+                        [label]="categoryRecipeEnum[category]"
+                        required
+                        >
+                    </option>
+                </select>
+
+                <br>
+
+                <button class="btn" aria-label="Adicionar foto" type="button">
+                    <i class="fa fa-image"></i>
+                    Adicionar foto
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="row save" >
+        <button class="btn center" (click)= "save()"> Salvar </button>
+    </div>
+
+    <div class="row delete" >
+        <button class="btn center" (click)= "delete()"> Deletar </button>
+    </div>    
+</body>

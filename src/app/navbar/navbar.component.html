@@ -1,17 +1,51 @@
 <nav>
 	<a href='/'><img class="logo" src="assets/logo.svg"></a>
-    <input placeholder="Pesquise aqui" (keyup)="onKey($event)">
-    <div class="user-menu">
-    	<img src="assets/book.svg" class="recipe-book-icon">
-    	<div class="dropdown-menu">
-	    	<button class="dropdown-button">
-	    		<img src="assets/person.svg">
-	    		<span>[USERNAME]</span>
-	    	</button>
-	    	<div class="dropdown-content" tabindex="1">
-	    		<button (click)="goto('/perfil')">Editar contar</button>
-	    		<button>Sair</button>
-	    	</div>
-	    </div>
-    </div>
+	<div class="search-bar">
+    	<input class="search-input" placeholder="Pesquise aqui" (keyup)="onKey($event)">
+		<div class="search-options">
+
+			<button class="options-button">Options</button>
+
+			<div class="options-content">
+				<div>
+					<div class="input-div">
+						<input type="checkbox" id="third-party" name="third-party" [checked]="searchTargets[0]" (change)="forwardTarget(0, $event)">
+					</div>
+
+					<div class="label-div">
+						<label for="third-party">Terceiros</label>
+					</div>
+				</div>
+				
+				<div>
+					<div class="input-div">
+						<input type="checkbox" id="internal" name="internal" [checked]="searchTargets[1]" (change)="forwardTarget(1, $event)">
+					</div>
+
+					<div class="label-div">
+						<label for="internal">RecipeBuk</label>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="user-menu">
+		<ng-container *ngIf="logged; else DisconnectedBlock">
+			<a href="/receitas"><img src="assets/book.svg" class="recipe-book-icon"></a>
+			<div class="dropdown-menu">
+				<button class="dropdown-button">
+					<img src="assets/person.svg">
+					<span>{{userName}}</span>
+				</button>
+				<div class="dropdown-content" tabindex="1">
+					<button (click)="goto('/perfil')">Editar conta</button>
+					<button (click)="logout()">Sair</button>
+				</div>
+			</div>
+		</ng-container>
+		<ng-template #DisconnectedBlock>
+			<h1>BOTÕES QUANDO NAO ESTÁ LOGADO</h1>
+		</ng-template>
+	</div>
 </nav>

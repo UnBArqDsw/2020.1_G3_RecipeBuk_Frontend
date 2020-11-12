@@ -103,6 +103,9 @@ hr {
     font-family: Roboto;
     text-align: center;
     margin-top: 1vw;
+    height: 70%;
+    line-height: 1.5vw;
+    overflow: hidden;
 }
 
 .icons {
@@ -116,25 +119,29 @@ hr {
     margin-bottom: 0.5vw !important;
 }
 
-.icons svg {
-    width: 2vw;
-    height: 2vw;
+.icons label {
+    font-size: 2vw;
     margin: 0;
     padding: 0;
     border: none;
     border-radius: 0;
 }
 
-.icons svg:last-child {
+.icons label:last-child {
     margin-left: 0.8vw;
 }
 
-.icons svg:hover {
-    fill: #E2725B;
+.icons label i {
+    transition: 0.25s;
 }
 
-.icons svg:active {
-    fill: #1C3144;
+.icons label i:hover {
+    transform-origin: center;
+    transform: scale(1.2);
+}
+
+.favorited-heart {
+    color: #E2725B;
 }
 
 .result-tabs {

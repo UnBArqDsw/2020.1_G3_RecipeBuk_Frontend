@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from 'src/app/services/search.service';
+import { AccountService } from '../services';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,24 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  public userName;
+  searchTerm : string;
+  searchTargets = [true, false];
+  public logged;
+  
+  constructor(
+    private searchService: SearchService,
+    private router: Router,
+    private accountService: AccountService) {
+      if(this.accountService.userValue) {
+        this.userName = this.accountService.userValue.name;
+        this.logged = true;
+      }
+    }
 
-  constructor(private searchService: SearchService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.searchService.sharedTerm.subscribe(searchTerm => this.searchTerm = searchTerm);
   }
 
   onKey(e: any) {
@@ -27,8 +42,15 @@ export class NavbarComponent implements OnInit {
   }
 
   goto(target : string) {
-    console.log(target)
     this.router.navigateByUrl(target);
   }
 
+  logout() {
+    this.accountService.logout();
+  }
+
+  forwardTarget(checkbox, change) {
+    this.searchTargets[checkbox] = change.target.checked;
+    this.searchService.nextTargets(this.searchTargets);
+  }
 }

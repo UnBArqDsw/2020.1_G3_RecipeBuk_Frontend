@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountService} from 'src/app/services';
+import { User } from '../models';
 
 @Component({
   selector: 'app-perfil',
@@ -7,22 +8,24 @@ import {AccountService} from 'src/app/services';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  public fonk;
+  public userEmail;
+  public userName;
   public submitted;
   public emailIsValid = true;
 
   constructor(private accountService: AccountService) { }
 
-  ngOnInit(): void {
-    this.fonk = (this.accountService.userValue.email);
-    console.log(this.accountService.userValue.email)
-  }
+  ngOnInit(): void {}
+
   ngOnChanges() {
-    console.log('imgay')
+    console.log('imgay');
   }
 
-  onSubmit(email) {
-    this.emailIsValid = this.accountService.emailIsValid(email)
+  onSubmit(name, email, senha) {
+    this.emailIsValid = this.accountService.emailIsValid(email);
+    if(this.emailIsValid && senha != '') {
+      this.accountService.update({info: new User(name, email, null), password: senha});
+      console.log('imgay');
+    }
   }
-
 }
