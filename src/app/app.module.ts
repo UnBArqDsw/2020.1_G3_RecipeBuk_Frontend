@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { TesteSalvarReceitasComponent } from './cadastro-receitas/teste-salvar-receitas/teste-salvar-receitas.component';
 import { SenhaComponent } from './senha/senha.component';
@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
+import { MinhasReceitasComponent } from './minhas-receitas/minhas-receitas.component'
 import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,14 +39,27 @@ import { HomepageComponent } from './homepage/homepage.component';
 	  PesquisaComponent,
 	  NavbarComponent,
     PerfilComponent,
+    MinhasReceitasComponent,
     VisualizarReceitasComponent,
-	  HomepageComponent
+	  HomepageComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule, 
+    MatSelectModule, 
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatListModule,
+    HttpClientModule,
+    NoopAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   entryComponents: [

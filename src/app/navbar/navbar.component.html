@@ -27,7 +27,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<div class="user-menu">
@@ -45,7 +44,12 @@
 			</div>
 		</ng-container>
 		<ng-template #DisconnectedBlock>
-			<h1>BOTÕES QUANDO NAO ESTÁ LOGADO</h1>
+			<div class="dropdown-menu">
+				<button class="dropdown-button" (click)="goto('/login')">
+					<img src="assets/person.svg">
+					<span>Login</span>
+				</button>
+			</div>
 		</ng-template>
 	</div>
 </nav>

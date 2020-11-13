@@ -6,6 +6,7 @@ import { CadastroReceitasComponent } from './cadastro-receitas/cadastro-receitas
 import { PesquisaComponent } from './pesquisa/pesquisa.component'
 import { SenhaComponent } from './senha/senha.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { MinhasReceitasComponent } from './minhas-receitas/minhas-receitas.component'
 import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'senha', component: SenhaComponent },
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: 'receitas', component: MinhasReceitasComponent},
   { path: 'visualizar-receitas', component: VisualizarReceitasComponent },
   { path: 'homepage', component: HomepageComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
@@ -25,4 +27,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
