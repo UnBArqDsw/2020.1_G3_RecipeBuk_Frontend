@@ -20,6 +20,10 @@ export class AccountService {
     public get userValue(): User {
         return this.userSubject.value;
     }
+	
+	public get userSession(): string {
+		return Cookie.get('USER_SESSION');
+	}
 
     public emailIsValid (email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)

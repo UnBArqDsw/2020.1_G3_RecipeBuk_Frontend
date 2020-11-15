@@ -1,14 +1,14 @@
 <div class="main-container">
 	<h1>Criar Livro</h1>
 	
-	<form [formGroup]="form">
+	<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" ngNativeValidate>
 		<label>Título</label>
 		<input type="text" formControlName="title" name="title" arial-label="Título do livro" required>
 		
 		<label>Descrição</label>
 		<input type="text" formControlName="description" name="description" arial-label="Descrição do livro">
 		
-		<label>Visibilidade</label>
+		<label>Visível ao público</label>
 		<label class="switch">
 			<input type="checkbox" formControlName="visibility" name="visibility" arial-label="Visibilidade do livro">
 			<span class="slider"></span>
