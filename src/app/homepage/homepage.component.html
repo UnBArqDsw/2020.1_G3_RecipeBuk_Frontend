@@ -1,6 +1,86 @@
-<div class="homepage">
-    <div class="header">
-        <img src="/assets/logo.svg">
-        <h1>Bem-Vindo ao RecipeBük</h1>
-    </div>
-</div>
+<ng-container *ngIf="this.loggedIn; else defaultHomepage">
+	<div class="collection-container">
+		<div class="favorite-container">
+			<h1>Favoritos</h1>
+			<div class="my-favorites">
+				<div class="card favorite-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				<div class="card favorite-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				
+				<div class="card favorite-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				
+				<div class="card favorite-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				
+				<div class="card favorite-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				
+				<div class="card favorite-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="books-container">
+			<h1>Livros</h1>
+			<div class="my-books">
+				<div class="card book-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				<div class="card book-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				<div class="card book-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				<div class="card book-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				<div class="card book-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+				
+				<div class="card book-card">
+					<div class="card-image"></div>
+					<div class="card-info"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-container>
+
+<ng-template #defaultHomepage>
+	<div class="homepage">
+		<div class="header">
+			<img src="/assets/logo.svg">
+			<h1>Bem-Vindo ao RecipeBük</h1>
+		</div>
+	</div>
+</ng-template>

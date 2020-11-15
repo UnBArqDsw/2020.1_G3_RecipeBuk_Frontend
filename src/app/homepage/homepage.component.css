@@ -20,3 +20,48 @@
     font-style: bold;
     font-family: 'Pacifico', cursive;
 }
+
+.collection-container {
+	display: flex;
+	width: 100%;
+	height: calc(100% - 4rem);
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.favorite-container, .books-container {
+	text-align: center;
+	background-color: green;
+	width: 30%;
+}
+
+.my-favorites, .my-books {
+	background-color: red;
+	height: 90%;
+	overflow-y: scroll;
+	scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.my-favorites::-webkit-scrollbar, .my-books::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+.card {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	width: 28vw;
+	height: 10vw;
+	background-color: yellow;
+}
+
+.card-image {
+	width: 10vw;
+	height: 10vw;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: blue;
+}
