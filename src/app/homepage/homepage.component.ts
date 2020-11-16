@@ -10,20 +10,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomepageComponent implements OnInit {
 	loggedIn : boolean;
-	favorites : any;
-	books : any;
+	publicBooks : any = [];
+	privateBooks : any = [];
 
 	constructor(private accountService : AccountService, private http : HttpClient) {
 		this.loggedIn = accountService.isLoggedIn;
 	}
 
 	ngOnInit(): void {
-		this.http.post(`${environment.apiUrl}/getFavorites`, {auth: this.accountService.userSession}).subscribe((res: any[]) => {
-			this.favorites = res;
-		});
-		
 		this.http.post(`${environment.apiUrl}/getBooks`, {auth: this.accountService.userSession}).subscribe((res: any[]) => {
-			this.books = res;
+			for(let book of res) {
+				if(book.visibility)
+					this.publicBooks.push(book);
+					
+				else
+					this.privateBooks.push(book);
+			}
 		});
 	}
 }

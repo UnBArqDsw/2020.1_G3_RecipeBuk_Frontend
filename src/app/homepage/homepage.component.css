@@ -38,13 +38,13 @@
 	user-select: none;
 }
 
-.favorite-container, .books-container {
+.books-container {
 	text-align: center;
 	width: 35%;
 	border-radius: 5px;
 }
 
-.my-favorites, .my-books {
+.my-books {
 	background-color: #F0F0F0;
 	height: 90%;
 	overflow-y: scroll;
@@ -52,7 +52,7 @@
     -ms-overflow-style: none;
 }
 
-.my-favorites::-webkit-scrollbar, .my-books::-webkit-scrollbar {
+.my-books::-webkit-scrollbar {
 	width: 0;
 	height: 0;
 }
@@ -79,18 +79,6 @@
 	background-position: center;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
-}
-
-.favorite-card .card-info {
-	width: 18vw;
-	height: 100%;
-	overflow: hidden;
-	background-color: transparent;
-}
-
-.favorite-card .card-info h2 {
-	font-size: 1.8vw;
-	line-height: 1.8vw;
 }
 
 .card a {

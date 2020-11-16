@@ -1,16 +1,17 @@
 <ng-container *ngIf="this.loggedIn; else defaultHomepage">
 	<div class="collection-container">
-		<div class="favorite-container">
-			<h1>Favoritos</h1>
-			<div class="my-favorites">
-				<ng-container *ngFor="let favorite of this.favorites">
-					<div class="card favorite-card">
-						<a href={{favorite.recipelink}} target="_blank">
-							<div class="card-image" [ngStyle]="{'background-image': 'url(' + favorite.recipeimage + ')'}"></div>
-						</a>
-						<a href={{favorite.recipelink}} target="_blank">
+		<div class="books-container">
+			<h1>Livros Públicos</h1>
+			<div class="my-books">
+				<ng-container *ngFor="let book of this.publicBooks">
+					<div class="card book-card">
+						<a href="/book/{{book.bookid}}" target="_blank">
 							<div class="card-info">
-								<h2>{{favorite.recipetitle}}</h2>
+								<h2>{{book.title}}</h2>
+							</div>
+							
+							<div class="card-description">
+								<h3>{{book.description}}</h3>
 							</div>
 						</a>
 					</div>
@@ -19,9 +20,9 @@
 		</div>
 		
 		<div class="books-container">
-			<h1>Livros</h1>
+			<h1>Livros Privados</h1>
 			<div class="my-books">
-				<ng-container *ngFor="let book of this.books">
+				<ng-container *ngFor="let book of this.privateBooks">
 					<div class="card book-card">
 						<a href="/book/{{book.bookid}}" target="_blank">
 							<div class="card-info">
