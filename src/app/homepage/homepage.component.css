@@ -23,6 +23,7 @@
 
 .collection-container {
 	display: flex;
+	position: relative;
 	width: 100%;
 	height: calc(100% - 4rem);
 	flex-direction: row;
@@ -31,7 +32,7 @@
 
 .collection-container h1 {
 	color: #E2725B;
-	font-size: 48px;
+	font-size: 2.5vw;
 	margin-top: 1rem;
 	font-family: 'Roboto';
 	user-select: none;
@@ -123,4 +124,11 @@
 .card-description h3 {
 	font-size: 0.95vw;
 	font-family: 'Roboto';
+}
+
+.collection-container .logo {
+	position: absolute;
+	width: 10vw;
+	top: 50%;
+	user-select: none;
 }
