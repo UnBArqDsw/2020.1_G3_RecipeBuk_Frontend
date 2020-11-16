@@ -19,10 +19,12 @@
         <div class="recipes">
             <div class="recipe-card" *ngFor="let recipe of recipesList">
                 <div class="row">
-                    <img class="recipe-avatar column" src={{recipe.img_url}} />
+                    <a href={{recipe.link}}>
+                        <img class="recipe-avatar column" src={{recipe.img_url}} />
+                    </a>
                     <div class="column recipe-card-info">
                         <div class="row">
-                            <p class="recipe-title">{{recipe.title}}</p>
+                            <a href={{recipe.link}}><p class="recipe-title">{{recipe.title}}</p></a>
                         </div>
                         <div class="row icons">
                             <div class="icon column">
