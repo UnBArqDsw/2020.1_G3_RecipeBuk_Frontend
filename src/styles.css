@@ -19,6 +19,9 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background-color:#FFF9F4;
+}
 
 .container {
     width: 100%;

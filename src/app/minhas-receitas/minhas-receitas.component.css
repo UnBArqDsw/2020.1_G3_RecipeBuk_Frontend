@@ -1,7 +1,6 @@
 div {
     overflow-y: auto;
-    background-color: rgb(255, 249, 244);
-    
+    background-color: rgb(255, 249, 244);   
 }
 
 .header{
@@ -17,6 +16,7 @@ div {
     width: 150px;
     height: 150px;
 }
+
 .header h1{
     align-self: center;
     padding-top: 1rem;
@@ -25,6 +25,7 @@ div {
 }
 
 .recipes-area {
+    margin-top: 100px;
     border-style: solid;
     border-radius: 12px;
     display: flex;
@@ -67,7 +68,7 @@ div {
 
 .recipe-card{
     background-color: #FFFFFF;
-    width: 25%; 
+    width: 30%; 
     border-radius: 12px;
     margin: 17px;
     overflow: hidden;
@@ -82,18 +83,17 @@ div {
     transition-duration: 150ms;
 }
 
-.recipe-card img {
+.recipe-avatar {
     width: 40%;
-    border-radius: 10px;
     margin: 20px;
+    border-radius: 10px;
 }
 
-.recipe-card-info{
-    background-color: #FFFFFF;
-    flex: 1;
+.recipe-card-info {
+    display: flex;
 }
 
-.recipe-card-info h1{
+.recipe-card-info p{
     font-size: 12px;
     text-align: center;
     position: relative;
@@ -101,32 +101,25 @@ div {
     font-weight: bold;
 }
 
-.icons {
+.recipe-title {
+    font-size: 25px;
+    margin: 5%;
+}
+
+.icon-description {
     display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-    background-color: #FFFFFF;
+    font-size: 20px;
 }
 
-.icons img{
-    width: 30px;
-    height: 30px;
-    margin: 0;
+.icon {
+    width: 50%;
 }
 
-.icons  div{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 6rem;
-    /* height: 6rem; */
-    /* margin: 15px; */
-    background-color: #FFFFFF;
-    overflow: hidden;
+.icon img {
+    width: 30%;
+    align-self: center;
 }
 
-/* .icons h1 {
+.icon p {
     font-size: 12px;
-    margin: 0;
-} */
+}
