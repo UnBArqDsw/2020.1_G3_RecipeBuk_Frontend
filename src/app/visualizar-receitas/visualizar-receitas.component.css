@@ -1,5 +1,6 @@
-body{
-    background-color: #F2EFE9;
+.title {
+    font-family: Pacifico;
+    font-size: 3vw;
 }
 
 .tp-container {
@@ -10,7 +11,7 @@ body{
 }
 
 label {
-    font-size: 20px;
+    font-size: 1.5vw;
     line-height: 30px;
 }
 
@@ -119,4 +120,8 @@ button:hover {
     content: "";
     display: table;
     clear: both;
+}
+
+.info {
+    font-size: 1vw;
 }
