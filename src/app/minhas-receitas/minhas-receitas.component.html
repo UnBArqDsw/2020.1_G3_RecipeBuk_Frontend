@@ -1,4 +1,4 @@
-<div style="background-color: '#fff9f4';">
+<div>
     <div class="header">
         <img src="assets/book.svg" />
         <h1>Minhas Receitas</h1>
@@ -9,7 +9,6 @@
             <div class="tab" (click)="changeTab('minhas')" [ngStyle]="{'background-color': minhasColor}"><p>Minhas</p></div>
             <div class="tab" (click)="changeTab('favoritas')" [ngStyle]="{'background-color': favoritasColor}"><p>Favoritas</p></div>
         </div>
-        
         <div class="recipes">
             <div class="recipe-card" *ngFor="let recipe of recipesList">
                 <img src={{recipe.img_url}} />

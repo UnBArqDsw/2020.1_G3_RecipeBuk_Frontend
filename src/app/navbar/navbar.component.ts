@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from 'src/app/services/search.service';
 import { AccountService } from '../services';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +13,17 @@ export class NavbarComponent implements OnInit {
   public userName;
   searchTerm : string;
   searchTargets = [true, false];
-  public logged;
+  logged : boolean = false;
   
   constructor(
     private searchService: SearchService,
     private router: Router,
-    private accountService: AccountService) {
+    private accountService: AccountService,
+    private location: Location) {
       if(this.accountService.userValue) {
         this.userName = this.accountService.userValue.name;
+      }
+      if(this.accountService.userSession){
         this.logged = true;
       }
     }
@@ -47,6 +51,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    location.reload();
   }
 
   forwardTarget(checkbox, change) {
