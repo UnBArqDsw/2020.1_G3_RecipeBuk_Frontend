@@ -12,16 +12,13 @@ export class NavbarComponent implements OnInit {
   public userName;
   searchTerm : string;
   searchTargets = [true, false];
-  public logged;
+  loggedIn : boolean;
   
   constructor(
     private searchService: SearchService,
     private router: Router,
     private accountService: AccountService) {
-      if(this.accountService.userValue) {
-        this.userName = this.accountService.userValue.name;
-        this.logged = true;
-      }
+		this.loggedIn = this.accountService.isLoggedIn;
     }
 
 
