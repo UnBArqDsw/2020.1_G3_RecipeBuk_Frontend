@@ -81,7 +81,7 @@
 	border-bottom-left-radius: 5px;
 }
 
-.card a {
+.books-container a {
 	color: black;
 	text-decoration: none;
 }
@@ -119,4 +119,24 @@
 	width: 10vw;
 	top: 50%;
 	user-select: none;
+}
+
+.add-book-card {
+	background-color: transparent;
+	border: 0.5vw #E2725B dashed;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
+	box-shadow: none;
+}
+
+.add-book-card:hover {
+	filter: brightness(1.5);
+}
+
+.add-book-card h2 {
+	font-size: 2vw;
+	color: #E2725B;
 }
