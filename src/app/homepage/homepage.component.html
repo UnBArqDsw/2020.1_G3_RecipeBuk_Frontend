@@ -21,35 +21,19 @@
 		<div class="books-container">
 			<h1>Livros</h1>
 			<div class="my-books">
-				<div class="card book-card">
-					<div class="card-image"></div>
-					<div class="card-info"></div>
-				</div>
-				
-				<div class="card book-card">
-					<div class="card-image"></div>
-					<div class="card-info"></div>
-				</div>
-				
-				<div class="card book-card">
-					<div class="card-image"></div>
-					<div class="card-info"></div>
-				</div>
-				
-				<div class="card book-card">
-					<div class="card-image"></div>
-					<div class="card-info"></div>
-				</div>
-				
-				<div class="card book-card">
-					<div class="card-image"></div>
-					<div class="card-info"></div>
-				</div>
-				
-				<div class="card book-card">
-					<div class="card-image"></div>
-					<div class="card-info"></div>
-				</div>
+				<ng-container *ngFor="let book of this.books">
+					<div class="card book-card">
+						<a href="/book/{{book.bookid}}" target="_blank">
+							<div class="card-info">
+								<h2>{{book.title}}</h2>
+							</div>
+							
+							<div class="card-description">
+								<h3>{{book.description}}</h3>
+							</div>
+						</a>
+					</div>
+				</ng-container>
 			</div>
 		</div>
 	</div>

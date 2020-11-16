@@ -80,14 +80,14 @@
 	border-bottom-left-radius: 5px;
 }
 
-.card-info {
+.favorite-card .card-info {
 	width: 18vw;
 	height: 100%;
 	overflow: hidden;
 	background-color: transparent;
 }
 
-.card-info h2 {
+.favorite-card .card-info h2 {
 	font-size: 1.8vw;
 	line-height: 1.8vw;
 }
@@ -100,4 +100,27 @@
 .card:hover {
 	transform: scale(1.1, 1.1);
 	transform-origin: 50% 50%;
+}
+
+.book-card .card-info {
+	width: 28vw;
+	height: 1.8vw;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.book-card .card-info h2 {
+	font-size: 1.8vw;
+	line-height: 1.8vw;
+	border-bottom: 1px #F0F0F0 solid;
+}
+
+.book-card {
+	overflow-y: hidden;
+}
+
+.card-description h3 {
+	font-size: 0.95vw;
+	font-family: 'Roboto';
 }
