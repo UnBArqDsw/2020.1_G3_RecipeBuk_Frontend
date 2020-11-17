@@ -27,6 +27,7 @@ import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-re
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
+import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +37,13 @@ import { HomepageComponent } from './homepage/homepage.component';
     CadastroReceitasComponent,
     TesteSalvarReceitasComponent,
     SenhaComponent,
-	  PesquisaComponent,
-	  NavbarComponent,
+	PesquisaComponent,
+	NavbarComponent,
     PerfilComponent,
     MinhasReceitasComponent,
     VisualizarReceitasComponent,
-	  HomepageComponent,
+	HomepageComponent,
+	CadastroLivroComponent,
   ],
   imports: [
     FormsModule,

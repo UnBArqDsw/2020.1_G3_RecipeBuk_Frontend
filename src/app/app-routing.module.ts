@@ -9,6 +9,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { MinhasReceitasComponent } from './minhas-receitas/minhas-receitas.component'
 import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'receitas', component: MinhasReceitasComponent},
   { path: 'visualizar-receitas', component: VisualizarReceitasComponent },
   { path: 'homepage', component: HomepageComponent},
+  { path: 'cadastro-livro', component: CadastroLivroComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 
