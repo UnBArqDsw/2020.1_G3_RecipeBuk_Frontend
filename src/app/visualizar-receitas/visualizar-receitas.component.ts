@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-//import { ICadastroReceitas } from '../interfaces/cadastro-receitas';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -23,8 +22,7 @@ export class VisualizarReceitasComponent implements OnInit {
   //public setFormValue(value: object): void {
     //this.formValue = value;
 
-  ngOnInit(): void {
-    console.log("Exemplo");  
-  }
+  ngOnInit(): void {} 
+  
 
 }

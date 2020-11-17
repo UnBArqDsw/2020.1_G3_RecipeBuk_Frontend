@@ -105,7 +105,7 @@ export class MinhasReceitasComponent implements OnInit {
       "img_url": "https://t1.rg.ltmcdn.com/pt/images/7/2/6/img_torta_de_chocolate_627_300_square.jpg"
     },
     {
-      "link": "https://www.tudoreceitas.com/receita-de-torta-holandesa-267.html",
+      "link": "/torta-holandesa",
       "title": "Receita de Torta holandesa",
       "img_url": "https://t2.rg.ltmcdn.com/pt/images/7/6/2/img_torta_holandesa_267_300_square.jpg"
     },
