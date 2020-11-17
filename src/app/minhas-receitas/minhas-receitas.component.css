@@ -123,3 +123,13 @@ div {
 .icon p {
     font-size: 12px;
 }
+
+.favorite-link {
+    border: dashed;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #0f0f0f;
+}

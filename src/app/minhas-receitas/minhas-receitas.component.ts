@@ -7,7 +7,9 @@ import { RecipeService } from '../services/recipe.service';
   styleUrls: ['./minhas-receitas.component.css']
 })
 export class MinhasReceitasComponent implements OnInit {
-  recipesList;
+  myRecipesList;
+  favoriteRecipesList;
+  recipeList;
   selectedColor = '#e2725b';
   notSelectedColor = '#fff9f4';
   todasColor = this.selectedColor;
@@ -19,8 +21,12 @@ export class MinhasReceitasComponent implements OnInit {
   //https://sun9-61.userapi.com/c854424/v854424474/10dcea/k1N5pPHLrlM.jpg
   ngOnInit(): void {
     this.recipeService.getRecipesArray().then((recipesArray) => {
-      this.recipesList = recipesArray;
-      console.log(this.recipesList)
+      this.myRecipesList = recipesArray['mine'];
+      this.favoriteRecipesList = recipesArray['favorites'];
+      this.recipeList = recipesArray;
+      console.log(this.favoriteRecipesList)
+    }).catch((err) => {
+      
     });
   }
 
@@ -30,18 +36,24 @@ export class MinhasReceitasComponent implements OnInit {
         this.todasColor = this.selectedColor;
         this.minhasColor = this.notSelectedColor;
         this.favoritasColor = this.notSelectedColor;
+        this.recipeList['mine'] = this.myRecipesList;
+        this.recipeList['favorites'] = this.favoriteRecipesList;
         break;
 
       case 'minhas':
         this.todasColor = this.notSelectedColor;
         this.minhasColor = this.selectedColor;
         this.favoritasColor = this.notSelectedColor;
+        this.recipeList['mine'] = this.myRecipesList;
+        this.recipeList['favorites'] = [];
         break;
 
       case 'favoritas':
         this.todasColor = this.notSelectedColor;
         this.minhasColor = this.notSelectedColor;
         this.favoritasColor = this.selectedColor;
+        this.recipeList['mine'] = [];
+        this.recipeList['favorites'] = this.favoriteRecipesList;
         break;
     }
   }

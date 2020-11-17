@@ -17,7 +17,8 @@
             </div>
         </div>
         <div class="recipes">
-            <div class="recipe-card" *ngFor="let recipe of recipesList">
+
+            <div class="recipe-card" *ngFor="let recipe of recipeList.mine">
                 <div class="row">
                     <img class="recipe-avatar column" src="https://sun9-61.userapi.com/c854424/v854424474/10dcea/k1N5pPHLrlM.jpg
                     " />
@@ -38,6 +39,24 @@
                     </div>
                 </div>
             </div>
+
+            <div class="recipe-card" *ngFor="let recipe of recipeList.favorites">
+                    <div class="row" >
+                        <img class="recipe-avatar column" src={{recipe.recipeimage}} />
+                        <div class="column recipe-card-info">
+                            <div class="row">
+                                <p class="recipe-title">{{recipe.recipetitle}}</p>
+                            </div>
+                            <div class="row icons">
+                                <div class="icon column favorite-link">
+                                    <p class="icon-description row">Ir para receita externa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
         </div>
     </div>
 </div>
