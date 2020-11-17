@@ -8,6 +8,7 @@ div {
     justify-content: center;
     flex-direction: column;
     padding-bottom: 2vw;
+    overflow: hidden;
 }       
 
 .header img{
@@ -22,6 +23,11 @@ div {
     padding-top: 1rem;
     font-size: 4vw;
     font-family: Pacifico;
+}
+
+.header a{
+    padding-top: 1vw;
+    align-self: center;
 }
 
 .recipes-area {
@@ -128,3 +134,13 @@ div {
 .icon p {
     font-size: 12px;
 }
+
+.btn {
+    background-color: #E2725B; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 5px;
+}   

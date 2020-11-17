@@ -109,26 +109,6 @@ export class MinhasReceitasComponent implements OnInit {
       "title": "Receita de Torta holandesa",
       "img_url": "https://t2.rg.ltmcdn.com/pt/images/7/6/2/img_torta_holandesa_267_300_square.jpg"
     },
-    {
-      "link": "https://www.tudoreceitas.com/receita-de-torta-de-sardinha-266.html",
-      "title": "Receita de Torta de sardinha",
-      "img_url": "https://t1.rg.ltmcdn.com/pt/images/6/6/2/img_torta_de_sardinha_266_300_square.jpg"
-    },
-    {
-      "link": "https://www.tudoreceitas.com/receita-de-torta-de-bolacha-263.html",
-      "title": "Receita de Torta de bolacha",
-      "img_url": "https://t2.rg.ltmcdn.com/pt/images/3/6/2/img_torta_de_bolacha_263_300_square.jpg"
-    },
-    {
-      "link": "https://www.tudoreceitas.com/receita-de-torta-de-morango-262.html",
-      "title": "Receita de Torta de morango",
-      "img_url": "https://t1.rg.ltmcdn.com/pt/images/2/6/2/img_torta_de_morango_262_300_square.jpg"
-    },
-    {
-      "link": "https://www.tudoreceitas.com/receita-de-torta-de-frango-202.html",
-      "title": "Receita de Torta de frango",
-      "img_url": "https://t2.rg.ltmcdn.com/pt/images/2/0/2/img_torta_de_frango_202_300_square.jpg"
-    }
   ]
   recipesList3: Object = [
     {
