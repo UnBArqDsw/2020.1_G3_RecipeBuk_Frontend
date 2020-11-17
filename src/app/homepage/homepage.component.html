@@ -1,6 +1,64 @@
-<div class="homepage">
-    <div class="header">
-        <img src="/assets/logo.svg">
-        <h1>Bem-Vindo ao RecipeBük</h1>
-    </div>
-</div>
+<ng-container *ngIf="this.loggedIn; else defaultHomepage">
+	<div class="collection-container">
+		<div class="books-container">
+			<h1>Livros Públicos</h1>
+			<div class="my-books">
+				<ng-container *ngFor="let book of this.publicBooks">
+					<div class="card book-card">
+						<a href="/book/{{book.bookid}}" target="_blank">
+							<div class="card-info">
+								<h2>{{book.title}}</h2>
+							</div>
+							
+							<div class="card-description">
+								<h3>{{book.description}}</h3>
+							</div>
+						</a>
+					</div>
+				</ng-container>
+				
+				<a href="/cadastro-livro">
+					<div class="card add-book-card">
+							<h2>Adicionar novo livro</h2>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<div class="books-container">
+			<h1>Livros Privados</h1>
+			<div class="my-books">
+				<ng-container *ngFor="let book of this.privateBooks">
+					<div class="card book-card">
+						<a href="/book/{{book.bookid}}" target="_blank">
+							<div class="card-info">
+								<h2>{{book.title}}</h2>
+							</div>
+							
+							<div class="card-description">
+								<h3>{{book.description}}</h3>
+							</div>
+						</a>
+					</div>
+				</ng-container>
+				
+				<a href="/cadastro-livro">
+					<div class="card add-book-card">
+							<h2>Adicionar novo livro</h2>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<img class="logo" src="/assets/logo.svg" draggable="false">
+	</div>
+</ng-container>
+
+<ng-template #defaultHomepage>
+	<div class="homepage">
+		<div class="header">
+			<img src="/assets/logo.svg">
+			<h1>Bem-Vindo ao RecipeBük</h1>
+		</div>
+	</div>
+</ng-template>
