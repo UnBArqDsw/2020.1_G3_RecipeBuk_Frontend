@@ -46,7 +46,10 @@ export class CadastroReceitasComponent implements OnInit {
   ngOnInit(): void {
     this.ingredientsArray.push(this.ingredients);
     this.categoryRecipeEnumOptions = Object.keys(this.categoryRecipeEnum);
+  }
 
+  addIngredient(){
+    //this.ingredients = new Ingredients();
     if (this.formValue) {
       this.form.setValue({
         name: new FormControl(),
@@ -59,10 +62,6 @@ export class CadastroReceitasComponent implements OnInit {
         category: new FormControl(),
       })
     }
-  }
-
-  addIngredient(){
-    this.ingredients = new Ingredients();
     this.ingredientsArray.push(this.ingredients);
 
     console.log(this.ingredientsArray);

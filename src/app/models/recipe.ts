@@ -4,7 +4,7 @@ import { Ingredients } from './ingredients';
 export class Recipe {
     public id: string;
     public name: string;
-    public ingredients: Ingredients;
+    public ingredients: Ingredients[];
     public steps: string;
     public time: number;
     public portions: number;
