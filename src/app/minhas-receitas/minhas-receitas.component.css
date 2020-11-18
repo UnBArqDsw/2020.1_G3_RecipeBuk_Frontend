@@ -101,6 +101,14 @@ div {
     font-weight: bold;
 }
 
+.recipe-card-info{
+    background-color: #ffffff;
+}
+
+.recipe-card-info div{
+    background-color: #ffffff;
+}
+
 .recipe-title {
     font-size: 25px;
     margin: 5%;
@@ -132,4 +140,5 @@ div {
 a {
     text-decoration: none;
     color: #0f0f0f;
+    overflow: hidden;
 }

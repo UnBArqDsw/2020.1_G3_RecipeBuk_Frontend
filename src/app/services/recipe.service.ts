@@ -33,7 +33,7 @@ export class RecipeService {
                     if (res.response.recipe) {
                         resolve(res.response.recipe);
                     } else {
-                        reject('No recipes.');
+                        resolve([]);
                     }
                 },
                 error(e) {
@@ -50,7 +50,7 @@ export class RecipeService {
                     if (res[0]) {
                         resolve(res);
                     } else {
-                        reject('No recipes.');
+                        resolve([]);
                     }
                 },
                 error(e) {
@@ -69,7 +69,7 @@ export class RecipeService {
                 favorites = favoritesArray;
                 requestsDone++;
                 if (requestsDone == 2) {
-                    resolve({mine, favorites})
+                    resolve({ mine, favorites })
                 }
             }).catch((error) => {
                 reject(error);
@@ -78,7 +78,7 @@ export class RecipeService {
                 mine = recipesArray;
                 requestsDone++;
                 if (requestsDone == 2) {
-                    resolve({mine, favorites});
+                    resolve({ mine, favorites });
                 }
 
             }).catch((error) => {
