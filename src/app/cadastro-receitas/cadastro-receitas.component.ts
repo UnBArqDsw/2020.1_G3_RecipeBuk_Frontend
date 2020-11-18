@@ -4,7 +4,8 @@ import { CategoryRecipeEnum } from '../models/category-recipe.enum';
 import { Recipe } from '../models/recipe';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from '../services/recipe.service';
-import { Observable } from 'rxjs';
+import { AccountService } from '../services';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cadastro-receitas',
@@ -26,6 +27,8 @@ export class CadastroReceitasComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private recipeService: RecipeService,
+    private account: AccountService,
+    private router: Router,
   ) {
       this.form = this.formBuilder.group({
         name: this.formBuilder.control('', Validators.required),
@@ -37,6 +40,9 @@ export class CadastroReceitasComponent implements OnInit {
         portions: this.formBuilder.control(null, Validators.required),
         category: this.formBuilder.control(''),
       })
+      if(!this.account.userSession){
+        this.router.navigate(['/login']);
+      }
     }
 
   public setFormValue(value: object): void {

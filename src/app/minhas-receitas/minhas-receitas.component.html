@@ -1,32 +1,62 @@
-<div style="background-color: '#fff9f4';">
+<div>
     <div class="header">
         <img src="assets/book.svg" />
         <h1>Minhas Receitas</h1>
     </div>
+
     <div class="recipes-area">
         <div class="tabs">
-        <div class="tab" (click)="changeTab('todas')" [ngStyle]="{'background-color': todasColor}"><p>Todas</p></div>
-            <div class="tab" (click)="changeTab('minhas')" [ngStyle]="{'background-color': minhasColor}"><p>Minhas</p></div>
-            <div class="tab" (click)="changeTab('favoritas')" [ngStyle]="{'background-color': favoritasColor}"><p>Favoritas</p></div>
+            <div class="tab" (click)="changeTab('todas')" [ngStyle]="{'background-color': todasColor}">
+                <p>Todas</p>
+            </div>
+            <div class="tab" (click)="changeTab('minhas')" [ngStyle]="{'background-color': minhasColor}">
+                <p>Minhas</p>
+            </div>
+            <div class="tab" (click)="changeTab('favoritas')" [ngStyle]="{'background-color': favoritasColor}">
+                <p>Favoritas</p>
+            </div>
         </div>
-        
         <div class="recipes">
-            <div class="recipe-card" *ngFor="let recipe of recipesList">
-                <img src={{recipe.img_url}} />
-                <div class="recipe-card-info">
-                    <h1>{{recipe.title}}</h1>
-                    <div class="icons">
-                        <div>
-                            <img src="assets/clock.svg" />
-                            <h1>30 minutos</h1>
+
+            <div class="recipe-card" *ngFor="let recipe of mineRecipeList">
+                <div class="row">
+                    <img class="recipe-avatar column" src="https://sun9-61.userapi.com/c854424/v854424474/10dcea/k1N5pPHLrlM.jpg
+                    " />
+                    <div class="column recipe-card-info">
+                        <div class="row">
+                            <p class="recipe-title">{{recipe.name}}</p>
                         </div>
-                        <div>
-                            <img src="assets/cloche.svg" />
-                            <h1>8 porcoes</h1>
+                        <div class="row icons">
+                            <div class="icon column">
+                                <img class="row" src="assets/clock.svg" />
+                                <p class="icon-description row">{{recipe.time}} minutos</p>
+                            </div>
+                            <div class="icon column">
+                                <img class="row" src="assets/cloche.svg" />
+                                <p class="icon-description row">{{recipe.portions}} porcoes</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="recipe-card" *ngFor="let recipe of favoritesRecipeList">
+                    <a class="row" href={{recipe.recipelink}}>
+                        <img class="recipe-avatar column" src={{recipe.recipeimage}} />
+                        <div class="column recipe-card-info">
+                            <div class="row">
+                                <p class="recipe-title">{{recipe.recipetitle}}</p>
+                            </div>
+                            <div class="row icons">
+                                <div class="icon column favorite-link">
+                                    <p class="icon-description row">Ir para receita externa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+            </div>
+
         </div>
     </div>
 </div>
