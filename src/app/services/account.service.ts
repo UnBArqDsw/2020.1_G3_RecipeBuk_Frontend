@@ -1,63 +1,88 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-// import  * as firebase from 'firebase' ;
-
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models';
-import { FirebaseService } from './firebase.service';
+import * as Cookie from 'js-cookie';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' }) 
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
 
     constructor(
         private http: HttpClient,
-        private firebaseService: FirebaseService
     ) {
-        this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+        this.userSubject = new BehaviorSubject<User>(null);
         this.user = this.userSubject.asObservable();
-        console.log('lol', this.userValue);
     }
 
     public get userValue(): User {
         return this.userSubject.value;
     }
+	
+	public get userSession(): string {
+		return Cookie.get('USER_SESSION');
+	}
+	
+	public get isLoggedIn(): boolean {
+		return Cookie.get('USER_SESSION') ? (Cookie.get('USER_SESSION') != '' ? true : false) : false;
+	}
 
     public emailIsValid (email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
+    update(update_info) {
+        return new Promise((resolve, reject) => {
+            this.http.post(`${environment.apiUrl}/updateUser`, {...update_info, auth: Cookie.get('USER_SESSION')}).subscribe({
+                next(res) {
+                    resolve(res);
+                },
+                error(e) {
+                    reject(e);
+                }
+            });
+        });
+    }
+
     login(email, password) {
         return new Promise((resolve, reject) => {
-            this.firebaseService.firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
-                const user = new User('', email, '');
-                console.log("Usuário logado")
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                resolve(user);
-            }).catch(function (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log(errorMessage);
-                reject(errorMessage);
+            var user = new User('', email, password);
+            this.http.post(`${environment.apiUrl}/login`, user).subscribe({
+                next(res : any) {
+                    if(res.error)
+                        reject(res);
+
+                    else {
+                        console.log("Usuário logado", res);
+                        Cookie.set('USER_SESSION', res.user_session, {expires: 7, path: '/'});
+                        resolve();
+                    }
+                },
+                error(e) {
+                    reject(e);
+                }
             });
-        })
+        });
     }
 
     logout() {
         return new Promise((resolve, reject) => {
-            this.firebaseService.firebase.auth().signOut().then(function () {
-                localStorage.removeItem('user');
-                this.userSubject.next(null);
-                console.log('sign out successful')
-                resolve("sign out successful");
-            }).catch(function (e) {
-                console.log(e);
-                reject(e);
+            this.http.post(`${environment.apiUrl}/logout`, {auth: Cookie.get('USER_SESSION')}).subscribe({
+                next(res : any) {
+                    if(res.error)
+                        reject(res);
+
+                    else {
+                        console.log("Usuário deslogado", res);
+                        Cookie.remove('USER_SESSION', {path: '/'});
+                        resolve();
+                    }
+                },
+                error(e) {
+                    reject(e);
+                }
             });
         });
     }
