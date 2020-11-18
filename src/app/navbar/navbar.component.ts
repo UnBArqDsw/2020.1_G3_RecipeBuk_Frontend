@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from 'src/app/services/search.service';
 import { AccountService } from '../services';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -44,6 +45,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    location.reload();
   }
 
   forwardTarget(checkbox, change) {
