@@ -28,6 +28,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.component';
+import { ReceitassComponent } from './receitass/receitass.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.compo
     VisualizarReceitasComponent,
 	  HomepageComponent,
 	  TortaHolandesaComponent,
+	  ReceitassComponent,
   ],
   imports: [
     FormsModule,
