@@ -12,6 +12,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.component';
 import { ReceitassComponent } from './receitass/receitass.component';
 import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
+import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'torta-holandesa', component: TortaHolandesaComponent },
   { path: 'receitass', component: ReceitassComponent},
   { path: 'torta-morango', component: TortaMorangoComponent},
+  { path: 'cadastro-livro', component: CadastroLivroComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 

@@ -20,11 +20,15 @@ export class AccountService {
     public get userValue(): User {
         return this.userSubject.value;
     }
-
-    public get userSession(): string {
-        return Cookie.get('USER_SESSION');
+	
+	public get userSession(): string {
+		return Cookie.get('USER_SESSION');
+	}
+	
+	public get isLoggedIn(): boolean {
+		return Cookie.get('USER_SESSION') ? (Cookie.get('USER_SESSION') != '' ? true : false) : false;
     }
-
+    
     public emailIsValid (email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }

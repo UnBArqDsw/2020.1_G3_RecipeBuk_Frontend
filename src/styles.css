@@ -134,3 +134,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	padding:16px 31px;
 	text-decoration:none;
 }
+
+html {
+	background-color: #F2EFE9;
+}

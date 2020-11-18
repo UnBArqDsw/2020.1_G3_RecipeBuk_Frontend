@@ -30,6 +30,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.component';
 import { ReceitassComponent } from './receitass/receitass.component';
 import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
+import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,8 @@ import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
     CadastroReceitasComponent,
     TesteSalvarReceitasComponent,
     SenhaComponent,
-	  PesquisaComponent,
-	  NavbarComponent,
+	PesquisaComponent,
+	NavbarComponent,
     PerfilComponent,
     MinhasReceitasComponent,
     VisualizarReceitasComponent,
@@ -48,6 +49,8 @@ import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
 	  TortaHolandesaComponent,
 	  ReceitassComponent,
 	  TortaMorangoComponent,
+	HomepageComponent,
+	CadastroLivroComponent,
   ],
   imports: [
     FormsModule,

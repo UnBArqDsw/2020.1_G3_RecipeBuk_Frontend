@@ -69,17 +69,17 @@ export class PesquisaComponent implements OnInit {
         };
 
         favorites.forEach((favorite) => {
-          if(favorite[0] == '/')
-            categorizedFavorites.recipebuk.push(favorite);
+          if(favorite.recipelink[0] == '/')
+            categorizedFavorites.recipebuk.push(favorite.recipelink);
 
-          else if(favorite[13] == 'a')
-            categorizedFavorites.tastemade.push(favorite);
+          else if(favorite.recipelink[13] == 'a')
+            categorizedFavorites.tastemade.push(favorite.recipelink);
 
-          else if(favorite[16] == 'g')
-            categorizedFavorites.tudogostoso.push(favorite);
+          else if(favorite.recipelink[16] == 'g')
+            categorizedFavorites.tudogostoso.push(favorite.recipelink);
 
           else
-            categorizedFavorites.tudoreceitas.push(favorite);
+            categorizedFavorites.tudoreceitas.push(favorite.recipelink);
         });
 
         this.resultsArray.forEach((result) => {
@@ -130,7 +130,7 @@ export class PesquisaComponent implements OnInit {
   }
 
   favorite(recipe) {
-  	this.http.post(`${environment.apiUrl}/favorite`, {auth: this.getUserSession(), recipelink: recipe.link}).subscribe((res: any[]) => { 
+  	this.http.post(`${environment.apiUrl}/favorite`, {auth: this.getUserSession(), recipeLink: recipe.link, recipeImage: recipe.img_url, recipeTitle: recipe.title}).subscribe((res: any[]) => {
       recipe.favorited = !recipe.favorited;
     });
   }

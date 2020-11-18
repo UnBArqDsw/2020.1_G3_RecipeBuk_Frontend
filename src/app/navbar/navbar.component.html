@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	<div class="user-menu">
-		<ng-container *ngIf="this.logged; else DisconnectedBlock">
+		<ng-container *ngIf="this.loggedIn; else DisconnectedBlock">
 			<a href="/receitas"><img src="assets/book.svg" class="recipe-book-icon"></a>
 			<div class="dropdown-menu">
 				<button class="dropdown-button">
