@@ -79,7 +79,8 @@ export class CadastroReceitasComponent implements OnInit {
   }
 
   save() {
-    if(this.formValue){
+    this.router.navigate(['/receitass']);
+    if(!this.formValue){
       this.form.setValue({          
         name: this.recipe.name,
         qty: this.recipe.ingredients.qty,
@@ -91,8 +92,6 @@ export class CadastroReceitasComponent implements OnInit {
         category: this.recipe.category,
       });
     }
-
-    console.log(this.form.value);
     
     const newRecipe: Recipe = Object.assign({}, this.recipe)
     this.recipeService.create(newRecipe).subscribe(

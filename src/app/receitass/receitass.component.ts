@@ -110,6 +110,11 @@ export class ReceitassComponent implements OnInit {
       "title": "Receita de Torta holandesa",
       "img_url": "https://t2.rg.ltmcdn.com/pt/images/7/6/2/img_torta_holandesa_267_300_square.jpg"
     },
+    {
+      "link": "/torta-morango",
+      "title": "Receita de Torta de Morango com Chantily",
+      "img_url": "https://t2.rg.ltmcdn.com/pt/images/2/5/6/torta_de_morango_com_chantilly_9652_300_square.jpg",
+    },
   ]
   recipesList3: Object = [
     {
