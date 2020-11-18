@@ -35,7 +35,7 @@ export class VisualizarReceitasComponent implements OnInit {
     //this.formValue = value;
 
   ngOnInit(): void {
-    this.http.post(`${environment.apiUrl}/getRecipe`, {auth: this.accountService.userSession, recipeId: 14}).subscribe((res: any) => {
+    this.http.post(`${environment.apiUrl}/getRecipe`, {auth: this.accountService.userSession, recipeId: 1}).subscribe((res: any) => {
         this.recipe = res.response.recipe;
         this.ingredients = res.ingredients;
         console.log(res)

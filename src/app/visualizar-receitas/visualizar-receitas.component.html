@@ -9,7 +9,9 @@
                 <p> <mat-icon> shopping_cart </mat-icon>         
                 <label><i class="fa fa-shopping-basket"></i> Ingredientes </label></p>
                 <!--<textarea></textarea>-->
-                <li *ngFor="let item of ingredients"> </li>
+                <li *ngFor="let item of ingredients">
+                    {{item.name}}
+                </li>
                 <p></p>
                 <br>
 
