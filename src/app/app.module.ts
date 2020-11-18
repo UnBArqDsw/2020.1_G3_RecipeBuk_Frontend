@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.component';
 import { ReceitassComponent } from './receitass/receitass.component';
+import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ReceitassComponent } from './receitass/receitass.component';
 	  HomepageComponent,
 	  TortaHolandesaComponent,
 	  ReceitassComponent,
+	  TortaMorangoComponent,
   ],
   imports: [
     FormsModule,

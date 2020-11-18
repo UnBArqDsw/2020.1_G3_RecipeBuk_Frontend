@@ -11,6 +11,7 @@ import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-re
 import { HomepageComponent } from './homepage/homepage.component';
 import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.component';
 import { ReceitassComponent } from './receitass/receitass.component';
+import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'homepage', component: HomepageComponent},
   { path: 'torta-holandesa', component: TortaHolandesaComponent },
   { path: 'receitass', component: ReceitassComponent},
+  { path: 'torta-morango', component: TortaMorangoComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
 ];
 
