@@ -1,5 +1,6 @@
+
 <body>
-    <h1>Receita X</h1>
+    <h1>{{recipe.name}}</h1>
     <div class="row form-group">
         <!-- [formGroup]="form"-->
         <form class="tp-container">  
@@ -12,7 +13,7 @@
                 <br>
 
                 <p> <mat-icon>restaurant_menu</mat-icon>
-                <label><i class="fa fa-utensils"></i> Modo de Preparo </label> </p>
+                <label><i class="fa fa-utensils"></i> {{recipe.steps}} </label> </p>
                 <!--<textarea></textarea>-->
                 <p></p>
             </div>
@@ -20,12 +21,12 @@
             
             <div class="column right">
                 <p><mat-icon> timer </mat-icon>  
-                <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label></p>
+                <label><i class="fa fa-clock-o"></i> {{recipe.time}} horas </label></p>
                 <!--<textarea></textarea>-->
                 <br>
                 
                 <p><mat-icon>filter_9_plus</mat-icon>
-                <label><i class="fa fa-chart-pie"></i> Rendimento </label></p>
+                <label><i class="fa fa-chart-pie"></i> {{recipe.portions}} porções </label></p>
                 <!--<textarea></textarea>-->
                 <p></p>
                 <br>
