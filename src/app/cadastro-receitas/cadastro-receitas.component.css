@@ -16,11 +16,11 @@ label {
 
 h1 {
     text-align: center;
-    font-family: 'Roboto';
+    font-family: 'Pacifico';
     padding-top: 50px;
     padding-bottom: 50px;
     color: #E2725B;
-    font-size: 30px;
+    font-size: 3vw;
 }
 
 input {
@@ -71,12 +71,13 @@ select {
     margin: auto ;
 }
 
-.save {
-    padding-right: 64%;
+.buttons {
+    display: flex;
+    padding-left: 15vw;
 }
 
-.delete{
-    padding-right: 50%;
+.buttons div{
+    padding: 10px;
 }
 
 button:hover {
