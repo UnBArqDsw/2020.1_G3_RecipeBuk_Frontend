@@ -30,8 +30,8 @@ export class RecipeService {
         return new Promise((resolve, reject) => {
             this.http.post(`${environment.apiUrl}/getAllRecipes`, { auth: userSession }).subscribe({
                 next(res: any) {
-                    if (res.response.recipe) {
-                        resolve(res.response.recipe);
+                    if (res.recipe) {
+                        resolve(res.recipe);
                     } else {
                         resolve([]);
                     }
