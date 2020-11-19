@@ -9,7 +9,11 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
 - task: NodeAndNpmTool@1
   inputs:
     versionSpec: '12.x'
