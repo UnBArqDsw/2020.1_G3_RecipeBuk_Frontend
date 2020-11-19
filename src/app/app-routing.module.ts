@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'receitas', component: MinhasReceitasComponent},
-  { path: 'visualizar-receitas', component: VisualizarReceitasComponent },
+  { path: 'receita/:recipeId', component: VisualizarReceitasComponent },
   { path: 'homepage', component: HomepageComponent},
   { path: 'cadastro-livro', component: CadastroLivroComponent},
   { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
