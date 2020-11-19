@@ -1,10 +1,10 @@
 import { CategoryRecipeEnum } from './category-recipe.enum';
-import { Ingredients } from './ingredients';
+import { Ingredient } from './ingredient';
 
 export class Recipe {
     public id: string;
     public name: string;
-    public ingredients: Ingredients[];
+    public ingredients: Ingredient[];
     public steps: string;
     public time: number;
     public portions: number;

@@ -19,11 +19,17 @@ export class RecipeService {
         return this.accountService.userSession;
     }
 
-    create(recipe: Recipe): Observable<Recipe> {
-        return this.http.post<Recipe>(`${environment.apiUrl}/cadastro-receitas`, {
-            auth: this.getUserSession(),
-            recipe,
-        })
+    createRecipe(recipe) {
+        return new Promise((resolve, reject) => {
+            this.http.post(`${environment.apiUrl}/addRecipe`, recipe).subscribe({
+                next(res: any) {
+                    resolve(res);
+                },
+                error(e) {
+                    reject(e);
+                }
+            });
+        });
     }
 
     getAllRecipes(userSession) {

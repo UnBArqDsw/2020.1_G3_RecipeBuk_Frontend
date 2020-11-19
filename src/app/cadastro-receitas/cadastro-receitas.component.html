@@ -1,14 +1,14 @@
 <body>
     <h1>Cadastrar Receita</h1>
-    <div class="row form-group">
-        <form [formGroup]="form" class="tp-container">  
+    <div class="row">
+        <form class="tp-container">  
             <input type="hidden"/>
 
             <div class="column left">
                 <label><i class="fa fa-pencil"></i> Nome da Receita </label>
-                <input 
+                <input
+                    #recipenamebox
                     placeholder="Ex.: Bolo de Banana"
-                    formControlName= "name"
                     name="name"
                     aria-label="Nome da Receita"
                     appearance = "outline"
@@ -20,33 +20,36 @@
                 <label><i class="fa fa-shopping-basket"></i> Ingredientes </label>
                 <div class="row" *ngFor="let obj of ingredientsArray">
                     <input
-                        placeholder="1"
-                        appearance ="outline"
-                        type="number"
-                        min="1"
-                        name="qty"
-                        formControlName= "qty"
-                        class="column one form-control"
-                        required
+                    #quantitybox
+                    (input)="updateIngredient(obj.id, quantitybox.value, typebox.value, namebox.value)"
+                    value="1"
+                    appearance ="outline"
+                    type="number"
+                    min="1"
+                    name="quantity"
+                    class="column one"
+                    required
                     >
-
+                    
                     <input
-                        placeholder="Ex.: Xícara"
-                        appearance ="outline"
-                        name="type"
-                        formControlName= "type"
-                        class="column two form-control"
-                        required
+                    #typebox
+                    (input)="updateIngredient(obj.id, quantitybox.value, typebox.value, namebox.value)"
+                    placeholder="Ex.: Xícara"
+                    appearance ="outline"
+                    name="type"
+                    class="column two"
+                    required
                     >
-
+                    
                     <input
-                        placeholder="Ex.: Farinha"
-                        aria-label="Ingrediente 1"
-                        appearance ="outline"
-                        name="ingredients"
-                        formControlName= "ingredients"
-                        class="column three form-control"
-                        required
+                    #namebox
+                    (input)="updateIngredient(obj.id, quantitybox.value, typebox.value, namebox.value)"
+                    placeholder="Ex.: Farinha"
+                    aria-label="Ingrediente 1"
+                    appearance ="outline"
+                    name="ingredients"
+                    class="column three"
+                    required
                     >
                 </div>
                 
@@ -59,14 +62,13 @@
                 <br>
             
                 <label><i class="fa fa-utensils"></i> Modo de Preparo </label>
-                <textarea                
+                <textarea
+                    #preparobox     
                     matInput 
                     placeholder="Preparo"
                     name="steps"
-                    formControlName="steps"
                     aria-label="Modo de Preparo"
                     rows="7"
-                    class="form-control"
                     required
                 ></textarea>
             </div>
@@ -74,47 +76,48 @@
             
             <div class="column right">
                 <label><i class="fa fa-clock-o"></i> Tempo de Preparo </label>
-                <input                
+                <input
+                    #tempobox        
                     placeholder="Tempo Preparo"
                     name="time"
-                    formControlName= "time"
                     aria-label="Tempo de Preparo"
                     type="number"
                     min="0"
                     appearance ="outline"
-                    class="form-control"
                     required
                 >
                 <br>
 
                 <label><i class="fa fa-chart-pie"></i> Rendimento </label>
-                <input                
+                <input
+                    #rendimentobox      
                     placeholder="Rendimento"
                     name="portions"
-                    formControlName= "portions"
                     aria-label="Rendimento"
                     type="number"
                     min="0"
                     appearance ="outline"
-                    class="form-control"
                     required
                 >
                 <br>
 
-                <label><i class="fa fa-flag"></i> Categoria </label>
+                <label><i class="fa fa-flag"></i> Visibilildade </label>
                 <select 
+                    #visibilitybox
                     style="display: inline-block"
                     name="category"
-                    formControlName= "category"
-                    class="form-control"
                     >
                     <option 
-                        aria-label="Categoria"
-                        *ngFor="let category of categoryRecipeEnumOptions"
-                        [value]="category"
-                        [label]="categoryRecipeEnum[category]"
-                        required
+                        aria-label="sex"
+                        [value]=true
                         >
+                        Pública
+                    </option>
+                    <option 
+                        aria-label="Categoria"
+                        [value]=false
+                        >
+                        Privada
                     </option>
                 </select>
 
@@ -129,7 +132,7 @@
     </div>
     
     <div class="row save" >
-        <button class="btn center" (click)= "save()"> Salvar </button>
+        <button class="btn center" (click)= "save(recipenamebox.value, tempobox.value, rendimentobox.value, preparobox.value, visibilitybox.value)"> Salvar </button>
     </div>
 
     <div class="row delete" >
