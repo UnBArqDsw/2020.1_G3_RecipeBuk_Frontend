@@ -18,14 +18,12 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {}
 
   ngOnChanges() {
-    console.log('imgay');
   }
 
   onSubmit(name, email, senha) {
     this.emailIsValid = this.accountService.emailIsValid(email);
     if(this.emailIsValid && senha != '') {
       this.accountService.update({info: new User(name, email, null), password: senha});
-      console.log('imgay');
     }
   }
 }

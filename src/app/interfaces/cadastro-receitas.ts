@@ -1,6 +1,6 @@
 export interface ICadastroReceitas {
     name: string;
-    qty: number;
+    quantity: number;
     type: string;
     ingredient: string;
     steps: string;

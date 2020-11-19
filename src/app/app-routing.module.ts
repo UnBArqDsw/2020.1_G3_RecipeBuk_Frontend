@@ -14,15 +14,15 @@ import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.componen
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'cadastro-receitas', component: CadastroReceitasComponent },
+  { path: 'criarReceita', component: CadastroReceitasComponent },
   { path: 'senha', component: SenhaComponent },
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'receitas', component: MinhasReceitasComponent},
   { path: 'receita/:recipeId', component: VisualizarReceitasComponent },
-  { path: 'homepage', component: HomepageComponent},
+  { path: 'index', component: HomepageComponent},
   { path: 'cadastro-livro', component: CadastroLivroComponent},
-  { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
+  { path: '',   redirectTo: '/index', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AccountService } from 'src/app/services';
 import { Recipe } from 'src/app/models/recipe'
-import { Ingredients } from 'src/app/models/ingredients';
+import { Ingredient } from 'src/app/models/ingredient';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
@@ -42,7 +42,6 @@ export class VisualizarReceitasComponent implements OnInit {
     this.http.post(`${environment.apiUrl}/getRecipe`, { auth: this.accountService.userSession, recipeId: this.recipeId }).subscribe((res: any) => {
       this.recipe = res.response.recipe;
       this.ingredients = res.ingredients;
-      console.log(res)
     });
   }
 

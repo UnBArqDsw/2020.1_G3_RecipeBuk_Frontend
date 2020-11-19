@@ -26,7 +26,6 @@ export class MinhasReceitasComponent implements OnInit {
     this.recipeService.getRecipesArray().then((recipesArray) => {
       this.myRecipesList = recipesArray['mine'];
       this.favoriteRecipesList = recipesArray['favorites'];
-      console.log('fonk', recipesArray)
       this.mineRecipeList = recipesArray['mine'];
       this.favoritesRecipeList = recipesArray['favorites'];
       this.recipeList = recipesArray;
