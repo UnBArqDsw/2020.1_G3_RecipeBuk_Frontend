@@ -42,7 +42,6 @@ export class VisualizarReceitasComponent implements OnInit {
     this.http.post(`${environment.apiUrl}/getRecipe`, { auth: this.accountService.userSession, recipeId: this.recipeId }).subscribe((res: any) => {
       this.recipe = res.response.recipe;
       this.ingredients = res.ingredients;
-      console.log(res)
     });
   }
 
