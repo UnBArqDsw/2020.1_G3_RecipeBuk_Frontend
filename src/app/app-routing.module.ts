@@ -17,7 +17,7 @@ import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.componen
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'cadastro-receitas', component: CadastroReceitasComponent },
+  { path: 'criarReceita', component: CadastroReceitasComponent },
   { path: 'senha', component: SenhaComponent },
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'receitass', component: ReceitassComponent},
   { path: 'torta-morango', component: TortaMorangoComponent},
   { path: 'cadastro-livro', component: CadastroLivroComponent},
-  { path: '',   redirectTo: '/homepage', pathMatch: 'full' },
+  { path: '',   redirectTo: '/index', pathMatch: 'full' },
 ];
 
 @NgModule({

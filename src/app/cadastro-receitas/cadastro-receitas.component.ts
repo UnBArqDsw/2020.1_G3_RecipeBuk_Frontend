@@ -1,22 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Ingredients } from '../models/ingredients'
+import { Ingredient } from '../models/ingredient'
 import { CategoryRecipeEnum } from '../models/category-recipe.enum';
 import { Recipe } from '../models/recipe';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from '../services/recipe.service';
 import { AccountService } from '../services';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-cadastro-receitas',
-    templateUrl: './cadastro-receitas.component.html',
-    styleUrls: ['./cadastro-receitas.component.css']
+  selector: 'app-cadastro-receitas',
+  templateUrl: './cadastro-receitas.component.html',
+  styleUrls: ['./cadastro-receitas.component.css']
 })
 
 export class CadastroReceitasComponent implements OnInit {
-  form: FormGroup;
-  formValue = null;
-  ingredients = new Ingredients();
+  ingredientAmount = 0;
   ingredientsArray = [];
   recipe: Recipe;
   recipesList: Recipe[] = [];
@@ -24,89 +21,61 @@ export class CadastroReceitasComponent implements OnInit {
   categoryRecipeEnumOptions = [];
   editReceitas: Recipe = null;
 
+
   constructor(
-    private formBuilder: FormBuilder,
     private recipeService: RecipeService,
-    private account: AccountService,
+    private accountService: AccountService,
     private router: Router,
   ) {
-      this.form = this.formBuilder.group({
-        name: this.formBuilder.control('', Validators.required),
-        qty: this.formBuilder.control(null, Validators.required),
-        type: this.formBuilder.control('', Validators.required),
-        ingredient: this.formBuilder.control('', Validators.required),
-        steps: this.formBuilder.control('', Validators.required),
-        time: this.formBuilder.control(null, Validators.required),
-        portions: this.formBuilder.control(null, Validators.required),
-        category: this.formBuilder.control(''),
-      })
-      if(!this.account.userSession){
-        this.router.navigate(['/login']);
-      }
-    }
 
-  public setFormValue(value: object): void {
-    this.formValue = value;
+    if (!this.accountService.userSession) {
+      this.router.navigate(['/login']);
+    }
   }
 
+  updateIngredient(ingredientId, quantity, type, name) {
+    this.ingredientsArray[ingredientId]['ingredient']['quantity'] = parseInt(quantity);
+    this.ingredientsArray[ingredientId]['ingredient']['unit'] = type;
+    this.ingredientsArray[ingredientId]['ingredient']['name'] = name;
+  }
+  
   ngOnInit(): void {
-    this.ingredientsArray.push(this.ingredients);
+    this.ingredientsArray.push({id: this.ingredientAmount++, ingredient: new Ingredient()});
     this.categoryRecipeEnumOptions = Object.keys(this.categoryRecipeEnum);
-
-    if (this.formValue) {
-      this.form.setValue({
-        name: new FormControl(),
-        qty: new FormControl(),
-        type: new FormControl(), 
-        ingredient: new FormControl(),
-        steps: new FormControl(),
-        time: new FormControl(),
-        portions: new FormControl(),
-        category: new FormControl(),
-      })
-    }
   }
-
-  addIngredient(){
-    this.ingredients = new Ingredients();
-    this.ingredientsArray.push(this.ingredients);
-
-    console.log(this.ingredientsArray);
+  
+  addIngredient() {
+    this.ingredientsArray.push({id: this.ingredientAmount++, ingredient: new Ingredient()});
+    
   }
-
-  getUserSession(){
-	  return "340f7a541a3711ebadc10242ac120002";
-  }
-
-  save() {
+  
+  save(recipeName, tempo, rendimento, preparo, visibility) {
     this.router.navigate(['/receitass']);
-    if(!this.formValue){
-      this.form.setValue({          
-        name: this.recipe.name,
-        qty: this.recipe.ingredients.qty,
-        type: this.recipe.ingredients.type, 
-        ingredient: this.recipe.ingredients.name,
-        steps: this.recipe.steps,
-        time: this.recipe.time,
-        portions: this.recipe.portions,
-        category: this.recipe.category,
-      });
+    const ingredients = [];
+    this.ingredientsArray.forEach(element => {
+      ingredients.push(element.ingredient);
+    });
+
+    const recipe = {
+      ingredients: ingredients,
+      auth: this.accountService.userSession,
+      name: recipeName,
+      time: tempo,
+      portions: rendimento,
+      visibility: visibility,
+      steps: preparo
     }
     
-    const newRecipe: Recipe = Object.assign({}, this.recipe)
-    this.recipeService.create(newRecipe).subscribe(
-      (data: Recipe) => {
-        console.log(data);
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+    this.recipeService.createRecipe(recipe).then((res) => {
+      this.router.navigate(['/receitas']);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   delete(): void {
-    if(this.recipesList!=null){
-    this.recipesList.splice(0, 8);
+    if (this.recipesList != null) {
+      this.recipesList.splice(0, 8);
     }
   }
 }

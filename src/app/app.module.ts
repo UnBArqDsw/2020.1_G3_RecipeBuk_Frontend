@@ -15,7 +15,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
-import { TesteSalvarReceitasComponent } from './cadastro-receitas/teste-salvar-receitas/teste-salvar-receitas.component';
 import { SenhaComponent } from './senha/senha.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,7 +37,6 @@ import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.componen
     LoginComponent,
     CadastroComponent,
     CadastroReceitasComponent,
-    TesteSalvarReceitasComponent,
     SenhaComponent,
 	PesquisaComponent,
 	NavbarComponent,
