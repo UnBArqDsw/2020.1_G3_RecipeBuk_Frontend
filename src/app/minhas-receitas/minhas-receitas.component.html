@@ -21,28 +21,9 @@
             </div>
         </div>
         <div class="recipes">
-
-            <div class="recipe-card" *ngFor="let recipe of mineRecipeList">
-                <a class="row" href="/receita/{{recipe.recipeid}}">
-                    <img class="recipe-avatar column" src="https://sun9-61.userapi.com/c854424/v854424474/10dcea/k1N5pPHLrlM.jpg
-                    " />
-                    <div class="column recipe-card-info">
-                        <div class="row">
-                            <p class="recipe-title">{{recipe.name}}</p>
-                        </div>
-                        <div class="row icons">
-                            <div class="icon column">
-                                <img class="row" src="assets/clock.svg" />
-                                <p class="icon-description row">{{recipe.time}} minutos</p>
-                            </div>
-                            <div class="icon column">
-                                <img class="row" src="assets/cloche.svg" />
-                                <p class="icon-description row">{{recipe.portions}} porcoes</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+			<ng-container *ngFor="let recipe of mineRecipeList">
+				<recipe-card [recipe] = "recipe"></recipe-card>
+			</ng-container>
 
             <div class="recipe-card" *ngFor="let recipe of favoritesRecipeList">
                     <a class="row" href={{recipe.recipelink}}>

@@ -91,6 +91,8 @@
 .recipe-card .card-info h2 {
 	font-size: 1.8vw;
 	line-height: 1.8vw;
+	margin: 0;
+	padding: 0;
 }
 
 .line {
@@ -125,4 +127,29 @@
 .delete-button:hover {
 	background-color: #e25b5b;
 	transform: scale(1.2);
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.icons {
+	width: 100%;
+}
+
+.icon img {
+	width: 40%;
+	margin: 0;
+	padding: 0;
+}
+
+.icon p {
+	font-size: 1vw;
+}
+
+.row {
+	display: flex;
 }

@@ -17,16 +17,7 @@
 			<div class="line"></div>
 			<div class="recipes">
 				<ng-container *ngFor="let recipe of this.book.recipes">
-					<div class="recipe-card card">
-						<a href="/receita/{{recipe.recipeId}}" target="_blank">
-							<div class="card-image" [ngStyle]="{'background-image': 'url(' + 'https://i.imgur.com/6Zp3hkD.png' + ')'}"></div>
-						</a>
-						<a href="" target="_blank">
-							<div class="card-info">
-								<h2>{{recipe.name}}</h2>
-							</div>
-						</a>
-					</div>
+					<recipe-card [recipe] = "recipe"></recipe-card>
 				</ng-container>
 			</div>
 		</div>

@@ -5,6 +5,7 @@ import { AccountService } from 'src/app/services';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { RecipeCard } from 'src/app/cards/cards.component';
 
 @Component({
 	selector: 'delete-dialog',
