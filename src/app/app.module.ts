@@ -27,6 +27,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
+import { LivroComponent } from './livro/livro.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RecipeCard, FavoriteCard } from './cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.componen
     VisualizarReceitasComponent,
 	HomepageComponent,
 	CadastroLivroComponent,
+	LivroComponent,
+	RecipeCard,
+	FavoriteCard,
   ],
   imports: [
     FormsModule,
@@ -60,6 +66,7 @@ import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.componen
     HttpClientModule,
     NoopAnimationsModule,
     ReactiveFormsModule,
+	MatDialogModule,
   ],
   providers: [],
   entryComponents: [

@@ -10,6 +10,7 @@ import { MinhasReceitasComponent } from './minhas-receitas/minhas-receitas.compo
 import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
+import { LivroComponent } from './livro/livro.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'receita/:recipeId', component: VisualizarReceitasComponent },
   { path: 'index', component: HomepageComponent},
   { path: 'cadastro-livro', component: CadastroLivroComponent},
+  { path: 'livro/:bookId', component: LivroComponent},
   { path: '',   redirectTo: '/index', pathMatch: 'full' },
 ];
 

@@ -1,0 +1,25 @@
+<div class="aux-container">
+	<div class="book-container">
+		<div class="book-details">
+			<h1>{{this.book.title}}</h1>
+			<div class="line"></div>
+			<div class="book-description">
+				<p>{{this.book.description}}</p>			
+			</div>
+		</div>
+		
+		<div class="book-button">
+			<button class="delete-button" mat-button (click)="openDeleteDialog()">Excluir</button>
+		</div>
+		
+		<div class="book-recipes">
+			<h1>Recipes</h1>
+			<div class="line"></div>
+			<div class="recipes">
+				<ng-container *ngFor="let recipe of this.book.recipes">
+					<recipe-card [recipe] = "recipe"></recipe-card>
+				</ng-container>
+			</div>
+		</div>
+	</div>
+</div>
