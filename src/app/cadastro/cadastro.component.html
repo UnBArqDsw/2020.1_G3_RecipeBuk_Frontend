@@ -38,7 +38,8 @@
             </form>
         </div>
         <div class="row">
-            <a href="/login" class="confirm-button">Criar Conta</a>
+            <a (click)="onSubmit(namebox.value, emailbox.value, passwordbox.value, confirmpasswordbox.value)"
+                class="confirm-button">Criar Conta</a>
         </div>
         <div class="row">
             <a class="link" href="/login">Já tenho uma conta</a>

@@ -8,7 +8,6 @@ div {
     justify-content: center;
     flex-direction: column;
     padding-bottom: 2vw;
-    overflow: hidden;
 }       
 
 .header img{
@@ -25,12 +24,8 @@ div {
     font-family: Pacifico;
 }
 
-.header a{
-    padding-top: 1vw;
-    align-self: center;
-}
-
 .recipes-area {
+    margin-top: 100px;
     border-style: solid;
     border-radius: 12px;
     display: flex;
@@ -89,27 +84,29 @@ div {
 }
 
 .recipe-avatar {
-    width: 80%;
+    width: 40%;
     margin: 20px;
     border-radius: 10px;
 }
 
 .recipe-card-info {
     display: flex;
-    padding-top: 1vw;
 }
 
 .recipe-card-info p{
-    font-size: 1vw;
+    font-size: 12px;
     text-align: center;
     position: relative;
     margin-top: 10px;
     font-weight: bold;
 }
 
-.recipe-card-info a{
-    text-decoration: none;
-    color: black;
+.recipe-card-info{
+    background-color: #ffffff;
+}
+
+.recipe-card-info div{
+    background-color: #ffffff;
 }
 
 .recipe-title {
@@ -135,12 +132,28 @@ div {
     font-size: 12px;
 }
 
-.btn {
-    background-color: #E2725B; /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 10px 16px; /* Some padding */
-    font-size: 16px; /* Set a font size */
-    cursor: pointer; /* Mouse pointer on hover */
-    border-radius: 5px;
-}   
+.favorite-link {
+    border: dashed;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #0f0f0f;
+    overflow: hidden;
+}
+
+.entrar {
+    text-align: center;
+    margin-top: 5%;
+    width: 20%;
+	background-color:#E2725B;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	color:#FFF9F4;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+}

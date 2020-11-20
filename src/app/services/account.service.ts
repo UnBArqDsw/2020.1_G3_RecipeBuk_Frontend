@@ -27,8 +27,8 @@ export class AccountService {
 	
 	public get isLoggedIn(): boolean {
 		return Cookie.get('USER_SESSION') ? (Cookie.get('USER_SESSION') != '' ? true : false) : false;
-    }
-    
+	}
+
     public emailIsValid (email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }

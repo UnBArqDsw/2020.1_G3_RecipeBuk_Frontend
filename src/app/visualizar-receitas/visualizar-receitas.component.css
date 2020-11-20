@@ -1,6 +1,5 @@
-.title {
-    font-family: Pacifico;
-    font-size: 3vw;
+body{
+    background-color: #F2EFE9;
 }
 
 .tp-container {
@@ -11,7 +10,7 @@
 }
 
 label {
-    font-size: 1.5vw;
+    font-size: 20px;
     line-height: 30px;
 }
 
@@ -123,6 +122,78 @@ button:hover {
     clear: both;
 }
 
-.info {
-    font-size: 1vw;
+.recipe-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	height: calc(100% - 4rem - 120px);
+	word-wrap: break-word;
+}
+
+.left-info {
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	justify-content: space-around;
+}
+
+.right-info {
+	width: 30%;
+	background-color: white;
+	height: fit-content;
+	max-height: 100%;
+	padding-right: 1em;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	border-radius: 1em;
+}
+
+.right-info div {
+	width: 100%;
+	text-align: center;
+}
+
+.right-info p {
+	font-size: 26px;
+	line-height: 2em;
+}
+
+.left-info h1 {
+	margin: 0;
+	padding: 0;
+	padding-top: 0.2em;
+}
+
+.left-info ul {
+	font-family: 'Roboto';
+	font-size: 16px;
+}
+
+.line {
+	width: 100%;
+	height: 0;
+	border: none;
+	border-bottom: 1px #E2725B solid;
+	margin-bottom: 1em;
+}
+
+.ingredients, .steps {
+	overflow-y: scroll;
+	scrollbar-width: none;
+    -ms-overflow-style: none;
+	max-height: 49%;
+	height: 49%;
+	background-color: white;
+	border-radius: 1em;
+}
+
+.ingredients::-webkit-scrollbar, .steps::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+.steps p {
+	padding-left: 1em;
+	padding-right: 1em;
+	white-space: pre-wrap;
 }

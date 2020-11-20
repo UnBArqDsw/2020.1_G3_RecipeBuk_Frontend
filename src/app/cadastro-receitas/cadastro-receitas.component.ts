@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../models/ingredient'
 import { CategoryRecipeEnum } from '../models/category-recipe.enum';
 import { Recipe } from '../models/recipe';
@@ -50,7 +50,6 @@ export class CadastroReceitasComponent implements OnInit {
   }
   
   save(recipeName, tempo, rendimento, preparo, visibility) {
-    this.router.navigate(['/receitass']);
     const ingredients = [];
     this.ingredientsArray.forEach(element => {
       ingredients.push(element.ingredient);
