@@ -4,17 +4,7 @@
 			<h1>Livros Públicos</h1>
 			<div class="my-books">
 				<ng-container *ngFor="let book of this.publicBooks">
-					<div class="card book-card">
-						<a href="/livro/{{book.bookid}}">
-							<div class="card-info">
-								<h2>{{book.title}}</h2>
-							</div>
-							
-							<div class="card-description">
-								<h3>{{book.description}}</h3>
-							</div>
-						</a>
-					</div>
+					<book-card [book] = "book"></book-card>
 				</ng-container>
 				
 				<a href="/cadastro-livro">
@@ -29,17 +19,7 @@
 			<h1>Livros Privados</h1>
 			<div class="my-books">
 				<ng-container *ngFor="let book of this.privateBooks">
-					<div class="card book-card">
-						<a href="/livro/{{book.bookid}}">
-							<div class="card-info">
-								<h2>{{book.title}}</h2>
-							</div>
-							
-							<div class="card-description">
-								<h3>{{book.description}}</h3>
-							</div>
-						</a>
-					</div>
+					<book-card [book] = "book"></book-card>
 				</ng-container>
 				
 				<a href="/cadastro-livro">

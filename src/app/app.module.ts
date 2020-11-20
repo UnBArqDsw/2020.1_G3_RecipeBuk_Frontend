@@ -29,7 +29,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 import { LivroComponent } from './livro/livro.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { RecipeCard, FavoriteCard } from './cards/cards.component';
+import { RecipeCard, FavoriteCard, BookCard } from './cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { RecipeCard, FavoriteCard } from './cards/cards.component';
 	LivroComponent,
 	RecipeCard,
 	FavoriteCard,
+	BookCard,
   ],
   imports: [
     FormsModule,

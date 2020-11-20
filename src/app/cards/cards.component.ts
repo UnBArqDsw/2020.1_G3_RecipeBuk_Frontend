@@ -204,3 +204,86 @@ export class FavoriteCard implements OnInit {
 	ngOnInit(): void {}
 	
 }
+
+@Component({
+	selector: 'book-card',
+	template: `
+		<div class="card book-card">
+			<a href="/livro/{{book.bookid}}">
+				<div class="card-info">
+					<h2>{{book.title}}</h2>
+				</div>
+				
+				<div class="card-description">
+					<h3>{{book.description}}</h3>
+				</div>
+			</a>
+		</div>
+	`,
+	styles: [`
+		.card:hover {
+		transform: scale(1.1, 1.1);
+		transform-origin: 50% 50%;
+	}
+
+	.book-card .card-info {
+		width: 28vw;
+		height: 1.8vw;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.book-card .card-info h2 {
+		font-size: 1.8vw;
+		line-height: 1.8vw;
+		border-bottom: 1px #F0F0F0 solid;
+	}
+
+	.book-card {
+		overflow-y: hidden;
+	}
+
+	.card-description h3 {
+		font-size: 0.95vw;
+		font-family: 'Roboto';
+	}
+
+	.card {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 15px;
+		width: 28vw;
+		height: 10vw;
+		background-color: white;
+		display: flex;
+		flex-direction: row;
+		border-radius: 5px;
+		transition: 0.5s;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+
+	.card-image {
+		width: 10vw;
+		height: 10vw;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	
+	.card a {
+		color: black;
+		text-decoration: none;
+	}
+	`]
+})
+export class BookCard implements OnInit {
+	@Input() book : any;
+	
+	constructor() {}
+    
+	ngOnInit(): void {}
+	
+}
