@@ -50,6 +50,7 @@ export class CadastroReceitasComponent implements OnInit {
   }
   
   save(recipeName, tempo, rendimento, preparo, visibility) {
+    this.router.navigate(['/receitass']);
     const ingredients = [];
     this.ingredientsArray.forEach(element => {
       ingredients.push(element.ingredient);

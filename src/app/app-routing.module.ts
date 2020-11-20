@@ -9,6 +9,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { MinhasReceitasComponent } from './minhas-receitas/minhas-receitas.component'
 import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-receitas.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.component';
+import { ReceitassComponent } from './receitass/receitass.component';
+import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
 import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 const routes: Routes = [
@@ -19,8 +22,11 @@ const routes: Routes = [
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'receitas', component: MinhasReceitasComponent},
-  { path: 'receita/:recipeId', component: VisualizarReceitasComponent },
-  { path: 'index', component: HomepageComponent},
+  { path: 'visualizar-receitas', component: VisualizarReceitasComponent },
+  { path: 'homepage', component: HomepageComponent},
+  { path: 'torta-holandesa', component: TortaHolandesaComponent },
+  { path: 'receitass', component: ReceitassComponent},
+  { path: 'torta-morango', component: TortaMorangoComponent},
   { path: 'cadastro-livro', component: CadastroLivroComponent},
   { path: '',   redirectTo: '/index', pathMatch: 'full' },
 ];

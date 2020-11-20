@@ -7,10 +7,6 @@
         </button></a>
     </div>
 
-    <div class="row form-group">
-        <a href="/criarReceita" class="entrar btn btn-primary">Criar Receita</a>
-    </div>
-
     <div class="recipes-area">
         <div class="tabs">
             <div class="tab" (click)="changeTab('todas')" [ngStyle]="{'background-color': todasColor}">
@@ -44,26 +40,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-
-            <div class="recipe-card" *ngFor="let recipe of favoritesRecipeList">
-                    <a class="row" href={{recipe.recipelink}}>
-                        <img class="recipe-avatar column" src={{recipe.recipeimage}} />
-                        <div class="column recipe-card-info">
-                            <div class="row">
-                                <p class="recipe-title">{{recipe.recipetitle}}</p>
-                            </div>
-                            <div class="row icons">
-                                <div class="icon column favorite-link">
-                                    <p class="icon-description row">Ir para receita externa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-            </div>
-
         </div>
     </div>
 </div>

@@ -1,9 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { AccountService } from 'src/app/services';
-import { Recipe } from 'src/app/models/recipe'
-import { Ingredient } from 'src/app/models/ingredient';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
@@ -35,14 +30,7 @@ export class VisualizarReceitasComponent implements OnInit {
   //public setFormValue(value: object): void {
   //this.formValue = value;
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.recipeId = params['recipeId'];
-    });
-    this.http.post(`${environment.apiUrl}/getRecipe`, { auth: this.accountService.userSession, recipeId: this.recipeId }).subscribe((res: any) => {
-      this.recipe = res.response.recipe;
-      this.ingredients = res.ingredients;
-    });
-  }
+  ngOnInit(): void {} 
+  
 
 }

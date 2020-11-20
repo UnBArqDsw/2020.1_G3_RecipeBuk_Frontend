@@ -26,6 +26,9 @@ import { VisualizarReceitasComponent } from './visualizar-receitas/visualizar-re
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
+import { TortaHolandesaComponent } from './torta-holandesa/torta-holandesa.component';
+import { ReceitassComponent } from './receitass/receitass.component';
+import { TortaMorangoComponent } from './torta-morango/torta-morango.component';
 import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 @NgModule({
@@ -40,6 +43,10 @@ import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.componen
     PerfilComponent,
     MinhasReceitasComponent,
     VisualizarReceitasComponent,
+	  HomepageComponent,
+	  TortaHolandesaComponent,
+	  ReceitassComponent,
+	  TortaMorangoComponent,
 	HomepageComponent,
 	CadastroLivroComponent,
   ],

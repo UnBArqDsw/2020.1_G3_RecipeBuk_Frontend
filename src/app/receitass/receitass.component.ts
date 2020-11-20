@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeService } from '../services/recipe.service';
 
 @Component({
-  selector: 'app-minhas-receitas',
-  templateUrl: './minhas-receitas.component.html',
-  styleUrls: ['./minhas-receitas.component.css']
+  selector: 'app-receitass',
+  templateUrl: './receitass.component.html',
+  styleUrls: ['./receitass.component.css']
 })
-export class MinhasReceitasComponent implements OnInit {
+export class ReceitassComponent implements OnInit {
+
   recipesList0: Object = [
     {
       "link": "https://www.tudoreceitas.com/receita-de-torta-de-hamburguer-1551.html",
@@ -110,6 +110,11 @@ export class MinhasReceitasComponent implements OnInit {
       "title": "Receita de Torta holandesa",
       "img_url": "https://t2.rg.ltmcdn.com/pt/images/7/6/2/img_torta_holandesa_267_300_square.jpg"
     },
+    {
+      "link": "/torta-morango",
+      "title": "Receita de Torta de Morango com Chantily",
+      "img_url": "https://t2.rg.ltmcdn.com/pt/images/2/5/6/torta_de_morango_com_chantilly_9652_300_square.jpg",
+    },
   ]
   recipesList3: Object = [
     {
@@ -143,56 +148,42 @@ export class MinhasReceitasComponent implements OnInit {
       "img_url": "https://t2.rg.ltmcdn.com/pt/images/2/5/6/torta_de_morango_com_chantilly_9652_300_square.jpg"
     }
   ]
-  
   recipesList;
   selectedColor = '#e2725b';
   notSelectedColor = '#fff9f4';
   todasColor = this.selectedColor;
   minhasColor = this.notSelectedColor;
   favoritasColor = this.notSelectedColor;
-  constructor(private recipeService: RecipeService) {
-    this.recipeList['mine'] = [];
-    this.recipeList['favorites'] = [];
+  constructor() {
+    this.recipesList = this.recipesList0;
+    
   }
-  //https://sun9-61.userapi.com/c854424/v854424474/10dcea/k1N5pPHLrlM.jpg
+
   ngOnInit(): void {
-    this.recipeService.getRecipesArray().then((recipesArray) => {
-      this.myRecipesList = recipesArray['mine'];
-      this.favoriteRecipesList = recipesArray['favorites'];
-      this.mineRecipeList = recipesArray['mine'];
-      this.favoritesRecipeList = recipesArray['favorites'];
-      this.recipeList = recipesArray;
-    }).catch((err) => {
-      
-    });
   }
-  
+
   changeTab(tab) {
     switch (tab) {
       case 'todas':
+        this.recipesList = this.recipesList0;
         this.todasColor = this.selectedColor;
         this.minhasColor = this.notSelectedColor;
         this.favoritasColor = this.notSelectedColor;
-        this.mineRecipeList = this.myRecipesList;
-        this.favoritesRecipeList = this.favoriteRecipesList;
         break;
 
       case 'minhas':
+        this.recipesList = this.recipesList2;
         this.todasColor = this.notSelectedColor;
         this.minhasColor = this.selectedColor;
         this.favoritasColor = this.notSelectedColor;
-        this.mineRecipeList = this.myRecipesList;
-        this.favoritesRecipeList = [];
         break;
 
       case 'favoritas':
+        this.recipesList = this.recipesList3;
         this.todasColor = this.notSelectedColor;
         this.minhasColor = this.notSelectedColor;
         this.favoritasColor = this.selectedColor;
-        this.mineRecipeList = [];
-        this.favoritesRecipeList = this.favoriteRecipesList;
         break;
     }
   }
-
 }
