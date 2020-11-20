@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+
+steps:
+
+- task: NodeAndNpmTool@1
+  inputs:
+    versionSpec: '12.x'
+
+- task: CmdLine@2
+  displayName: Npm install
+  inputs:
+    script: 'sudo npm install'
+
+- task: CmdLine@2
+  displayName: Build
+  inputs:
+    script: 'sudo npm run build'
