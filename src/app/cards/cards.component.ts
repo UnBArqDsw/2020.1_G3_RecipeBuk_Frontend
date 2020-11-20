@@ -7,7 +7,7 @@ import { Component, Input, OnInit, ChangeDetectorRef, Inject } from '@angular/co
 			<a href="/receita/{{recipe.recipeid}}" target="_blank">
 				<div class="card-image" [ngStyle]="{'background-image': 'url(' + '/assets/no-image.png' + ')'}"></div>
 			</a>
-			<a href="/receita/{{recipe.recipeid}}" target="_blank">
+			<a href="/receita/{{recipe.recipeid}}">
 				<div class="card-info">
 					<h2>{{recipe.name}}</h2>
 					<div class="row icons">
@@ -198,6 +198,105 @@ export class RecipeCard implements OnInit {
 })
 export class FavoriteCard implements OnInit {
 	@Input() recipe : any;
+	
+	constructor() {}
+    
+	ngOnInit(): void {}
+	
+}
+
+@Component({
+	selector: 'book-card',
+	template: `
+		<div class="card book-card">
+			<ng-container *ngIf="this.useHref; else noHref">
+				<a href="/livro/{{book.bookid}}">
+					<div class="card-info">
+						<h2>{{book.title}}</h2>
+					</div>
+					
+					<div class="card-description">
+						<h3>{{book.description}}</h3>
+					</div>
+				</a>
+			</ng-container>
+			
+			<ng-template #noHref>
+				<div>
+					<div class="card-info">
+						<h2>{{book.title}}</h2>
+					</div>
+					
+					<div class="card-description">
+						<h3>{{book.description}}</h3>
+					</div>
+				</div>
+			</ng-template>
+		</div>
+	`,
+	styles: [`
+		.card:hover {
+		transform: scale(1.1, 1.1);
+		transform-origin: 50% 50%;
+	}
+
+	.book-card .card-info {
+		width: 28vw;
+		height: 1.8vw;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.book-card .card-info h2 {
+		font-size: 1.8vw;
+		line-height: 1.8vw;
+		border-bottom: 1px #F0F0F0 solid;
+	}
+
+	.book-card {
+		overflow-y: hidden;
+	}
+
+	.card-description h3 {
+		font-size: 0.95vw;
+		font-family: 'Roboto';
+	}
+
+	.card {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 15px;
+		width: 28vw;
+		height: 10vw;
+		background-color: white;
+		display: flex;
+		flex-direction: row;
+		border-radius: 5px;
+		transition: 0.5s;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		text-align: center;
+	}
+
+	.card-image {
+		width: 10vw;
+		height: 10vw;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	
+	.card a {
+		color: black;
+		text-decoration: none;
+	}
+	`]
+})
+export class BookCard implements OnInit {
+	@Input() book : any;
+	@Input() useHref : boolean = true;
 	
 	constructor() {}
     
