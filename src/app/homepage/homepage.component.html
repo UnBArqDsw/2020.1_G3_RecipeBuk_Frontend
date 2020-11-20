@@ -5,7 +5,7 @@
 			<div class="my-books">
 				<ng-container *ngFor="let book of this.publicBooks">
 					<div class="card book-card">
-						<a href="/book/{{book.bookid}}" target="_blank">
+						<a href="/livro/{{book.bookid}}">
 							<div class="card-info">
 								<h2>{{book.title}}</h2>
 							</div>
@@ -30,7 +30,7 @@
 			<div class="my-books">
 				<ng-container *ngFor="let book of this.privateBooks">
 					<div class="card book-card">
-						<a href="/book/{{book.bookid}}" target="_blank">
+						<a href="/livro/{{book.bookid}}">
 							<div class="card-info">
 								<h2>{{book.title}}</h2>
 							</div>

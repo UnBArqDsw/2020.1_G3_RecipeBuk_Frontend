@@ -28,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 import { LivroComponent } from './livro/livro.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { LivroComponent } from './livro/livro.component';
     HttpClientModule,
     NoopAnimationsModule,
     ReactiveFormsModule,
+	MatDialogModule,
   ],
   providers: [],
   entryComponents: [

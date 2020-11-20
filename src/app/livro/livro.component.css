@@ -24,7 +24,7 @@
 }
 
 .book-details {
-	height: 35%;
+	height: 30%;
 	background-color: white;
 	border-radius: 1em;
 }
@@ -100,4 +100,29 @@
 	padding: 0;
 	border: none;
 	border-bottom: 1px #E2725B solid;
+}
+
+.book-button {
+	width: 100%;
+	text-align: right;
+	height: 5%;
+}
+
+.delete-button {
+	background-color: #E2725B;
+	border: none;
+	height: 100%;
+	color: white;
+	font-family: 'Roboto';
+	border-radius: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	cursor: pointer;
+	transition: 0.5s;
+	outline: none;
+}
+
+.delete-button:hover {
+	background-color: #e25b5b;
+	transform: scale(1.2);
 }

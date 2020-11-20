@@ -8,13 +8,17 @@
 			</div>
 		</div>
 		
+		<div class="book-button">
+			<button class="delete-button" mat-button (click)="openDeleteDialog()">Excluir</button>
+		</div>
+		
 		<div class="book-recipes">
 			<h1>Recipes</h1>
 			<div class="line"></div>
 			<div class="recipes">
 				<ng-container *ngFor="let recipe of this.book.recipes">
 					<div class="recipe-card card">
-						<a href="/" target="_blank">
+						<a href="/receita/{{recipe.recipeId}}" target="_blank">
 							<div class="card-image" [ngStyle]="{'background-image': 'url(' + 'https://i.imgur.com/6Zp3hkD.png' + ')'}"></div>
 						</a>
 						<a href="" target="_blank">
