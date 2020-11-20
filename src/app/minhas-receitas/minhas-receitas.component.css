@@ -1,31 +1,31 @@
 div {
-    /* overflow-y: auto;
-    background-color: #F0F0F0; */
-    height: 100%;
+    overflow-y: auto;
+    background-color: rgb(255, 249, 244);   
 }
 
 .header{
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
+    padding-bottom: 2vw;
+}       
 
 .header img{
-    padding: 2rem;
-    margin: auto;
-    justify-content: center;
+    padding: 1rem;
+    align-self: center;
     width: 150px;
     height: 150px;
 }
+
 .header h1{
-    margin: auto;
-    justify-content: center;
+    align-self: center;
     padding-top: 1rem;
     font-size: 4vw;
-    /* font-family: Roboto; */
+    font-family: Pacifico;
 }
 
 .recipes-area {
+    margin-top: 100px;
     border-style: solid;
     border-radius: 12px;
     display: flex;
@@ -39,17 +39,19 @@ div {
     justify-content: space-between;
     width: 100%;
     height: 10%;
+    overflow: hidden;
 }
 
 .tab {
+    padding: 0.3vw;
     display: flex;
     width: 33%;
-    /* border-radius: 12px; */
     border-bottom: solid;
     border-right: solid;
     border-left: solid;
     height: 100%;
     justify-content: center;
+    font-size: 1.3vw;
 }
 
 
@@ -66,8 +68,7 @@ div {
 
 .recipe-card{
     background-color: #FFFFFF;
-    width: 300px;
-    height: 100px;
+    width: 30%; 
     border-radius: 12px;
     margin: 17px;
     overflow: hidden;
@@ -82,52 +83,77 @@ div {
     transition-duration: 150ms;
 }
 
-.recipe-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
+.recipe-avatar {
+    width: 40%;
     margin: 20px;
+    border-radius: 10px;
 }
 
-.recipe-card-info{
-    background-color: #FFFFFF;
-    flex: 1;
+.recipe-card-info {
+    display: flex;
 }
 
-.recipe-card-info h1{
+.recipe-card-info p{
     font-size: 12px;
-    /* font-family: Arial; */
     text-align: center;
     position: relative;
     margin-top: 10px;
+    font-weight: bold;
 }
 
-.icons {
+.recipe-card-info{
+    background-color: #ffffff;
+}
+
+.recipe-card-info div{
+    background-color: #ffffff;
+}
+
+.recipe-title {
+    font-size: 25px;
+    margin: 5%;
+}
+
+.icon-description {
     display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-    background-color: #FFFFFF;
+    font-size: 20px;
 }
 
-.icons img{
-    width: 30px;
-    height: 30px;
-    margin: 0;
+.icon {
+    width: 50%;
 }
 
-.icons  div{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 6rem;
-    /* height: 6rem; */
-    /* margin: 15px; */
-    background-color: #FFFFFF;
+.icon img {
+    width: 30%;
+    align-self: center;
+}
+
+.icon p {
+    font-size: 12px;
+}
+
+.favorite-link {
+    border: dashed;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #0f0f0f;
     overflow: hidden;
 }
 
-/* .icons h1 {
-    font-size: 12px;
-    margin: 0;
-} */
+.entrar {
+    text-align: center;
+    margin-top: 5%;
+    width: 20%;
+	background-color:#E2725B;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	color:#FFF9F4;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+}
