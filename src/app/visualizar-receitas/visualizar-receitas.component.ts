@@ -50,4 +50,14 @@ export class VisualizarReceitasComponent implements OnInit {
 		this.isOpen = !this.isOpen;
 	}
 
+	addRecipe(bookId) {
+		this.http.post(`${environment.apiUrl}/addBookRecipe`, {auth: this.accountService.userSession, bookId: bookId, recipeId: this.recipeId}).subscribe((res: any) => {
+			if(res.error)
+				alert(res.description + ' Verify if this recipe is already in your book.');
+				
+			else
+				alert('Receita adicionada ao livro selecionado.');
+		});
+		this.toggleAddRecipeDialog();
+	}
 }

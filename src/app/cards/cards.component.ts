@@ -7,7 +7,7 @@ import { Component, Input, OnInit, ChangeDetectorRef, Inject } from '@angular/co
 			<a href="/receita/{{recipe.recipeid}}" target="_blank">
 				<div class="card-image" [ngStyle]="{'background-image': 'url(' + '/assets/no-image.png' + ')'}"></div>
 			</a>
-			<a href="/receita/{{recipe.recipeid}}" target="_blank">
+			<a href="/receita/{{recipe.recipeid}}">
 				<div class="card-info">
 					<h2>{{recipe.name}}</h2>
 					<div class="row icons">
@@ -209,15 +209,29 @@ export class FavoriteCard implements OnInit {
 	selector: 'book-card',
 	template: `
 		<div class="card book-card">
-			<a href="/livro/{{book.bookid}}">
-				<div class="card-info">
-					<h2>{{book.title}}</h2>
+			<ng-container *ngIf="this.useHref; else noHref">
+				<a href="/livro/{{book.bookid}}">
+					<div class="card-info">
+						<h2>{{book.title}}</h2>
+					</div>
+					
+					<div class="card-description">
+						<h3>{{book.description}}</h3>
+					</div>
+				</a>
+			</ng-container>
+			
+			<ng-template #noHref>
+				<div>
+					<div class="card-info">
+						<h2>{{book.title}}</h2>
+					</div>
+					
+					<div class="card-description">
+						<h3>{{book.description}}</h3>
+					</div>
 				</div>
-				
-				<div class="card-description">
-					<h3>{{book.description}}</h3>
-				</div>
-			</a>
+			</ng-template>
 		</div>
 	`,
 	styles: [`
@@ -261,6 +275,7 @@ export class FavoriteCard implements OnInit {
 		border-radius: 5px;
 		transition: 0.5s;
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		text-align: center;
 	}
 
 	.card-image {
@@ -281,6 +296,7 @@ export class FavoriteCard implements OnInit {
 })
 export class BookCard implements OnInit {
 	@Input() book : any;
+	@Input() useHref : boolean = true;
 	
 	constructor() {}
     
