@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../models/ingredient'
 import { CategoryRecipeEnum } from '../models/category-recipe.enum';
 import { Recipe } from '../models/recipe';
