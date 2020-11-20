@@ -24,24 +24,10 @@
 			<ng-container *ngFor="let recipe of mineRecipeList">
 				<recipe-card [recipe] = "recipe"></recipe-card>
 			</ng-container>
-
-            <div class="recipe-card" *ngFor="let recipe of favoritesRecipeList">
-                    <a class="row" href={{recipe.recipelink}}>
-                        <img class="recipe-avatar column" src={{recipe.recipeimage}} />
-                        <div class="column recipe-card-info">
-                            <div class="row">
-                                <p class="recipe-title">{{recipe.recipetitle}}</p>
-                            </div>
-                            <div class="row icons">
-                                <div class="icon column favorite-link">
-                                    <p class="icon-description row">Ir para receita externa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-            </div>
-
+			
+			<ng-container *ngFor="let recipe of favoritesRecipeList">
+				<favorite-card [recipe] = "recipe"></favorite-card>
+			</ng-container>
         </div>
     </div>
 </div>

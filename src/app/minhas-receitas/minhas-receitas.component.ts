@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
-import { RecipeCard } from 'src/app/cards/cards.component';
+import { RecipeCard, FavoriteCard } from 'src/app/cards/cards.component';
 
 @Component({
   selector: 'app-minhas-receitas',
