@@ -68,6 +68,10 @@ select {
 	width: 90%;
 }
 
+.btn:last-child {
+	margin-top: 0.2em;
+}
+
 .center {
     margin: auto ;
 }
@@ -196,4 +200,81 @@ button:hover {
 	padding-left: 1em;
 	padding-right: 1em;
 	white-space: pre-wrap;
+}
+
+.backdrop {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background-color: black;
+	opacity: 20%;
+}
+
+.modal {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: white;
+	width: 33vw;
+	height: 80vh;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: none;
+	border-radius: 0.25vw;
+}
+
+.modal-title {
+	max-height: 20%;
+	overflow: hidden;
+}
+
+.modal-footer {
+	min-height: 8%;
+	max-height: 8%;
+	text-align: right;
+}
+
+.modal-title h1 {
+	font-size: 3vw;
+	padding: 0;
+	margin: 0;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	text-height: 3vw;
+}
+
+.modal-body {
+	max-height: 72%;
+	overflow: scroll;
+	scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modal-body::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+.modal-footer button {
+	background-color: #E2725B;
+	border: none;
+	color: white;
+	font-size: 1vw;
+	font-family: 'Roboto';
+	height: 80%;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+	transition: 0.25s;
+	margin-right: 0.5vw;
+	margin-top: 0.5vh;
+}
+
+.modal-footer .line {
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
