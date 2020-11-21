@@ -19,7 +19,22 @@ export class RecipeService {
 
     createRecipe(recipe) {
         return new Promise((resolve, reject) => {
+            console.log(recipe)
             this.http.post(`${environment.apiUrl}/addRecipe`, recipe).subscribe({
+                next(res: any) {
+                    resolve(res);
+                },
+                error(e) {
+                    reject(e);
+                }
+            });
+        });
+    }
+
+    updateRecipe(recipe) {
+        return new Promise((resolve, reject) => {
+            console.log(recipe);
+            this.http.post(`${environment.apiUrl}/updateRecipe`, recipe).subscribe({
                 next(res: any) {
                     resolve(res);
                 },

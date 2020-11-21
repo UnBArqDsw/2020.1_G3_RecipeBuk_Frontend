@@ -13,6 +13,7 @@
                     aria-label="Nome da Receita"
                     appearance = "outline"
                     class="form-control"
+                    value={{defaultValues.name}}
                     required
                 >
                 <br>
@@ -28,6 +29,7 @@
                     min="1"
                     name="quantity"
                     class="column one"
+                    value={{obj.ingredient.quantity}}
                     required
                     >
                     
@@ -38,6 +40,7 @@
                     appearance ="outline"
                     name="type"
                     class="column two"
+                    value={{obj.ingredient.unit}}
                     required
                     >
                     
@@ -49,6 +52,7 @@
                     appearance ="outline"
                     name="ingredients"
                     class="column three"
+                    value={{obj.ingredient.name}}
                     required
                     >
                 </div>
@@ -69,6 +73,7 @@
                     name="steps"
                     aria-label="Modo de Preparo"
                     rows="7"
+                    value={{defaultValues.steps}}
                     required
                 ></textarea>
             </div>
@@ -84,6 +89,7 @@
                     type="number"
                     min="0"
                     appearance ="outline"
+                    value={{defaultValues.time}}
                     required
                 >
                 <br>
@@ -97,6 +103,7 @@
                     type="number"
                     min="0"
                     appearance ="outline"
+                    value={{defaultValues.portions}}
                     required
                 >
                 <br>

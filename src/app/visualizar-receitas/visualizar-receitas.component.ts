@@ -27,7 +27,7 @@ export class VisualizarReceitasComponent implements OnInit {
   isOpen : boolean = false;
   books : any = [];
 
-  constructor(private http: HttpClient, private accountService: AccountService, private route : ActivatedRoute) {
+  constructor(private http: HttpClient, private accountService: AccountService, private route : ActivatedRoute, private router : Router) {
     form: FormGroup;
     this.loggedIn = accountService.isLoggedIn;
     this.recipe = new Recipe();
@@ -42,6 +42,10 @@ export class VisualizarReceitasComponent implements OnInit {
       this.ingredients = res.ingredients;
     });
   }
+
+  btnClick(): void {
+    this.router.navigateByUrl(`/criarReceita/${this.recipeId}`);
+};
 
 	toggleAddRecipeDialog() {
 		this.http.post(`${environment.apiUrl}/getBooks`, {auth: this.accountService.userSession}).subscribe((res: any[]) => {
