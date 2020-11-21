@@ -5,6 +5,7 @@ import { AccountService } from 'src/app/services';
 import { Recipe } from 'src/app/models/recipe'
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BookCard } from 'src/app/cards/cards.component';
 
 @Component({
   selector: 'app-visualizar-receitas',
@@ -23,6 +24,8 @@ export class VisualizarReceitasComponent implements OnInit {
   loggedIn: boolean;
   ingredients = [];
   recipeId;
+  isOpen : boolean = false;
+  books : any = [];
 
   constructor(private http: HttpClient, private accountService: AccountService, private route : ActivatedRoute, private router : Router) {
     form: FormGroup;
@@ -44,4 +47,21 @@ export class VisualizarReceitasComponent implements OnInit {
     this.router.navigateByUrl(`/criarReceita/${this.recipeId}`);
 };
 
+	toggleAddRecipeDialog() {
+		this.http.post(`${environment.apiUrl}/getBooks`, {auth: this.accountService.userSession}).subscribe((res: any[]) => {
+			this.books = res;
+		});
+		this.isOpen = !this.isOpen;
+	}
+
+	addRecipe(bookId) {
+		this.http.post(`${environment.apiUrl}/addBookRecipe`, {auth: this.accountService.userSession, bookId: bookId, recipeId: this.recipeId}).subscribe((res: any) => {
+			if(res.error)
+				alert(res.description + ' Verify if this recipe is already in your book.');
+				
+			else
+				alert('Receita adicionada ao livro selecionado.');
+		});
+		this.toggleAddRecipeDialog();
+	}
 }
