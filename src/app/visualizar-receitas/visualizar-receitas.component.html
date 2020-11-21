@@ -6,7 +6,7 @@
 			<div class="line"></div>
 			<ul class="ingredient-lists">
 				<ng-container *ngFor="let ingredient of this.ingredients">
-					<li>{{ingredient.name}}</li>
+					<li>{{ingredient.name}} - {{ingredient.quantity}} {{ingredient.unit ? ingredient.unit : ''}}</li>
 				</ng-container>
 			</ul>
 		</div>
@@ -23,7 +23,28 @@
 		<p><i class="fa fa-chart-pie"></i> {{this.recipe.portions}} porções</p>
 		<p><i class="fa fa-flag"></i> Categorias</p>
 		<div>
-			<button class="btn" aria-label="back" type="button" onclick="window.history.back()"><i class="fa fa-image"></i> Voltar</button>
+			<button class="btn" aria-label="back" type="button" onclick="window.history.back()"><i class="fa fa-bacon"></i> Voltar</button>
+			<button class="btn" aria-label="add" type="button" (click)="toggleAddRecipeDialog()"><i class="fa fa-book"></i> Adicionar ao livro</button>
+			<button class="btn" aria-label="edit" type="button" (click)="btnClick();"><i class="fa fa-pencil"></i> Editar receita</button>
 		</div>
 	</div>
 </div>
+
+<ng-container *ngIf="this.isOpen">
+	<div class="backdrop" (click)="toggleAddRecipeDialog()"></div>
+	<div class="modal">
+		<div class="modal-title">
+			<h1>Adicionar receita a livro</h1>
+			<div class="line"></div>
+		</div>
+		<div class="modal-body">
+			<ng-container *ngFor="let book of this.books">
+				<book-card (click)="addRecipe(book.bookid)" [book] = "book" [useHref] = "false"></book-card>
+			</ng-container>
+		</div>
+		<div class="modal-footer">
+			<div class="line"></div>
+			<button (click)="toggleAddRecipeDialog()">Cancelar</button>
+		</div>
+	</div>
+</ng-container>
