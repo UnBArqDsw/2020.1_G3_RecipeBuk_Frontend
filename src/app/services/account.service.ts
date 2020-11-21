@@ -90,6 +90,7 @@ export class AccountService {
     register(name, email, password) {
         return new Promise((resolve, reject) => {
             var user = new User(name, email, password)
+            console.log(`${environment.apiUrl}/createUser`)
             this.http.post(`${environment.apiUrl}/createUser`, user).subscribe({
                 next() {
                     resolve();

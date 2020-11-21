@@ -24,14 +24,11 @@ export class VisualizarReceitasComponent implements OnInit {
   ingredients = [];
   recipeId;
 
-  constructor(private http: HttpClient, private accountService: AccountService, private route : ActivatedRoute) {
+  constructor(private http: HttpClient, private accountService: AccountService, private route : ActivatedRoute, private router : Router) {
     form: FormGroup;
     this.loggedIn = accountService.isLoggedIn;
     this.recipe = new Recipe();
   }
-
-  //public setFormValue(value: object): void {
-  //this.formValue = value;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -42,5 +39,9 @@ export class VisualizarReceitasComponent implements OnInit {
       this.ingredients = res.ingredients;
     });
   }
+
+  btnClick(): void {
+    this.router.navigateByUrl(`/criarReceita/${this.recipeId}`);
+};
 
 }

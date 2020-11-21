@@ -15,7 +15,7 @@ import { LivroComponent } from './livro/livro.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'criarReceita', component: CadastroReceitasComponent },
+  { path: 'criarReceita/:recipeId', component: CadastroReceitasComponent },
   { path: 'senha', component: SenhaComponent },
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'perfil', component: PerfilComponent },
