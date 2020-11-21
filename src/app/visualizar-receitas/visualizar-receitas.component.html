@@ -6,7 +6,7 @@
 			<div class="line"></div>
 			<ul class="ingredient-lists">
 				<ng-container *ngFor="let ingredient of this.ingredients">
-					<li>{{ingredient.name}} - {{ingredient.quantity}} - {{ingredient.unit}}</li>
+					<li>{{ingredient.name}} - {{ingredient.quantity}} {{ingredient.unit ? ingredient.unit : ''}}</li>
 				</ng-container>
 			</ul>
 		</div>
